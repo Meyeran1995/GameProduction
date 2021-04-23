@@ -3,18 +3,19 @@ using UnityEngine;
 
 public class MainCharacterMovement : MonoBehaviour
 {
+    [SerializeField] private ResourceBar mainResourceBar;
     [Header("Movement")]
     private static readonly List<Vector3> checkPoints = new List<Vector3>();
     private int currentCheckpointIndex;
     private float currentLerpValue;
     private Vector3 currentStartPos;
-    [Range(0f, 1f)]
-    [SerializeField] private float speed;
-    [SerializeField] private bool journeyCompleted = false, canMove;
+    
+    [SerializeField] [Range(0f, 1f)] private float speed;
+    [SerializeField] private bool journeyCompleted, canMove;
 
     private Rigidbody2D characterBody;
 
-    private void Awake()
+    private void Start()
     {
         characterBody = GetComponent<Rigidbody2D>();
 
@@ -29,8 +30,14 @@ public class MainCharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (canMove && !journeyCompleted)
+        if (!journeyCompleted)
         {
+            if (!canMove)
+            {
+                mainResourceBar.DepleteResource(Time.fixedDeltaTime);
+                return;
+            }
+
             CheckPointCompletionProgress();
             if (!journeyCompleted)
             {
@@ -59,6 +66,11 @@ public class MainCharacterMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         canMove = false;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        canMove = true;
     }
 
     public void RegisterCheckpoint(Vector3 checkpointPos)

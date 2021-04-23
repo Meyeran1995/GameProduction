@@ -1,18 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInputController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameInputsDefault inputControls;
+    public static bool IsQuitting;
+    private Camera mainCam;
+    [SerializeField] private BubbleExpander bubble;
+
+    private void Awake()
     {
-        
+        mainCam = Camera.main;
+
+        inputControls = new GameInputsDefault();
+        inputControls.Player.Protect.started += (InputAction.CallbackContext context) =>
+        {
+            bubble.IsExpanding = true;
+        };
+        inputControls.Player.Protect.canceled += (InputAction.CallbackContext context) =>
+        {
+            bubble.IsExpanding = false;
+        };
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnEnable()
     {
-        
+        inputControls.Player.Protect.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputControls.Player.Protect.Disable();
+    }
+
+    private void OnApplicationQuit()
+    {
+        IsQuitting = true;
     }
 }

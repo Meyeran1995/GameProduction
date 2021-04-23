@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TrapObstacle : MonoBehaviour
+public class Trap : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D obstacleBody;
 
