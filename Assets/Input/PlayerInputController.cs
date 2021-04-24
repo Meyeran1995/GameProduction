@@ -3,15 +3,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputController : MonoBehaviour
 {
+    public GameInputsDefault InputControls => inputControls;
     private GameInputsDefault inputControls;
     public static bool IsQuitting;
-    private Camera mainCam;
     [SerializeField] private BubbleExpander bubble;
 
     private void Awake()
     {
-        mainCam = Camera.main;
-
         inputControls = new GameInputsDefault();
         inputControls.Player.Protect.started += (InputAction.CallbackContext context) =>
         {
@@ -26,11 +24,13 @@ public class PlayerInputController : MonoBehaviour
     public void OnEnable()
     {
         inputControls.Player.Protect.Enable();
+        inputControls.Player.Aim.Enable();
     }
 
     private void OnDisable()
     {
         inputControls.Player.Protect.Disable();
+        inputControls.Player.Aim.Disable();
     }
 
     private void OnApplicationQuit()

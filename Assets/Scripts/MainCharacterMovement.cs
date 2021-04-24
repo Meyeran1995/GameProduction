@@ -5,27 +5,27 @@ public class MainCharacterMovement : MonoBehaviour
 {
     [SerializeField] private ResourceBar mainResourceBar;
     [Header("Movement")]
-    private static readonly List<Vector3> checkPoints = new List<Vector3>();
+    private static readonly List<Checkpoint> CheckPoints = new List<Checkpoint>();
     private int currentCheckpointIndex;
-    private float currentLerpValue;
-    private Vector3 currentStartPos;
+    private Vector2 currentDirection;
     
-    [SerializeField] [Range(0f, 1f)] private float speed;
+    [SerializeField] [Range(1f, 10f)] private float speed;
     [SerializeField] private bool journeyCompleted, canMove;
 
     private Rigidbody2D characterBody;
+    private int numberOfCollidingObjects;
 
     private void Start()
     {
         characterBody = GetComponent<Rigidbody2D>();
 
-        if (checkPoints.Count != 0)
+        if (CheckPoints.Count != 0)
         {
-            checkPoints.Sort((Vector3 a, Vector3 b) => a.x.CompareTo(b.x));
+            CheckPoints.Sort();
         }
 
-        currentLerpValue = speed;
-        currentStartPos = transform.position;
+        currentDirection = CheckPoints[0].CheckPointPosition - transform.position;
+        currentDirection.Normalize();
     }
 
     private void FixedUpdate()
@@ -48,34 +48,40 @@ public class MainCharacterMovement : MonoBehaviour
 
     private void MoveToCheckPoint()
     {
-        characterBody.MovePosition(Vector3.Lerp(currentStartPos, checkPoints[currentCheckpointIndex], currentLerpValue));
-        currentLerpValue = Mathf.Clamp01(currentLerpValue + speed);
+        characterBody.MovePosition(characterBody.position + currentDirection * speed * Time.fixedDeltaTime);
     }
 
     private void CheckPointCompletionProgress()
     {
-        if (currentLerpValue == 1f)
-        {
-            currentStartPos = checkPoints[currentCheckpointIndex++];
-            currentLerpValue = speed;
-        }
+        var directionToCheckpoint = (CheckPoints[currentCheckpointIndex].CheckPointPosition - transform.position).normalized;
 
-        journeyCompleted = currentCheckpointIndex == checkPoints.Count;
+        if (Vector3.Dot(directionToCheckpoint, transform.right) < 0f)
+        {
+            if (currentCheckpointIndex + 1 == CheckPoints.Count)
+            {
+                journeyCompleted = true;
+                return;
+            }
+            currentDirection = CheckPoints[currentCheckpointIndex + 1].CheckPointPosition - CheckPoints[currentCheckpointIndex].CheckPointPosition;
+            currentDirection.Normalize();
+            currentCheckpointIndex++;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         canMove = false;
+        numberOfCollidingObjects++;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        canMove = true;
+        canMove = --numberOfCollidingObjects == 0;
     }
 
-    public void RegisterCheckpoint(Vector3 checkpointPos)
+    public void RegisterCheckpoint(Checkpoint checkpoint)
     {
-        checkPoints.Add(checkpointPos);
+        CheckPoints.Add(checkpoint);
     }
 
     public void UnStuckCharacter()
