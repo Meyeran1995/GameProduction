@@ -15,7 +15,8 @@ public class BubbleExpander : MonoBehaviour
     public bool IsExpanding
     {
         get => isExpanding;
-        set { bubbleCollider.enabled = value;
+        set { 
+            bubbleCollider.enabled = value;
             isExpanding = value;
             bubbleEdgeRenderer.enabled = value;
             energyBar.IsDepleting = value;

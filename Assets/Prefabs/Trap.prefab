@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 5381015758047243713}
   - component: {fileID: 5381015758047243714}
   - component: {fileID: 5381015758047243712}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5381015758047243715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98b3a60c12abf5645935aed98f843ac3, type: 3}
+  m_Script: {fileID: 11500000, guid: 3aca9708b46a6aa4183b26deb18462ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleBody: {fileID: 5381015756589903679}

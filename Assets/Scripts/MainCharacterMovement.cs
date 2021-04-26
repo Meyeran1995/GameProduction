@@ -11,6 +11,7 @@ public class MainCharacterMovement : MonoBehaviour
     
     [SerializeField] [Range(1f, 10f)] private float speed;
     [SerializeField] private bool journeyCompleted, canMove;
+    private float currentSpeed;
 
     private Rigidbody2D characterBody;
     private int numberOfCollidingObjects;
@@ -26,6 +27,8 @@ public class MainCharacterMovement : MonoBehaviour
 
         currentDirection = CheckPoints[0].CheckPointPosition - transform.position;
         currentDirection.Normalize();
+
+        currentSpeed = speed;
     }
 
     private void FixedUpdate()
@@ -48,7 +51,7 @@ public class MainCharacterMovement : MonoBehaviour
 
     private void MoveToCheckPoint()
     {
-        characterBody.MovePosition(characterBody.position + currentDirection * speed * Time.fixedDeltaTime);
+        characterBody.MovePosition(characterBody.position + currentDirection * currentSpeed * Time.fixedDeltaTime);
     }
 
     private void CheckPointCompletionProgress()
@@ -87,5 +90,17 @@ public class MainCharacterMovement : MonoBehaviour
     public void UnStuckCharacter()
     {
         canMove = true;
+    }
+
+    public void SlowDownCharacter()
+    {
+        currentSpeed = speed / 2f;
+        GetComponent<SpriteRenderer>().color = Color.blue;
+    }
+
+    public void RegainSpeed()
+    {
+        currentSpeed = speed;
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 }
