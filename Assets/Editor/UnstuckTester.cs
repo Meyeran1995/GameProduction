@@ -9,6 +9,6 @@ public class UnstuckTester : Editor
         base.OnInspectorGUI();
         MainCharacterMovement o = target as MainCharacterMovement;
         if (GUILayout.Button("Unstuck"))
-            o.UnStuckCharacter();
+            o.RestartCharacterMovement();
     }
 }

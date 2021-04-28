@@ -14,7 +14,6 @@ public class MainCharacterMovement : MonoBehaviour
     private float currentSpeed;
 
     private Rigidbody2D characterBody;
-    private int numberOfCollidingObjects;
 
     private void Start()
     {
@@ -49,10 +48,7 @@ public class MainCharacterMovement : MonoBehaviour
         }
     }
 
-    private void MoveToCheckPoint()
-    {
-        characterBody.MovePosition(characterBody.position + currentDirection * currentSpeed * Time.fixedDeltaTime);
-    }
+    private void MoveToCheckPoint() => characterBody.MovePosition(characterBody.position + currentDirection * currentSpeed * Time.fixedDeltaTime);
 
     private void CheckPointCompletionProgress()
     {
@@ -71,26 +67,8 @@ public class MainCharacterMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        canMove = false;
-        numberOfCollidingObjects++;
-    }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        canMove = --numberOfCollidingObjects == 0;
-    }
-
-    public void RegisterCheckpoint(Checkpoint checkpoint)
-    {
-        CheckPoints.Add(checkpoint);
-    }
-
-    public void UnStuckCharacter()
-    {
-        canMove = true;
-    }
+    public void RegisterCheckpoint(Checkpoint checkpoint) => CheckPoints.Add(checkpoint);
 
     public void SlowDownCharacter()
     {
@@ -102,5 +80,18 @@ public class MainCharacterMovement : MonoBehaviour
     {
         currentSpeed = speed;
         GetComponent<SpriteRenderer>().color = Color.white;
+        canMove = true;
+    }
+
+    public void StopCharacterMovement()
+    {
+        GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0f);
+        canMove = false;
+    }
+
+    public void RestartCharacterMovement()
+    {
+        GetComponent<SpriteRenderer>().color = Color.white;
+        canMove = true;
     }
 }
