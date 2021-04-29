@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collectible (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 721775788412174081, guid: 0262ece9252318848aef3a5c43552c4d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9072483290484737042, guid: 0262ece9252318848aef3a5c43552c4d, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -382,6 +386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5381015758047243715, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
 --- !u!1 &280156357
@@ -617,6 +625,10 @@ PrefabInstance:
     - target: {fileID: 5381015758047243715, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
       propertyPath: m_Name
       value: Trap (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381015758047243715, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
@@ -1206,6 +1218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5381015758047243715, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
 --- !u!1 &950149122
@@ -1560,6 +1576,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8641bcee82e857a47bc5f1c3364f4f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listeners:
+  - Event: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1158530184}
+          m_TargetAssemblyTypeName: BubbleExpander, Assembly-CSharp
+          m_MethodName: StartResourceRegeneration
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Event: {fileID: 11400000, guid: 6164c6b0e1e2bae45b94b244b14fd45f, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1158530184}
+          m_TargetAssemblyTypeName: BubbleExpander, Assembly-CSharp
+          m_MethodName: EndResourceGeneration
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   bubbleCollider: {fileID: 1158530183}
   bubbleEdgeRenderer: {fileID: 728989303}
   energyBar: {fileID: 1764607546}
@@ -1907,6 +1956,10 @@ PrefabInstance:
     - target: {fileID: 5381015758047243715, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
       propertyPath: m_Name
       value: Trap (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381015758047243715, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
@@ -2332,6 +2385,7 @@ GameObject:
   - component: {fileID: 1654331509}
   - component: {fileID: 1654331510}
   - component: {fileID: 1654331511}
+  - component: {fileID: 1654331512}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -2351,10 +2405,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b43eac45a299ff4288c73f12c518729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listener:
+    Event: {fileID: 11400000, guid: 21a4a861214fc254b8327c8c1b359e66, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1654331505}
+          m_TargetAssemblyTypeName: MainCharacterMovement, Assembly-CSharp
+          m_MethodName: IncreaseMaxStamina
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   mainResourceBar: {fileID: 1732449782}
-  speed: 5
+  staggerDepletion: 50
+  staminaGain: 0
+  maxSpeed: 5.03
+  minSpeed: 1.23
+  speedIncrease: 0.455
   journeyCompleted: 0
   canMove: 1
+  isSlowed: 0
+  maxSpeedEvent: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
+  speedLostEvent: {fileID: 11400000, guid: 6164c6b0e1e2bae45b94b244b14fd45f, type: 2}
 --- !u!212 &1654331506
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2558,6 +2636,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 1158530184}
+--- !u!114 &1654331512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654331504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcceb44002f885240b154fb602c98ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1730034234
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,7 +2790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1467369806368825149, guid: fa7854363079e36429fe60492c2560d6, type: 3}
       propertyPath: depletionRate
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1828991517100807326, guid: fa7854363079e36429fe60492c2560d6, type: 3}
       propertyPath: m_Color.g
@@ -2716,7 +2806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1828991517975485304, guid: fa7854363079e36429fe60492c2560d6, type: 3}
       propertyPath: m_Name
-      value: RessourceBarHelper
+      value: RessourceBarSide
       objectReference: {fileID: 0}
     - target: {fileID: 1828991517975485310, guid: fa7854363079e36429fe60492c2560d6, type: 3}
       propertyPath: m_Value
@@ -3055,6 +3145,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collectible (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 721775788412174081, guid: 0262ece9252318848aef3a5c43552c4d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9072483290484737042, guid: 0262ece9252318848aef3a5c43552c4d, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -3392,6 +3486,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collectible
       objectReference: {fileID: 0}
+    - target: {fileID: 721775788412174081, guid: 0262ece9252318848aef3a5c43552c4d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9072483290484737042, guid: 0262ece9252318848aef3a5c43552c4d, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -3493,6 +3591,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap
       objectReference: {fileID: 0}
+    - target: {fileID: 5381015758047243715, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
 --- !u!1001 &6805548663231904085
@@ -3509,6 +3611,10 @@ PrefabInstance:
     - target: {fileID: 7200606830672463881, guid: 2b219c3695d09b640b24081ea88d5a9a, type: 3}
       propertyPath: m_Name
       value: WindTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200606830672463881, guid: 2b219c3695d09b640b24081ea88d5a9a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7306605707817069180, guid: 2b219c3695d09b640b24081ea88d5a9a, type: 3}
       propertyPath: m_RootOrder
@@ -3566,6 +3672,10 @@ PrefabInstance:
     - target: {fileID: 6613397701178885174, guid: 1c78ecef322978346af169a2bb93943d, type: 3}
       propertyPath: m_Name
       value: SnowTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613397701178885174, guid: 1c78ecef322978346af169a2bb93943d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7946281988651787308, guid: 1c78ecef322978346af169a2bb93943d, type: 3}
       propertyPath: m_RootOrder

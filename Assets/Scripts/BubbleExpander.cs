@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BubbleExpander : MonoBehaviour
+public class BubbleExpander : AMultiListenerEnabler
 {
     [SerializeField] private CircleCollider2D bubbleCollider;
     [SerializeField] private SpriteRenderer bubbleEdgeRenderer;
@@ -35,7 +35,7 @@ public class BubbleExpander : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (IsExpanding)
+        if (IsExpanding && !energyBar.IsDepleted)
         {
             if (bubbleCollider.radius >= maxRadius)
             {
@@ -55,6 +55,10 @@ public class BubbleExpander : MonoBehaviour
         bubbleCollider.radius = Mathf.Clamp(bubbleCollider.radius + expansionRate * Time.fixedDeltaTime * sign, minRadius, maxRadius);
         transform.GetChild(0).localScale = new Vector3(bubbleCollider.radius, bubbleCollider.radius) * 2f;
     }
+
+    public void StartResourceRegeneration() => energyBar.IsReplenishing = true;
+
+    public void EndResourceGeneration() => energyBar.IsReplenishing = false;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

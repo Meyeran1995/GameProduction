@@ -35,12 +35,12 @@ public class WindTrap : ATrap
         {
             if (rayHit.transform != MainCharacter.transform)
             {
-                Debug.Log("Bubble hit");
+                //Debug.Log("Bubble hit");
                 MainCharacter.RegainSpeed();
             }
             else
             {
-                Debug.Log("Player hit");
+                //Debug.Log("Player hit");
                 MainCharacter.SlowDownCharacter();
             }
         }

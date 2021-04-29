@@ -11,14 +11,8 @@ public class PlayerInputController : MonoBehaviour
     private void Awake()
     {
         inputControls = new GameInputsDefault();
-        inputControls.Player.Protect.started += (InputAction.CallbackContext context) =>
-        {
-            bubble.IsExpanding = true;
-        };
-        inputControls.Player.Protect.canceled += (InputAction.CallbackContext context) =>
-        {
-            bubble.IsExpanding = false;
-        };
+        inputControls.Player.Protect.started += OnBeginBubbleExpansion;
+        inputControls.Player.Protect.canceled += OnEndBubbleExpansion;
     }
 
     public void OnEnable()
@@ -36,5 +30,25 @@ public class PlayerInputController : MonoBehaviour
     private void OnApplicationQuit()
     {
         IsQuitting = true;
+    }
+
+    private void OnBeginBubbleExpansion(InputAction.CallbackContext context)
+    {
+        if (PlayerStateMachine.Instance.CurrentState is DownedState)
+        {
+            GetComponent<MainCharacterMovement>().RegainStamina();
+        }
+
+        bubble.IsExpanding = true;
+    }
+
+    private void OnEndBubbleExpansion(InputAction.CallbackContext context)
+    {
+        if (PlayerStateMachine.Instance.CurrentState is DownedState)
+        {
+            GetComponent<MainCharacterMovement>().StopStaminaRegain();
+        }
+
+        bubble.IsExpanding = false;
     }
 }

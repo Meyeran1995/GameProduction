@@ -9,7 +9,7 @@ public class StaggeredState : AState
         this.exitTime = exitTime;
     }
 
-    public override void OnStateEnter() => movement.StopCharacterMovement();
+    public override void OnStateEnter() => movement.StaggerCharacterMovement();
 
     public override void OnStateExit(AState newState)
     {
@@ -21,11 +21,11 @@ public class StaggeredState : AState
 
     public override void OnUpdate(float delta)
     {
-        exitTime -= delta;
+        //exitTime -= delta;
 
-        if (exitTime <= 0f)
-        {
-            PlayerStateMachine.Instance.ChangeState(new DownedState(movement.gameObject));
-        }
+        //if (exitTime <= 0f)
+        //{
+        //    PlayerStateMachine.Instance.ChangeState(new DownedState(movement.gameObject));
+        //}
     }
 }

@@ -6,8 +6,10 @@ public class ResourceBar : MonoBehaviour
     [Header("Resource Changes")]
     [SerializeField] [Range(1f, 10f)] private float depletionRate;
     [SerializeField] [Range(1f, 10f)] private float increaseRate;
-    [SerializeField] private bool autoReplenish;
+
     public bool IsDepleting { get; set; }
+    public bool IsDepleted => resource.value <= minimumValue;
+    public bool IsReplenishing { get; set; }
 
     [Header("Base Value")]
     [SerializeField] private float minimumValue, maximumValue, startingValue;
@@ -25,21 +27,29 @@ public class ResourceBar : MonoBehaviour
     {
         if (IsDepleting)
         {
-           DepleteResource(Time.deltaTime);
-           return;
+            DepleteResource();
+            return;
         }
-        
-        if(autoReplenish)
+
+        if (IsReplenishing)
         {
             ReplenishResource(Time.deltaTime);
         }
     }
 
-    public void DepleteResource(float timeModifier)
+    private void DepleteResource()
     {
         if (resource.value > minimumValue)
         {
-            resource.value -= depletionRate * timeModifier;
+            resource.value -= depletionRate * Time.deltaTime;
+        }
+    }
+
+    public void DepleteResource(float amount)
+    {
+        if (resource.value > minimumValue)
+        {
+            resource.value -= amount;
         }
     }
 
@@ -50,6 +60,16 @@ public class ResourceBar : MonoBehaviour
             resource.value += increaseRate * timeModifier;
         }
     }
+
+    public void IncreaseMaxResource(float amount)
+    {
+        maximumValue += amount;
+        resource.maxValue = maximumValue;
+        resource.value = maximumValue;
+        Debug.Log("Stamina Increased");
+    }
+
+    public void FullyDepleteResource() => resource.value = minimumValue;
 
     private void OnValidate()
     {

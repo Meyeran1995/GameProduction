@@ -112,3 +112,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17013837cdd3487449600fcc7dea990d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectionEvent: {fileID: 11400000, guid: 21a4a861214fc254b8327c8c1b359e66, type: 2}

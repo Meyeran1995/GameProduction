@@ -1,19 +1,36 @@
 using System.Collections.Generic;
 using UnityEngine;
+using RoboRyanTron.Unite2017.Events;
 
-public class MainCharacterMovement : MonoBehaviour
+public class MainCharacterMovement : AListenerEnabler
 {
+    private Rigidbody2D characterBody;
+
+    [Header("Resources")]
     [SerializeField] private ResourceBar mainResourceBar;
-    [Header("Movement")]
+    [SerializeField] [Tooltip("How much stamina is lost on being staggered?")] private float staggerDepletion;
+    [SerializeField] [Tooltip("How much stamina is gained by collecting feathers")] private float staminaGain;
+
     private static readonly List<Checkpoint> CheckPoints = new List<Checkpoint>();
     private int currentCheckpointIndex;
     private Vector2 currentDirection;
     
-    [SerializeField] [Range(1f, 10f)] private float speed;
-    [SerializeField] private bool journeyCompleted, canMove;
-    private float currentSpeed;
+    [Header("Speed")]
+    [SerializeField] [Tooltip("Maximum speed to be reached")] [Range(1f, 10f)] private float maxSpeed;
+    [SerializeField] [Tooltip("Minimum speed after being hit")] [Range(0.1f, 10f)] private float minSpeed;
+    [SerializeField] [Tooltip("How fast is speed gained?")] [Range(0.1f, 1f)] private float speedIncrease;
+    private float currentSpeed, previousSpeed;
 
-    private Rigidbody2D characterBody;
+    [Header("Movement States")]
+    [SerializeField] [Tooltip("Was the end of the journey reached?")] private bool journeyCompleted;
+    [SerializeField] [Tooltip("Are we able to move?")] private bool canMove;
+    [SerializeField] [Tooltip("Is the character currently slowed?")] private bool isSlowed;
+
+    public bool HasStamina => mainResourceBar.IsDepleted;
+
+    [Header("Events")] 
+    [SerializeField] [Tooltip("Event when reaching maximum speed")] private GameEvent maxSpeedEvent;
+    [SerializeField] [Tooltip("Event when the character gets hit and loses speed")] private GameEvent speedLostEvent;
 
     private void Start()
     {
@@ -27,19 +44,14 @@ public class MainCharacterMovement : MonoBehaviour
         currentDirection = CheckPoints[0].CheckPointPosition - transform.position;
         currentDirection.Normalize();
 
-        currentSpeed = speed;
+        currentSpeed = minSpeed;
     }
 
     private void FixedUpdate()
     {
-        if (!journeyCompleted)
+        if (!journeyCompleted && canMove)
         {
-            if (!canMove)
-            {
-                mainResourceBar.DepleteResource(Time.fixedDeltaTime);
-                return;
-            }
-
+            RampUpSpeed();
             CheckPointCompletionProgress();
             if (!journeyCompleted)
             {
@@ -48,6 +60,22 @@ public class MainCharacterMovement : MonoBehaviour
         }
     }
 
+    private void RampUpSpeed()
+    {
+        if (isSlowed) return;
+        if (currentSpeed >= maxSpeed) return;
+
+        currentSpeed += speedIncrease * Time.fixedDeltaTime;
+
+        if (currentSpeed >= maxSpeed)
+        {
+            currentSpeed = maxSpeed;
+            Debug.Log("Max speed reached");
+            maxSpeedEvent.Raise();
+        }
+    }
+
+    public void RegisterCheckpoint(Checkpoint checkpoint) => CheckPoints.Add(checkpoint);
     private void MoveToCheckPoint() => characterBody.MovePosition(characterBody.position + currentDirection * currentSpeed * Time.fixedDeltaTime);
 
     private void CheckPointCompletionProgress()
@@ -67,26 +95,53 @@ public class MainCharacterMovement : MonoBehaviour
         }
     }
 
-
-    public void RegisterCheckpoint(Checkpoint checkpoint) => CheckPoints.Add(checkpoint);
-
     public void SlowDownCharacter()
     {
-        currentSpeed = speed / 2f;
+        isSlowed = true;
+        previousSpeed = currentSpeed;
+        currentSpeed = minSpeed;
         GetComponent<SpriteRenderer>().color = Color.blue;
     }
 
     public void RegainSpeed()
     {
-        currentSpeed = speed;
+        currentSpeed = previousSpeed;
         GetComponent<SpriteRenderer>().color = Color.white;
         canMove = true;
+        isSlowed = false;
     }
 
-    public void StopCharacterMovement()
+    public void RegainStamina() => mainResourceBar.IsReplenishing = true;
+
+    public void IncreaseMaxStamina() => mainResourceBar.IncreaseMaxResource(staminaGain);
+
+    public void StopStaminaRegain()
+    {
+        mainResourceBar.IsReplenishing = false;
+
+        if (PlayerStateMachine.Instance.NumberOfCollidingObjects == 0)
+        {
+            PlayerStateMachine.Instance.ChangeState(new MovingState(gameObject));
+        }
+    }
+
+    public void StaggerCharacterMovement()
     {
         GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0f);
+        mainResourceBar.DepleteResource(staggerDepletion);
         canMove = false;
+        speedLostEvent.Raise();
+
+        if (mainResourceBar.IsDepleted)
+        {
+            StopCharacterMovement();
+        }
+    }
+
+    private void StopCharacterMovement()
+    {
+        currentSpeed = minSpeed;
+        PlayerStateMachine.Instance.ChangeState(new DownedState(gameObject));
     }
 
     public void RestartCharacterMovement()

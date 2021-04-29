@@ -2,30 +2,30 @@ using UnityEngine;
 
 public class PlayerStateMachine : MonoBehaviour
 {
-    private AState currentState;
+    public AState CurrentState { get; private set; }
 
     public static PlayerStateMachine Instance;
 
-    private int numberOfCollidingObjects;
-    //private MainCharacterMovement movement;
+    public int NumberOfCollidingObjects { get; private set; }
+    private MainCharacterMovement movement;
 
     private void Awake()
     {
         Instance = this;
-        currentState = new MovingState(gameObject);
-        //movement = GetComponent<MainCharacterMovement>();
+        CurrentState = new MovingState(gameObject);
+        movement = GetComponent<MainCharacterMovement>();
     }
 
     public void ChangeState(AState newState)
     {
-        currentState.OnStateExit(newState);
-        currentState = newState;
-        currentState.OnStateEnter();
+        CurrentState.OnStateExit(newState);
+        CurrentState = newState;
+        CurrentState.OnStateEnter();
     }
 
     private void Update()
     {
-        currentState.OnUpdate(Time.deltaTime);
+        CurrentState.OnUpdate(Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,17 +36,17 @@ public class PlayerStateMachine : MonoBehaviour
         //    return;
         //}
         
-        if(numberOfCollidingObjects == 0)
+        if(NumberOfCollidingObjects == 0)
         {
             ChangeState(new StaggeredState(gameObject, 2f));
         }
 
-        numberOfCollidingObjects++;
+        NumberOfCollidingObjects++;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (--numberOfCollidingObjects == 0)
+        if (--NumberOfCollidingObjects == 0 && movement.HasStamina)
         {
             ChangeState(new MovingState(gameObject));
         }
