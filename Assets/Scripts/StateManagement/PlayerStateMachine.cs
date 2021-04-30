@@ -18,6 +18,9 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void ChangeState(AState newState)
     {
+        if (newState.GetType() == CurrentState.GetType()) return;
+        if (CurrentState.GetType() == typeof(DownedState) && newState.GetType() != typeof(MovingState)) return;
+
         CurrentState.OnStateExit(newState);
         CurrentState = newState;
         CurrentState.OnStateEnter();

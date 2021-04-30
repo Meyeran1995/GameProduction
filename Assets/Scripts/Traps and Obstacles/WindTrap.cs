@@ -14,6 +14,7 @@ public class WindTrap : ATrap
             MainCharacter = GameObject.FindGameObjectWithTag("Player").GetComponent<MainCharacterMovement>();
 
         blowDirection = transform.position - windOrigin.position;
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     protected override void TriggerTrap(Collider2D collision)
@@ -54,5 +55,7 @@ public class WindTrap : ATrap
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, windOrigin.position);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, transform.localScale);
     }
 }

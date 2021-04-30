@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class ResourceBar : MonoBehaviour
 {
+    [SerializeField] private Slider resource;
+
     [Header("Resource Changes")]
     [SerializeField] [Range(1f, 10f)] private float depletionRate;
     [SerializeField] [Range(1f, 10f)] private float increaseRate;
@@ -11,9 +13,10 @@ public class ResourceBar : MonoBehaviour
     public bool IsDepleted => resource.value <= minimumValue;
     public bool IsReplenishing { get; set; }
 
-    [Header("Base Value")]
-    [SerializeField] private float minimumValue, maximumValue, startingValue;
-    [SerializeField] private Slider resource;
+    [Header("Base Values")]
+    [SerializeField] private float startingValue;
+    [SerializeField] private float minimumValue;
+    [SerializeField] private float maximumValue;
 
     private void Awake()
     {
@@ -68,8 +71,6 @@ public class ResourceBar : MonoBehaviour
         resource.value = maximumValue;
         Debug.Log("Stamina Increased");
     }
-
-    public void FullyDepleteResource() => resource.value = minimumValue;
 
     private void OnValidate()
     {

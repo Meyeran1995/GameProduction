@@ -26,7 +26,7 @@ public class MainCharacterMovement : AListenerEnabler
     [SerializeField] [Tooltip("Are we able to move?")] private bool canMove;
     [SerializeField] [Tooltip("Is the character currently slowed?")] private bool isSlowed;
 
-    public bool HasStamina => mainResourceBar.IsDepleted;
+    public bool HasStamina => !mainResourceBar.IsDepleted;
 
     [Header("Events")] 
     [SerializeField] [Tooltip("Event when reaching maximum speed")] private GameEvent maxSpeedEvent;
@@ -45,6 +45,7 @@ public class MainCharacterMovement : AListenerEnabler
         currentDirection.Normalize();
 
         currentSpeed = minSpeed;
+        currentDirection *= currentSpeed;
     }
 
     private void FixedUpdate()
@@ -76,7 +77,7 @@ public class MainCharacterMovement : AListenerEnabler
     }
 
     public void RegisterCheckpoint(Checkpoint checkpoint) => CheckPoints.Add(checkpoint);
-    private void MoveToCheckPoint() => characterBody.MovePosition(characterBody.position + currentDirection * currentSpeed * Time.fixedDeltaTime);
+    private void MoveToCheckPoint() => characterBody.MovePosition(characterBody.position + currentDirection /** currentSpeed*/ * Time.fixedDeltaTime);
 
     private void CheckPointCompletionProgress()
     {
@@ -91,6 +92,7 @@ public class MainCharacterMovement : AListenerEnabler
             }
             currentDirection = CheckPoints[currentCheckpointIndex + 1].CheckPointPosition - CheckPoints[currentCheckpointIndex].CheckPointPosition;
             currentDirection.Normalize();
+            currentDirection *= currentSpeed;
             currentCheckpointIndex++;
         }
     }

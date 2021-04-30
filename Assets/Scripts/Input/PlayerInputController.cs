@@ -44,10 +44,10 @@ public class PlayerInputController : MonoBehaviour
 
     private void OnEndBubbleExpansion(InputAction.CallbackContext context)
     {
-        if (PlayerStateMachine.Instance.CurrentState is DownedState)
-        {
+        //if (PlayerStateMachine.Instance.CurrentState is DownedState)
+        //{
             GetComponent<MainCharacterMovement>().StopStaminaRegain();
-        }
+        //}
 
         bubble.IsExpanding = false;
     }
