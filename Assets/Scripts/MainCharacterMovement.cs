@@ -77,7 +77,7 @@ public class MainCharacterMovement : AListenerEnabler
     }
 
     public void RegisterCheckpoint(Checkpoint checkpoint) => CheckPoints.Add(checkpoint);
-    private void MoveToCheckPoint() => characterBody.MovePosition(characterBody.position + currentDirection /** currentSpeed*/ * Time.fixedDeltaTime);
+    private void MoveToCheckPoint() => characterBody.MovePosition(characterBody.position + currentDirection * Time.fixedDeltaTime);
 
     private void CheckPointCompletionProgress()
     {

@@ -69,7 +69,6 @@ public class ResourceBar : MonoBehaviour
         maximumValue += amount;
         resource.maxValue = maximumValue;
         resource.value = maximumValue;
-        Debug.Log("Stamina Increased");
     }
 
     private void OnValidate()
