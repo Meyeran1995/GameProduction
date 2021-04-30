@@ -1,13 +1,13 @@
-using UnityEngine;
-
+/// <summary>
+/// Abstract base class for a state with enter, exit events and update loop
+/// </summary>
 public abstract class AState
 {
-    //protected readonly GameObject owningGameObject;
     protected readonly MainCharacterMovement movement;
 
-    protected AState(GameObject owner)
+    protected AState(MainCharacterMovement movement)
     {
-        movement = owner.GetComponent<MainCharacterMovement>();
+        this.movement = movement;
     }
 
     /// <summary>

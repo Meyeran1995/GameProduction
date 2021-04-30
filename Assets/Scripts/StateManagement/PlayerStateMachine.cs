@@ -12,8 +12,8 @@ public class PlayerStateMachine : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        CurrentState = new MovingState(gameObject);
         movement = GetComponent<MainCharacterMovement>();
+        CurrentState = new MovingState(movement);
     }
 
     public void ChangeState(AState newState)
@@ -33,15 +33,9 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (collision.gameObject.GetComponent<BubbleExpander>())
-        //{
-        //    ChangeState(new MovingState(gameObject));
-        //    return;
-        //}
-        
         if(NumberOfCollidingObjects == 0)
         {
-            ChangeState(new StaggeredState(gameObject, 2f));
+            ChangeState(new StaggeredState(movement));
         }
 
         NumberOfCollidingObjects++;
@@ -51,7 +45,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         if (--NumberOfCollidingObjects == 0 && movement.HasStamina)
         {
-            ChangeState(new MovingState(gameObject));
+            ChangeState(new MovingState(movement));
         }
     }
 }

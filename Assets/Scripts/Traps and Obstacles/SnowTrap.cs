@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SnowTrap : ATrap
 {
-    private bool playerIsInsideTrap;
-    private static MainCharacterMovement MainCharacter;
+    protected bool playerIsInsideTrap;
+    protected static MainCharacterMovement MainCharacter;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         if (MainCharacter == null)
             MainCharacter = GameObject.FindGameObjectWithTag("Player").GetComponent<MainCharacterMovement>();
@@ -15,25 +15,25 @@ public class SnowTrap : ATrap
     {
         if(playerIsInsideTrap)
         {
-            MainCharacter.RegainSpeed();
+            PlayerStateMachine.Instance.ChangeState(new MovingState(MainCharacter));
         }
         else if(collision.gameObject.CompareTag("Player"))
         {
-            MainCharacter.SlowDownCharacter();
+            PlayerStateMachine.Instance.ChangeState(new SlowedState(MainCharacter));
             playerIsInsideTrap = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            MainCharacter.RegainSpeed();
+            PlayerStateMachine.Instance.ChangeState(new MovingState(MainCharacter));
             playerIsInsideTrap = false;
         }
         else if (playerIsInsideTrap)
         {
-            MainCharacter.SlowDownCharacter();
+            PlayerStateMachine.Instance.ChangeState(new SlowedState(MainCharacter));
         }
     }
 }

@@ -1,61 +1,69 @@
 using UnityEngine;
 
-public class WindTrap : ATrap
+/// <summary>
+/// A trap that slows the character which needs to be blocked by the side character
+/// </summary>
+public class WindTrap : SnowTrap
 {
-    private static MainCharacterMovement MainCharacter;
-    [SerializeField] private Transform windOrigin;
-    private Vector3 blowDirection;
-    private bool isBlowing;
-    [SerializeField] private LayerMask mask;
-
-    private void Awake()
-    {
-        if(MainCharacter == null)
-            MainCharacter = GameObject.FindGameObjectWithTag("Player").GetComponent<MainCharacterMovement>();
-
-        blowDirection = transform.position - windOrigin.position;
-        GetComponent<SpriteRenderer>().enabled = false;
-    }
+    [SerializeField] private Transform origin;
+    private Transform bubble;
 
     protected override void TriggerTrap(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-            isBlowing = true;
-    }
-
-    private void FixedUpdate()
-    {
-        if(isBlowing)
-            CheckForBubbleCollision();
-    }
-
-    private void CheckForBubbleCollision()
-    {
-        RaycastHit2D rayHit = Physics2D.Raycast(windOrigin.position, blowDirection, blowDirection.magnitude + 1, mask);
-        if (rayHit)
         {
-            if (rayHit.transform != MainCharacter.transform)
+            playerIsInsideTrap = true;
+
+            if (bubble == null || !IsBubbleInFrontOfCharacter())
             {
-                //Debug.Log("Bubble hit");
-                MainCharacter.RegainSpeed();
-            }
-            else
-            {
-                //Debug.Log("Player hit");
-                MainCharacter.SlowDownCharacter();
+                PlayerStateMachine.Instance.ChangeState(new SlowedState(MainCharacter));
             }
         }
         else
         {
-            isBlowing = false;
-            MainCharacter.RegainSpeed();
+            bubble = collision.transform;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (!playerIsInsideTrap || bubble == null) return;
+
+        if (IsBubbleInFrontOfCharacter())
+        {
+            PlayerStateMachine.Instance.ChangeState(new MovingState(MainCharacter));
+        }
+        else
+        {
+            PlayerStateMachine.Instance.ChangeState(new SlowedState(MainCharacter));
+        }
+    }
+
+    private bool IsBubbleInFrontOfCharacter() => Vector3.Distance(bubble.position, origin.position) <=
+                                                 Vector3.Distance(MainCharacter.transform.position, origin.position);
+
+    protected override void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerStateMachine.Instance.ChangeState(new MovingState(MainCharacter));
+            playerIsInsideTrap = false;
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            bubble = null;
+            PlayerStateMachine.Instance.ChangeState(new SlowedState(MainCharacter));
         }
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, windOrigin.position);
+        Gizmos.DrawLine(origin.position, transform.position);
+        Gizmos.DrawWireCube(origin.position, origin.localScale / 2f);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, transform.localScale);
+        // transform gizmo using this scripts transform matrix
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
     }
 }

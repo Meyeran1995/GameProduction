@@ -4,6 +4,8 @@ using RoboRyanTron.Unite2017.Events;
 
 public class MainCharacterMovement : AListenerEnabler
 {
+    #region Fields
+
     private Rigidbody2D characterBody;
 
     [Header("Resources")]
@@ -19,7 +21,7 @@ public class MainCharacterMovement : AListenerEnabler
     [SerializeField] [Tooltip("Maximum speed to be reached")] [Range(1f, 10f)] private float maxSpeed;
     [SerializeField] [Tooltip("Minimum speed after being hit")] [Range(0.1f, 10f)] private float minSpeed;
     [SerializeField] [Tooltip("How fast is speed gained?")] [Range(0.1f, 1f)] private float speedIncrease;
-    private float currentSpeed, previousSpeed;
+    [SerializeField] private float currentSpeed, previousSpeed;
 
     [Header("Movement States")]
     [SerializeField] [Tooltip("Was the end of the journey reached?")] private bool journeyCompleted;
@@ -31,6 +33,8 @@ public class MainCharacterMovement : AListenerEnabler
     [Header("Events")] 
     [SerializeField] [Tooltip("Event when reaching maximum speed")] private GameEvent maxSpeedEvent;
     [SerializeField] [Tooltip("Event when the character gets hit and loses speed")] private GameEvent speedLostEvent;
+
+    #endregion
 
     private void Start()
     {
@@ -48,6 +52,8 @@ public class MainCharacterMovement : AListenerEnabler
         currentDirection *= currentSpeed;
     }
 
+    #region Movement
+
     private void FixedUpdate()
     {
         if (!journeyCompleted && canMove)
@@ -58,21 +64,6 @@ public class MainCharacterMovement : AListenerEnabler
             {
                 MoveToCheckPoint();
             }
-        }
-    }
-
-    private void RampUpSpeed()
-    {
-        if (isSlowed) return;
-        if (currentSpeed >= maxSpeed) return;
-
-        currentSpeed += speedIncrease * Time.fixedDeltaTime;
-
-        if (currentSpeed >= maxSpeed)
-        {
-            currentSpeed = maxSpeed;
-            Debug.Log("Max speed reached");
-            maxSpeedEvent.Raise();
         }
     }
 
@@ -97,58 +88,108 @@ public class MainCharacterMovement : AListenerEnabler
         }
     }
 
-    public void SlowDownCharacter()
-    {
-        isSlowed = true;
-        previousSpeed = currentSpeed;
-        currentSpeed = minSpeed;
-        GetComponent<SpriteRenderer>().color = Color.blue;
-    }
-
-    public void RegainSpeed()
-    {
-        currentSpeed = previousSpeed;
-        GetComponent<SpriteRenderer>().color = Color.white;
-        canMove = true;
-        isSlowed = false;
-    }
-
-    public void RegainStamina() => mainResourceBar.IsReplenishing = true;
-
-    public void IncreaseMaxStamina() => mainResourceBar.IncreaseMaxResource(staminaGain);
-
-    public void StopStaminaRegain()
-    {
-        mainResourceBar.IsReplenishing = false;
-
-        if (PlayerStateMachine.Instance.NumberOfCollidingObjects == 0)
-        {
-            PlayerStateMachine.Instance.ChangeState(new MovingState(gameObject));
-        }
-    }
-
+    /// <summary>
+    /// Halt movement, lose speed and deplete stamina
+    /// </summary>
     public void StaggerCharacterMovement()
     {
-        GetComponent<SpriteRenderer>().color = new Color(1f, 0.5f, 0f);
         mainResourceBar.DepleteResource(staggerDepletion);
         canMove = false;
         speedLostEvent.Raise();
 
+        // Check whether the character should be downed because of stamina depletion
         if (mainResourceBar.IsDepleted)
         {
             StopCharacterMovement();
         }
     }
 
+    /// <summary>
+    /// Stop moving and go into downed state
+    /// </summary>
     private void StopCharacterMovement()
     {
         currentSpeed = minSpeed;
-        PlayerStateMachine.Instance.ChangeState(new DownedState(gameObject));
+        PlayerStateMachine.Instance.ChangeState(new DownedState(this));
     }
 
+    /// <summary>
+    /// Debug movement to be called from Editor script
+    /// </summary>
     public void RestartCharacterMovement()
     {
         GetComponent<SpriteRenderer>().color = Color.white;
         canMove = true;
     }
+
+    #endregion
+
+    #region Speed
+
+    /// <summary>
+    /// Slow down movement to minimum speed
+    /// </summary>
+    public void SlowDownCharacter()
+    {
+        isSlowed = true;
+        previousSpeed = currentSpeed;
+        currentSpeed = minSpeed;
+    }
+
+    /// <summary>
+    /// Regain speed after previously being slowed
+    /// </summary>
+    public void RegainSpeed()
+    {
+        currentSpeed = previousSpeed;
+        canMove = true;
+        isSlowed = false;
+    }
+
+    /// <summary>
+    /// Increase speed while moving
+    /// </summary>
+    private void RampUpSpeed()
+    {
+        if (isSlowed) return;
+        if (currentSpeed >= maxSpeed) return;
+
+        currentSpeed += speedIncrease * Time.fixedDeltaTime;
+
+        if (currentSpeed >= maxSpeed)
+        {
+            currentSpeed = maxSpeed;
+            Debug.Log("Max speed reached");
+            maxSpeedEvent.Raise();
+        }
+    }
+
+    #endregion
+
+    #region Stamina
+
+    /// <summary>
+    /// Start regaining stamina
+    /// </summary>
+    public void RegainStamina() => mainResourceBar.IsReplenishing = true;
+
+    /// <summary>
+    /// Stops the character from regaining stamina and checks whether we can move again
+    /// </summary>
+    public void StopStaminaRegain()
+    {
+        mainResourceBar.IsReplenishing = false;
+
+        if (PlayerStateMachine.Instance.NumberOfCollidingObjects == 0)
+        {
+            PlayerStateMachine.Instance.ChangeState(new MovingState(this));
+        }
+    }
+
+    /// <summary>
+    /// Increase maximum amount of stamina (via event)
+    /// </summary>
+    public void IncreaseMaxStamina() => mainResourceBar.IncreaseMaxResource(staminaGain);
+
+    #endregion
 }
