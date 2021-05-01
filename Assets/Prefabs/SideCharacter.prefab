@@ -120,8 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c22be756ec2cc4899537caba824520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionOffset: {x: 0.65, y: 0.82, z: 0}
-  followMouse: 1
 --- !u!114 &7935104195149141413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7935104195725438811}
   - component: {fileID: 7935104195725438810}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

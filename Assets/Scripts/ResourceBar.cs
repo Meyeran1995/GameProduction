@@ -7,7 +7,7 @@ public class ResourceBar : MonoBehaviour
 
     [Header("Resource Changes")]
     [SerializeField] [Range(1f, 10f)] private float depletionRate;
-    [SerializeField] [Range(1f, 10f)] private float increaseRate;
+    [SerializeField] [Range(1f, 15f)] private float increaseRate;
 
     public bool IsDepleting { get; set; }
     public bool IsDepleted => resource.value <= minimumValue;

@@ -50,7 +50,7 @@ public class WindTrap : SnowTrap
             playerIsInsideTrap = false;
             gameObject.SetActive(false);
         }
-        else
+        else if(playerIsInsideTrap)
         {
             bubble = null;
             PlayerStateMachine.Instance.ChangeState(new SlowedState(MainCharacter));

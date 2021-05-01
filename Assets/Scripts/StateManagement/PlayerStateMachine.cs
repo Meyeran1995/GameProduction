@@ -4,7 +4,7 @@ public class PlayerStateMachine : MonoBehaviour
 {
     public AState CurrentState { get; private set; }
 
-    public static PlayerStateMachine Instance;
+    public static PlayerStateMachine Instance { get; private set; }
 
     public int NumberOfCollidingObjects { get; private set; }
     private MainCharacterMovement movement;

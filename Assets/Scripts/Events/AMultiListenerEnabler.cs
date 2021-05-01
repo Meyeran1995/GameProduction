@@ -8,7 +8,7 @@ public abstract class AMultiListenerEnabler : MonoBehaviour
 {
     [SerializeField] protected GameEventListener[] listeners;
 
-    public virtual void OnEnable()
+    protected virtual void OnEnable()
     {
         foreach (var listener in listeners)
         {
@@ -16,7 +16,7 @@ public abstract class AMultiListenerEnabler : MonoBehaviour
         }
     }
 
-    public virtual void OnDisable()
+    protected virtual void OnDisable()
     {
         foreach (var listener in listeners)
         {

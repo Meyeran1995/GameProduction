@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 708239604788086189}
-  - component: {fileID: 708239604788086188}
   - component: {fileID: 708239604788086191}
+  - component: {fileID: 708239604788086185}
+  - component: {fileID: 708239604788086182}
+  - component: {fileID: 708239604788086188}
   - component: {fileID: 708239604788086186}
   - component: {fileID: 708239604788086187}
   - component: {fileID: 708239604788086184}
-  - component: {fileID: 708239604788086185}
-  - component: {fileID: 708239604788086182}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -32,11 +32,98 @@ Transform:
   m_GameObject: {fileID: 708239604788086190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.18, y: -4.8, z: 0}
-  m_LocalScale: {x: 1.25, y: 2, z: 2}
+  m_LocalScale: {x: 2, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &708239604788086191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708239604788086190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b43eac45a299ff4288c73f12c518729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    Event: {fileID: 11400000, guid: 21a4a861214fc254b8327c8c1b359e66, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 708239604788086191}
+          m_TargetAssemblyTypeName: MainCharacterMovement, Assembly-CSharp
+          m_MethodName: IncreaseMaxStamina
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  mainResourceBar: {fileID: 0}
+  staggerDepletion: 50
+  staminaGain: 50
+  maxSpeed: 5.03
+  minSpeed: 1.23
+  speedIncrease: 0.455
+  currentSpeed: 0
+  previousSpeed: 0
+  journeyCompleted: 0
+  canMove: 1
+  isSlowed: 0
+  TimeToGetUp: 1
+  maxSpeedEvent: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
+  speedLostEvent: {fileID: 11400000, guid: 6164c6b0e1e2bae45b94b244b14fd45f, type: 2}
+  knockdownEvent: {fileID: 11400000, guid: c30d14e1d42360d49935bd6f27f1162b, type: 2}
+--- !u!114 &708239604788086185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708239604788086190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497eff17a0bf2bb4698482992fba8ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    Event: {fileID: 11400000, guid: c30d14e1d42360d49935bd6f27f1162b, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 708239604788086185}
+          m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+          m_MethodName: OnMainCharacterStaminaDepleted
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  movement: {fileID: 708239604788086191}
+  bubble: {fileID: 0}
+--- !u!114 &708239604788086182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708239604788086190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcceb44002f885240b154fb602c98ceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &708239604788086188
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88,46 +175,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &708239604788086191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708239604788086190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b43eac45a299ff4288c73f12c518729, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listener:
-    Event: {fileID: 11400000, guid: 21a4a861214fc254b8327c8c1b359e66, type: 2}
-    Response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 708239604788086191}
-          m_TargetAssemblyTypeName: MainCharacterMovement, Assembly-CSharp
-          m_MethodName: IncreaseMaxStamina
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  mainResourceBar: {fileID: 0}
-  staggerDepletion: 50
-  staminaGain: 50
-  maxSpeed: 5.03
-  minSpeed: 1.23
-  speedIncrease: 0.455
-  journeyCompleted: 0
-  canMove: 1
-  isSlowed: 0
-  maxSpeedEvent: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
-  speedLostEvent: {fileID: 11400000, guid: 6164c6b0e1e2bae45b94b244b14fd45f, type: 2}
 --- !u!50 &708239604788086186
 Rigidbody2D:
   serializedVersion: 4
@@ -253,28 +300,3 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &708239604788086185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708239604788086190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 497eff17a0bf2bb4698482992fba8ba1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bubble: {fileID: 0}
---- !u!114 &708239604788086182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708239604788086190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcceb44002f885240b154fb602c98ceb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

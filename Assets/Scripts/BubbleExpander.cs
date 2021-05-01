@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class BubbleExpander : AMultiListenerEnabler
@@ -12,17 +13,6 @@ public class BubbleExpander : AMultiListenerEnabler
     [SerializeField] [Range(0.1f, 2f)] private float expansionRate;
     [SerializeField] [Range(100f, 500f)] private float bubblePushStrength;
 
-    public bool IsExpanding
-    {
-        get => isExpanding;
-        set { 
-            bubbleCollider.enabled = value;
-            isExpanding = value;
-            bubbleEdgeRenderer.enabled = value;
-            energyBar.IsDepleting = value;
-        }
-    }
-
     private bool isExpanding;
 
     private void Awake()
@@ -35,12 +25,9 @@ public class BubbleExpander : AMultiListenerEnabler
 
     private void FixedUpdate()
     {
-        if (IsExpanding && !energyBar.IsDepleted)
+        if (isExpanding && !energyBar.IsDepleted)
         {
-            if (bubbleCollider.radius >= maxRadius)
-            {
-                return;
-            }
+            if (bubbleCollider.radius >= maxRadius) return;
 
             AdjustRadius(1);
         }
@@ -50,21 +37,49 @@ public class BubbleExpander : AMultiListenerEnabler
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Vector3 forceDirection = collision.rigidbody.transform.position - transform.position;
+        collision.rigidbody.AddForce(forceDirection.normalized * bubblePushStrength);
+    }
+
+    public void StartExpanding()
+    {
+        if(energyBar.IsDepleted) return;
+
+        bubbleCollider.enabled = true;
+        isExpanding = true;
+        bubbleEdgeRenderer.enabled = true;
+        energyBar.IsDepleting = true;
+    }
+
+    public void StopExpanding()
+    {
+        bubbleCollider.enabled = false;
+        isExpanding = false;
+        bubbleEdgeRenderer.enabled = false;
+        energyBar.IsDepleting = false;
+    }
+
     private void AdjustRadius(int sign)
     {
         bubbleCollider.radius = Mathf.Clamp(bubbleCollider.radius + expansionRate * Time.fixedDeltaTime * sign, minRadius, maxRadius);
         transform.GetChild(0).localScale = new Vector3(bubbleCollider.radius, bubbleCollider.radius) * 2f;
     }
 
-    public void StartResourceRegeneration() => energyBar.IsReplenishing = true;
+    #region Resource Controls
 
-    public void EndResourceGeneration() => energyBar.IsReplenishing = false;
+    [UsedImplicitly] public void StartResourceRegeneration() => energyBar.IsReplenishing = true;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Vector3 forceDirection =  collision.rigidbody.transform.position - transform.position;
-        collision.rigidbody.AddForce(forceDirection.normalized * bubblePushStrength);
-    }
+    [UsedImplicitly] public void EndResourceGeneration() => energyBar.IsReplenishing = false;
+
+    public void StartResourceDepletion() => energyBar.IsDepleting = true;
+
+    public void EndResourceDepletion() => energyBar.IsDepleting = false;
+
+    #endregion
+
+    #region Editor quality of life
 
     private void OnValidate()
     {
@@ -77,4 +92,6 @@ public class BubbleExpander : AMultiListenerEnabler
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, maxRadius);
     }
+
+    #endregion
 }

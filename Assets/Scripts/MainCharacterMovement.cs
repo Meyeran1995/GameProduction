@@ -27,12 +27,14 @@ public class MainCharacterMovement : AListenerEnabler
     [SerializeField] [Tooltip("Was the end of the journey reached?")] private bool journeyCompleted;
     [SerializeField] [Tooltip("Are we able to move?")] private bool canMove;
     [SerializeField] [Tooltip("Is the character currently slowed?")] private bool isSlowed;
+    [Tooltip("How fast is the character getting back up?")] [Range(0.1f, 1f)] public float TimeToGetUp;
 
     public bool HasStamina => !mainResourceBar.IsDepleted;
 
     [Header("Events")] 
     [SerializeField] [Tooltip("Event when reaching maximum speed")] private GameEvent maxSpeedEvent;
     [SerializeField] [Tooltip("Event when the character gets hit and loses speed")] private GameEvent speedLostEvent;
+    [SerializeField] [Tooltip("Event when the character gets knocked down after losing all their stamina")] private GameEvent knockdownEvent;
 
     #endregion
 
@@ -110,16 +112,8 @@ public class MainCharacterMovement : AListenerEnabler
     private void StopCharacterMovement()
     {
         currentSpeed = minSpeed;
+        knockdownEvent.Raise();
         PlayerStateMachine.Instance.ChangeState(new DownedState(this));
-    }
-
-    /// <summary>
-    /// Debug movement to be called from Editor script
-    /// </summary>
-    public void RestartCharacterMovement()
-    {
-        GetComponent<SpriteRenderer>().color = Color.white;
-        canMove = true;
     }
 
     #endregion

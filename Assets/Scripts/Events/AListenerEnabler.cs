@@ -8,12 +8,12 @@ public abstract class AListenerEnabler : MonoBehaviour
 {
     [SerializeField] protected GameEventListener listener;
 
-    public virtual void OnEnable()
+    protected virtual void OnEnable()
     {
         listener.OnEnable();
     }
 
-    public virtual void OnDisable()
+    protected virtual void OnDisable()
     {
         listener.OnDisable();
     }

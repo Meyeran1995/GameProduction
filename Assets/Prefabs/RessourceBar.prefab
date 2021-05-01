@@ -288,10 +288,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e19ef1cda5488047bf15dada73f35cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resource: {fileID: 1828991517975485310}
   depletionRate: 1
-  increaseRate: 2.5
-  autoRestock: 0
+  increaseRate: 10
+  startingValue: 100
   minimumValue: 0
   maximumValue: 100
-  startingValue: 100
-  resource: {fileID: 1828991517975485310}

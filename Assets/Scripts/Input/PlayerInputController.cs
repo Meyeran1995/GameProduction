@@ -1,30 +1,40 @@
+using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInputController : MonoBehaviour
+public class PlayerInputController : AListenerEnabler
 {
-    public GameInputsDefault InputControls => inputControls;
-    private GameInputsDefault inputControls;
+    public GameInputsDefault InputControls { get; private set; }
     public static bool IsQuitting;
+
+    [SerializeField] private MainCharacterMovement movement;
     [SerializeField] private BubbleExpander bubble;
+
+    /// <summary>
+    /// Is the character already getting back up? Then this routine will not be null
+    /// </summary>
+    private Coroutine getUpRoutine;
 
     private void Awake()
     {
-        inputControls = new GameInputsDefault();
-        inputControls.Player.Protect.started += OnBeginBubbleExpansion;
-        inputControls.Player.Protect.canceled += OnEndBubbleExpansion;
+        InputControls = new GameInputsDefault();
+        InputControls.Player.Protect.started += OnBeginBubbleExpansion;
+        InputControls.Player.Protect.canceled += OnEndBubbleExpansion;
     }
 
-    public void OnEnable()
+    protected override void OnEnable()
     {
-        inputControls.Player.Protect.Enable();
-        inputControls.Player.Aim.Enable();
+        InputControls.Player.Protect.Enable();
+        InputControls.Player.Aim.Enable();
+        base.OnEnable();
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
-        inputControls.Player.Protect.Disable();
-        inputControls.Player.Aim.Disable();
+        InputControls.Player.Protect.Disable();
+        InputControls.Player.Aim.Disable();
+        base.OnDisable();
     }
 
     private void OnApplicationQuit()
@@ -32,23 +42,66 @@ public class PlayerInputController : MonoBehaviour
         IsQuitting = true;
     }
 
-    private void OnBeginBubbleExpansion(InputAction.CallbackContext context)
-    {
-        if (PlayerStateMachine.Instance.CurrentState is DownedState)
-        {
-            GetComponent<MainCharacterMovement>().RegainStamina();
-        }
+    #region Controls while main character is moving
 
-        bubble.IsExpanding = true;
+    private void OnBeginBubbleExpansion(InputAction.CallbackContext context) => bubble.StartExpanding();
+
+    private void OnEndBubbleExpansion(InputAction.CallbackContext context) => bubble.StopExpanding();
+
+    #endregion
+
+    #region Controls while knocked down
+
+    [UsedImplicitly]
+    public void OnMainCharacterStaminaDepleted()
+    {
+        InputControls.Player.Protect.started += OnStaminaTransferBegin;
+        InputControls.Player.Protect.started -= OnBeginBubbleExpansion;
+
+        InputControls.Player.Protect.canceled += OnStaminaTransferEnd;
+        InputControls.Player.Protect.canceled -= OnEndBubbleExpansion;
     }
 
-    private void OnEndBubbleExpansion(InputAction.CallbackContext context)
+    /// <summary>
+    /// Begins transferring stamina from side- to main character
+    /// </summary>
+    /// <param name="context"></param>
+    private void OnStaminaTransferBegin(InputAction.CallbackContext context)
     {
-        //if (PlayerStateMachine.Instance.CurrentState is DownedState)
-        //{
-            GetComponent<MainCharacterMovement>().StopStaminaRegain();
-        //}
+        if (getUpRoutine != null) return;
 
-        bubble.IsExpanding = false;
+        movement.RegainStamina();
+        bubble.StartResourceDepletion();
     }
+
+    /// <summary>
+    /// Ends transferring stamina from side- to main character
+    /// </summary>
+    /// <param name="context"></param>
+    private void OnStaminaTransferEnd(InputAction.CallbackContext context)
+    {
+        if(getUpRoutine != null) return;
+
+        getUpRoutine = StartCoroutine(OnGetUp());
+    }
+
+    /// <summary>
+    /// Routine to change back controls after stamina transfer has ended
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator OnGetUp()
+    {
+        yield return new WaitForSeconds(movement.TimeToGetUp);
+
+        movement.StopStaminaRegain();
+        bubble.EndResourceDepletion();
+
+        InputControls.Player.Protect.started -= OnStaminaTransferBegin;
+        InputControls.Player.Protect.started += OnBeginBubbleExpansion;
+
+        InputControls.Player.Protect.canceled -= OnStaminaTransferEnd;
+        InputControls.Player.Protect.canceled += OnEndBubbleExpansion;
+    }
+
+    #endregion
 }
