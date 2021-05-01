@@ -56,14 +56,14 @@ public class MainCharacterMovement : AListenerEnabler
 
     private void FixedUpdate()
     {
-        if (!journeyCompleted && canMove)
+        if (journeyCompleted || !canMove) return;
+
+        RampUpSpeed();
+        CheckPointCompletionProgress();
+
+        if (!journeyCompleted)
         {
-            RampUpSpeed();
-            CheckPointCompletionProgress();
-            if (!journeyCompleted)
-            {
-                MoveToCheckPoint();
-            }
+            MoveToCheckPoint();
         }
     }
 

@@ -6,6 +6,6 @@ public class BirdTrap : RollingObstacleTrap
     {
         if (!collision.gameObject.CompareTag("Player")) return;
         obstacleBody.gameObject.SetActive(true);
-        obstacleBody.transform.GetComponent<BirdObstacle>().SetMovementDir((collision.transform.position - obstacleBody.transform.position).normalized * obstacleSpeed);
+        obstacleBody.transform.GetComponent<BirdObstacle>().Target = collision.transform;
     }
 }
