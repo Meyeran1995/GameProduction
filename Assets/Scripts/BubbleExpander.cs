@@ -25,8 +25,14 @@ public class BubbleExpander : AMultiListenerEnabler
 
     private void FixedUpdate()
     {
-        if (isExpanding && !energyBar.IsDepleted)
+        if (isExpanding)
         {
+            if (energyBar.IsDepleted)
+            {
+                StopExpanding();
+                return;
+            }
+
             if (bubbleCollider.radius >= maxRadius) return;
 
             AdjustRadius(1);

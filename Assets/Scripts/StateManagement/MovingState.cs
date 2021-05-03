@@ -12,7 +12,6 @@ public class MovingState : AState
     public override void OnStateEnter()
     {
         movement.GetComponent<SpriteRenderer>().color = Color.white;
-        Debug.Log("Start moving");
     }
 
     public override void OnStateExit(AState newState)

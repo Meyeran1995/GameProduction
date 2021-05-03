@@ -13,10 +13,12 @@ public class MainCharacterMovement : AListenerEnabler
     [SerializeField] [Tooltip("How much stamina is lost on being staggered?")] private float staggerDepletion;
     [SerializeField] [Tooltip("How much stamina is gained by collecting feathers")] private float staminaGain;
 
+    [Header("Movement")] 
+    [SerializeField] private LayerMask mask;
     private static readonly List<Checkpoint> CheckPoints = new List<Checkpoint>();
     private int currentCheckpointIndex;
     private Vector2 currentDirection;
-    
+
     [Header("Speed")]
     [SerializeField] [Tooltip("Maximum speed to be reached")] [Range(1f, 10f)] private float maxSpeed;
     [SerializeField] [Tooltip("Minimum speed after being hit")] [Range(0.1f, 10f)] private float minSpeed;
@@ -63,31 +65,36 @@ public class MainCharacterMovement : AListenerEnabler
         RampUpSpeed();
         CheckPointCompletionProgress();
 
-        if (!journeyCompleted)
-        {
-            MoveToCheckPoint();
-        }
+        if (journeyCompleted) return;
+
+        GroundCharacter();
+        MoveForward();
     }
 
+    private void GroundCharacter()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 5f, mask);
+
+        currentDirection = hit.transform.right * currentSpeed;
+    }
+
+    private void MoveForward() => characterBody.MovePosition(characterBody.position + currentDirection * Time.fixedDeltaTime);
+
     public void RegisterCheckpoint(Checkpoint checkpoint) => CheckPoints.Add(checkpoint);
-    private void MoveToCheckPoint() => characterBody.MovePosition(characterBody.position + currentDirection * Time.fixedDeltaTime);
 
     private void CheckPointCompletionProgress()
     {
         var directionToCheckpoint = (CheckPoints[currentCheckpointIndex].CheckPointPosition - transform.position).normalized;
 
-        if (Vector3.Dot(directionToCheckpoint, transform.right) < 0f)
+        if (!(directionToCheckpoint.x <= 0f)) return;
+
+        if (currentCheckpointIndex + 1 == CheckPoints.Count)
         {
-            if (currentCheckpointIndex + 1 == CheckPoints.Count)
-            {
-                journeyCompleted = true;
-                return;
-            }
-            currentDirection = CheckPoints[currentCheckpointIndex + 1].CheckPointPosition - CheckPoints[currentCheckpointIndex].CheckPointPosition;
-            currentDirection.Normalize();
-            currentDirection *= currentSpeed;
-            currentCheckpointIndex++;
+            journeyCompleted = true;
+            return;
         }
+
+        currentCheckpointIndex++;
     }
 
     /// <summary>

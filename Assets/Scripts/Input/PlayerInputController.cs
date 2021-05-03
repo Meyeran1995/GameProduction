@@ -55,6 +55,8 @@ public class PlayerInputController : AListenerEnabler
     [UsedImplicitly]
     public void OnMainCharacterStaminaDepleted()
     {
+        bubble.StopExpanding();
+
         InputControls.Player.Protect.started += OnStaminaTransferBegin;
         InputControls.Player.Protect.started -= OnBeginBubbleExpansion;
 

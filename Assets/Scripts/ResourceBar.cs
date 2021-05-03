@@ -68,7 +68,7 @@ public class ResourceBar : MonoBehaviour
     {
         maximumValue += amount;
         resource.maxValue = maximumValue;
-        resource.value = maximumValue;
+        resource.value += amount;
     }
 
     private void OnValidate()
