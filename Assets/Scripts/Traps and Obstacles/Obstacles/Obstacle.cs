@@ -19,8 +19,5 @@ public class Obstacle : MonoBehaviour
         rigidBody.mass = obstacleMass;
     }
 
-    protected void OnBecameInvisible()
-    {
-        Destroy(gameObject);
-    }
+    protected void OnBecameInvisible() => Destroy(gameObject);
 }
