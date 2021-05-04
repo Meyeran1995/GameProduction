@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using RoboRyanTron.Unite2017.Events;
 
@@ -6,32 +7,31 @@ public class MainCharacterMovement : AListenerEnabler
 {
     #region Fields
 
-    private Rigidbody2D characterBody;
-
     [Header("Resources")]
     [SerializeField] private ResourceBar mainResourceBar;
     [SerializeField] [Tooltip("How much stamina is lost on being staggered?")] private float staggerDepletion;
     [SerializeField] [Tooltip("How much stamina is gained by collecting feathers")] private float staminaGain;
 
-    [Header("Movement")] 
-    [SerializeField] private LayerMask mask;
+    [Header("Movement")]
     private static readonly List<Checkpoint> CheckPoints = new List<Checkpoint>();
     private int currentCheckpointIndex;
     private Vector2 currentDirection;
+    private Rigidbody2D characterBody;
 
     [Header("Speed")]
     [SerializeField] [Tooltip("Maximum speed to be reached")] [Range(1f, 10f)] private float maxSpeed;
     [SerializeField] [Tooltip("Minimum speed after being hit")] [Range(0.1f, 10f)] private float minSpeed;
-    [SerializeField] [Tooltip("How fast is speed gained?")] [Range(0.1f, 1f)] private float speedIncrease;
-    [SerializeField] private float currentSpeed, previousSpeed;
+    [SerializeField] [Tooltip("How fast is speed gained?")] private AnimationCurve speedCurve;
+    [SerializeField] private float speedIncrease, currentSpeed;
 
     [Header("Movement States")]
     [SerializeField] [Tooltip("Was the end of the journey reached?")] private bool journeyCompleted;
     [SerializeField] [Tooltip("Are we able to move?")] private bool canMove;
-    [SerializeField] [Tooltip("Is the character currently slowed?")] private bool isSlowed;
-    [Tooltip("How fast is the character getting back up?")] [Range(0.1f, 1f)] public float TimeToGetUp;
+    [SerializeField] [Tooltip("How fast is the character getting back up?")] [Range(0.1f, 1f)] private float timeToGetUp;
 
     public bool HasStamina => !mainResourceBar.IsDepleted;
+
+    public bool HasMaximumStamina => mainResourceBar.IsFull;
 
     [Header("Events")] 
     [SerializeField] [Tooltip("Event when reaching maximum speed")] private GameEvent maxSpeedEvent;
@@ -49,11 +49,7 @@ public class MainCharacterMovement : AListenerEnabler
             CheckPoints.Sort();
         }
 
-        currentDirection = CheckPoints[0].CheckPointPosition - transform.position;
-        currentDirection.Normalize();
-
         currentSpeed = minSpeed;
-        currentDirection *= currentSpeed;
     }
 
     #region Movement
@@ -64,37 +60,48 @@ public class MainCharacterMovement : AListenerEnabler
 
         RampUpSpeed();
         CheckPointCompletionProgress();
+        GroundCharacter();
 
         if (journeyCompleted) return;
-
-        GroundCharacter();
         MoveForward();
     }
 
+    /// <summary>
+    /// Casts a ray downward in order to get the current ground tile
+    /// </summary>
     private void GroundCharacter()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 5f, mask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 5f, 1 << 8);
 
-        currentDirection = hit.transform.right * currentSpeed;
+        if (hit.transform == null)
+        {
+            journeyCompleted = true;
+            Debug.LogError("No ground tiles left for movement!");
+        }
+        else
+        {
+            currentDirection = hit.transform.right * currentSpeed;
+        }
     }
 
     private void MoveForward() => characterBody.MovePosition(characterBody.position + currentDirection * Time.fixedDeltaTime);
 
     public void RegisterCheckpoint(Checkpoint checkpoint) => CheckPoints.Add(checkpoint);
 
+    /// <summary>
+    /// Checks whether the current checkpoint has been passed. Passing the last checkpoint completes the journey
+    /// </summary>
     private void CheckPointCompletionProgress()
     {
-        var directionToCheckpoint = (CheckPoints[currentCheckpointIndex].CheckPointPosition - transform.position).normalized;
+        var directionToCheckpoint = CheckPoints[currentCheckpointIndex].CheckPointPosition - transform.position;
 
-        if (!(directionToCheckpoint.x <= 0f)) return;
-
-        if (currentCheckpointIndex + 1 == CheckPoints.Count)
-        {
-            journeyCompleted = true;
-            return;
-        }
+        if (directionToCheckpoint.x > 0f) return;
 
         currentCheckpointIndex++;
+
+        if (currentCheckpointIndex != CheckPoints.Count) return;
+
+        journeyCompleted = true;
     }
 
     /// <summary>
@@ -118,9 +125,8 @@ public class MainCharacterMovement : AListenerEnabler
     /// </summary>
     private void StopCharacterMovement()
     {
-        currentSpeed = minSpeed;
         knockdownEvent.Raise();
-        PlayerStateMachine.Instance.ChangeState(new DownedState(this));
+        PlayerStateMachine.Instance.ChangeState(new DownedState(PlayerStateMachine.Instance, timeToGetUp));
     }
 
     #endregion
@@ -128,23 +134,13 @@ public class MainCharacterMovement : AListenerEnabler
     #region Speed
 
     /// <summary>
-    /// Slow down movement to minimum speed
-    /// </summary>
-    public void SlowDownCharacter()
-    {
-        isSlowed = true;
-        previousSpeed = currentSpeed;
-        currentSpeed = minSpeed;
-    }
-
-    /// <summary>
     /// Regain speed after previously being slowed
     /// </summary>
-    public void RegainSpeed()
+    public void RestartSpeedGain()
     {
-        currentSpeed = previousSpeed;
+        currentSpeed = minSpeed;
+        speedIncrease = 0f;
         canMove = true;
-        isSlowed = false;
     }
 
     /// <summary>
@@ -152,17 +148,16 @@ public class MainCharacterMovement : AListenerEnabler
     /// </summary>
     private void RampUpSpeed()
     {
-        if (isSlowed) return;
+
         if (currentSpeed >= maxSpeed) return;
 
-        currentSpeed += speedIncrease * Time.fixedDeltaTime;
+        speedIncrease = Mathf.Clamp01(speedIncrease + Time.fixedDeltaTime);
+        currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, speedIncrease);
 
-        if (currentSpeed >= maxSpeed)
-        {
-            currentSpeed = maxSpeed;
-            Debug.Log("Max speed reached");
-            maxSpeedEvent.Raise();
-        }
+        if (currentSpeed < maxSpeed) return;
+
+        currentSpeed = maxSpeed;
+        maxSpeedEvent.Raise();
     }
 
     #endregion
@@ -180,17 +175,13 @@ public class MainCharacterMovement : AListenerEnabler
     public void StopStaminaRegain()
     {
         mainResourceBar.IsReplenishing = false;
-
-        if (PlayerStateMachine.Instance.NumberOfCollidingObjects == 0)
-        {
-            PlayerStateMachine.Instance.ChangeState(new MovingState(this));
-        }
+        GetComponent<MainCharacterCollisionEvaluator>().AttemptToBeginMoving();
     }
 
     /// <summary>
     /// Increase maximum amount of stamina (via event)
     /// </summary>
-    public void IncreaseMaxStamina() => mainResourceBar.IncreaseMaxResource(staminaGain);
+    [UsedImplicitly] public void IncreaseMaxStamina() => mainResourceBar.IncreaseMaxResource(staminaGain);
 
     #endregion
 }

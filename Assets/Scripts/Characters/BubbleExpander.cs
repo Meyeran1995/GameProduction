@@ -15,6 +15,8 @@ public class BubbleExpander : AMultiListenerEnabler
 
     private bool isExpanding;
 
+    public bool HasEnergyLeft => !energyBar.IsDepleted;
+
     private void Awake()
     {
         bubbleCollider = GetComponent<CircleCollider2D>();

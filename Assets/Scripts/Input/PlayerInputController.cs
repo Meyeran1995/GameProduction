@@ -11,10 +11,7 @@ public class PlayerInputController : AListenerEnabler
     [SerializeField] private MainCharacterMovement movement;
     [SerializeField] private BubbleExpander bubble;
 
-    /// <summary>
-    /// Is the character already getting back up? Then this routine will not be null
-    /// </summary>
-    private Coroutine getUpRoutine;
+    private Coroutine transferRoutine;
 
     private void Awake()
     {
@@ -62,6 +59,8 @@ public class PlayerInputController : AListenerEnabler
 
         InputControls.Player.Protect.canceled += OnStaminaTransferEnd;
         InputControls.Player.Protect.canceled -= OnEndBubbleExpansion;
+
+        //InputControls.Player.Protect.performed += OnStaminaTransferPerformed;
     }
 
     /// <summary>
@@ -70,10 +69,9 @@ public class PlayerInputController : AListenerEnabler
     /// <param name="context"></param>
     private void OnStaminaTransferBegin(InputAction.CallbackContext context)
     {
-        if (getUpRoutine != null) return;
-
         movement.RegainStamina();
         bubble.StartResourceDepletion();
+        transferRoutine = StartCoroutine(ObserveEnergyWhileTransferring(context));
     }
 
     /// <summary>
@@ -82,19 +80,6 @@ public class PlayerInputController : AListenerEnabler
     /// <param name="context"></param>
     private void OnStaminaTransferEnd(InputAction.CallbackContext context)
     {
-        if(getUpRoutine != null) return;
-
-        getUpRoutine = StartCoroutine(OnGetUp());
-    }
-
-    /// <summary>
-    /// Routine to change back controls after stamina transfer has ended
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator OnGetUp()
-    {
-        yield return new WaitForSeconds(movement.TimeToGetUp);
-
         movement.StopStaminaRegain();
         bubble.EndResourceDepletion();
 
@@ -103,6 +88,22 @@ public class PlayerInputController : AListenerEnabler
 
         InputControls.Player.Protect.canceled -= OnStaminaTransferEnd;
         InputControls.Player.Protect.canceled += OnEndBubbleExpansion;
+
+        if(transferRoutine == null) return;
+
+        StopCoroutine(transferRoutine);
+    }
+
+    /// <summary>
+    /// Stop stamina regeneration process when either stamina bar reaches an end
+    /// </summary>
+    /// <param name="context"></param>
+    /// <returns></returns>
+    private IEnumerator ObserveEnergyWhileTransferring(InputAction.CallbackContext context)
+    {
+        yield return new WaitWhile(() => bubble.HasEnergyLeft && !movement.HasMaximumStamina);
+
+        OnStaminaTransferEnd(context);
     }
 
     #endregion

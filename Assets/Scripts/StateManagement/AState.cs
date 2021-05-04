@@ -3,11 +3,13 @@
 /// </summary>
 public abstract class AState
 {
-    protected readonly MainCharacterMovement movement;
+    protected readonly PlayerStateMachine owner;
+    public readonly float exitTime;
 
-    protected AState(MainCharacterMovement movement)
+    protected AState(PlayerStateMachine owner, float exitTime = 0f)
     {
-        this.movement = movement;
+        this.owner = owner;
+        this.exitTime = exitTime;
     }
 
     /// <summary>

@@ -5,13 +5,13 @@ using UnityEngine;
 /// </summary>
 public class MovingState : AState
 {
-    public MovingState(MainCharacterMovement movement) : base(movement)
+    public MovingState(PlayerStateMachine owner, float exitTime = 0) : base(owner, exitTime)
     {
     }
 
     public override void OnStateEnter()
     {
-        movement.GetComponent<SpriteRenderer>().color = Color.white;
+        owner.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public override void OnStateExit(AState newState)

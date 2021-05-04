@@ -1,51 +1,56 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerStateMachine : MonoBehaviour
 {
     public AState CurrentState { get; private set; }
-
     public static PlayerStateMachine Instance { get; private set; }
+    public MainCharacterMovement Movement { get; private set; }
 
-    public int NumberOfCollidingObjects { get; private set; }
-    private MainCharacterMovement movement;
+    private Coroutine exitRoutine;
 
     private void Awake()
     {
         Instance = this;
-        movement = GetComponent<MainCharacterMovement>();
-        CurrentState = new MovingState(movement);
+        Movement = GetComponent<MainCharacterMovement>();
+        CurrentState = new MovingState(this);
     }
 
     public void ChangeState(AState newState)
     {
-        if (newState.GetType() == CurrentState.GetType()) return;
+        if (exitRoutine != null || newState.GetType() == CurrentState.GetType()) return;
         if (CurrentState.GetType() == typeof(DownedState) && newState.GetType() != typeof(MovingState)) return;
 
+        if (CurrentState.exitTime != 0f)
+        {
+            StartCoroutine(WaitForExitTime(newState));
+        }
+        else
+        {
+            TransitionToNextState(newState);
+        }
+    }
+
+    private void TransitionToNextState(AState newState)
+    {
         CurrentState.OnStateExit(newState);
         CurrentState = newState;
         CurrentState.OnStateEnter();
     }
 
+    /// <summary>
+    /// Waits for the current states exit time to elapse
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator WaitForExitTime(AState newState)
+    {
+        yield return new WaitForSeconds(CurrentState.exitTime);
+
+        TransitionToNextState(newState);
+    }
+
     private void Update()
     {
         CurrentState.OnUpdate(Time.deltaTime);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(NumberOfCollidingObjects == 0)
-        {
-            ChangeState(new StaggeredState(movement));
-        }
-
-        NumberOfCollidingObjects++;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (--NumberOfCollidingObjects == 0 && movement.HasStamina)
-        {
-            ChangeState(new MovingState(movement));
-        }
     }
 }

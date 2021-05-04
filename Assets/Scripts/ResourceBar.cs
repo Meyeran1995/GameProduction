@@ -9,8 +9,9 @@ public class ResourceBar : MonoBehaviour
     [SerializeField] [Range(1f, 10f)] private float depletionRate;
     [SerializeField] [Range(1f, 15f)] private float increaseRate;
 
-    public bool IsDepleting { get; set; }
     public bool IsDepleted => resource.value <= minimumValue;
+    public bool IsFull => resource.value >= maximumValue;
+    public bool IsDepleting { get; set; }
     public bool IsReplenishing { get; set; }
 
     [Header("Base Values")]

@@ -5,16 +5,16 @@ using UnityEngine;
 /// </summary>
 public class DownedState : AState
 {
-    public DownedState(MainCharacterMovement movement) : base(movement)
+    public DownedState(PlayerStateMachine owner, float exitTime = 0) : base(owner, exitTime)
     {
     }
 
-    public override void OnStateEnter() => movement.GetComponent<SpriteRenderer>().color = Color.red;
+    public override void OnStateEnter() => owner.GetComponent<SpriteRenderer>().color = Color.red;
 
     public override void OnStateExit(AState newState)
     {
-        movement.RegainSpeed();
-        movement.GetComponent<SpriteRenderer>().color = Color.white;
+        owner.Movement.RestartSpeedGain();
+        owner.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public override void OnUpdate(float delta)
