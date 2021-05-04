@@ -8,8 +8,9 @@ public class BubbleExpander : AMultiListenerEnabler
     [SerializeField] private ResourceBar energyBar;
 
     [Header("Bubble Properties")]
-    [SerializeField] [Range(0.1f, 2f)] private float minRadius;
-    [SerializeField] [Range(0.1f, 2f)] private float maxRadius;
+    [SerializeField] [Tooltip("Minimum radius for the bubble")] [Range(0.1f, 2f)] private float minRadius;
+    [SerializeField] [Tooltip("Maximum radius for the bubble")] [Range(0.1f, 2f)] private float maxRadius;
+    [SerializeField] [Tooltip("At which radius does the collider become active?")] [Range(0.1f, 2f)] private float activationRadius;
     [SerializeField] [Range(0.1f, 2f)] private float expansionRate;
     [SerializeField] [Range(100f, 500f)] private float bubblePushStrength;
 
@@ -43,6 +44,8 @@ public class BubbleExpander : AMultiListenerEnabler
         {
             AdjustRadius(-1);
         }
+
+        EvaluateBubbleState();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -63,9 +66,7 @@ public class BubbleExpander : AMultiListenerEnabler
 
     public void StopExpanding()
     {
-        bubbleCollider.enabled = false;
         isExpanding = false;
-        bubbleEdgeRenderer.enabled = false;
         energyBar.IsDepleting = false;
     }
 
@@ -73,6 +74,26 @@ public class BubbleExpander : AMultiListenerEnabler
     {
         bubbleCollider.radius = Mathf.Clamp(bubbleCollider.radius + expansionRate * Time.fixedDeltaTime * sign, minRadius, maxRadius);
         transform.GetChild(0).localScale = new Vector3(bubbleCollider.radius, bubbleCollider.radius) * 2f;
+    }
+
+    /// <summary>
+    /// Activate collision and rendering based on thresholds
+    /// </summary>
+    private void EvaluateBubbleState()
+    {
+
+        if (bubbleCollider.radius >= activationRadius)
+        {
+            bubbleCollider.enabled = true;
+            bubbleEdgeRenderer.color = new Color(1f, 0.5f, 0f);
+        }
+        else
+        {
+            bubbleCollider.enabled = false;
+            bubbleEdgeRenderer.color = Color.grey;
+        }
+
+        bubbleEdgeRenderer.enabled = bubbleCollider.radius > minRadius;
     }
 
     #region Resource Controls
@@ -93,6 +114,9 @@ public class BubbleExpander : AMultiListenerEnabler
     {
         GetComponent<CircleCollider2D>().radius = minRadius;
         transform.GetChild(0).localScale = new Vector3(minRadius * 2f, minRadius * 2f);
+
+        if (activationRadius > maxRadius || activationRadius < minRadius)
+            Debug.LogError("Activation radius is not within radius bounds");
     }
 
     private void OnDrawGizmosSelected()

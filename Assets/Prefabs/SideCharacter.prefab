@@ -169,8 +169,9 @@ MonoBehaviour:
   bubbleEdgeRenderer: {fileID: 7935104195725438810}
   energyBar: {fileID: 0}
   minRadius: 0.5
-  maxRadius: 2
-  expansionRate: 2
+  maxRadius: 1
+  activationRadius: 0.75
+  expansionRate: 1
   bubblePushStrength: 100
 --- !u!58 &7935104195149141418
 CircleCollider2D:

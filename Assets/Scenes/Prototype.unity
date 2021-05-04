@@ -6932,14 +6932,6 @@ PrefabInstance:
       propertyPath: energyBar
       value: 
       objectReference: {fileID: 1764607546}
-    - target: {fileID: 7935104195149141413, guid: cf3172af334961e4f97d002316be1c99, type: 3}
-      propertyPath: maxRadius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7935104195149141413, guid: cf3172af334961e4f97d002316be1c99, type: 3}
-      propertyPath: expansionRate
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7935104195149141416, guid: cf3172af334961e4f97d002316be1c99, type: 3}
       propertyPath: m_Name
       value: SideCharacter
