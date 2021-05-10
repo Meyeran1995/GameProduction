@@ -15,11 +15,11 @@ public class ObstacleTrap : ATrap
         if (!collision.gameObject.CompareTag("Player")) return;
 
         obstacleBody.gameObject.SetActive(true);
-        SnapToScreenBounds(true, true);
+        SnapToScreenBounds(false);
         obstacleBody.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    protected virtual void SnapToScreenBounds(bool matchX, bool matchY)
+    protected virtual void SnapToScreenBounds(bool matchX = true, bool matchY = true)
     {
         if(!matchX && !matchY) return;
 
@@ -30,7 +30,7 @@ public class ObstacleTrap : ATrap
 
         if (matchX)
         {
-           newPos.x = hit.point.x;
+           newPos.x = hit.point.x + 1f;
         }
 
         if (matchY)

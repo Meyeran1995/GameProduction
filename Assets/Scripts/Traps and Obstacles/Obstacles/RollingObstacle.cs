@@ -12,6 +12,24 @@ public class RollingObstacle : AMovingObstacle
 
     protected override void Move()
     {
-        rigidBody.AddForce(MovementDir * Time.fixedDeltaTime);
+        GroundObstacle();
+        rigidBody.MovePosition(rigidBody.position + MovementDir * Time.fixedDeltaTime);
+    }
+
+    /// <summary>
+    /// Casts a ray downward in order to get the current ground tile
+    /// </summary>
+    private void GroundObstacle()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, 1 << 8);
+
+        if (hit.transform == null)
+        {
+            this.enabled = false;
+        }
+        else
+        {
+            MovementDir = -hit.transform.right * obstacleSpeed;
+        }
     }
 }

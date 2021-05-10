@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleMass: 0.5
+  obstacleSpeed: 3
 --- !u!1 &5381015758047243715
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,4 +250,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleBody: {fileID: 5381015756589903679}
-  rollSpeed: 50
