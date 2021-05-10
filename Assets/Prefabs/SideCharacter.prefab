@@ -171,7 +171,7 @@ MonoBehaviour:
   minRadius: 0.5
   maxRadius: 1
   activationRadius: 0.75
-  expansionRate: 1
+  expansionRate: 1.5
   bubblePushStrength: 100
 --- !u!58 &7935104195149141418
 CircleCollider2D:

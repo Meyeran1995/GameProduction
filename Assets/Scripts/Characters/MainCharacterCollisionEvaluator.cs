@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Reacts to Collisions for the main character and changes state accordingly
+/// </summary>
 public class MainCharacterCollisionEvaluator : MonoBehaviour
 {
     [SerializeField] private float staggerTime;
@@ -19,16 +22,16 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        numberOfCollidingObjects++;
+
         if (collidingGameObjects.Contains(collision.gameObject)) return;
 
-        if (numberOfCollidingObjects == 0)
+        if (numberOfCollidingObjects == 1)
         {
             stateMachine.ChangeState(new StaggeredState(stateMachine, staggerTime));
         }
 
         StartCoroutine(ClearOnGoingCollisionFromList(collision.gameObject));
-
-        numberOfCollidingObjects++;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -60,12 +63,12 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
     /// <summary>
     /// Clears colliding object from the list
     /// </summary>
-    private IEnumerator ClearOnGoingCollisionFromList(GameObject collision)
+    private IEnumerator ClearOnGoingCollisionFromList(GameObject collidingGameObject)
     {
-        collidingGameObjects.Add(collision.gameObject);
+        collidingGameObjects.Add(collidingGameObject);
 
         yield return new WaitForSeconds(collisionClearTime);
 
-        collidingGameObjects.Remove(collision);
+        collidingGameObjects.Remove(collidingGameObject);
     }
 }
