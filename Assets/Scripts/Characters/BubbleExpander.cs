@@ -11,8 +11,8 @@ public class BubbleExpander : AMultiListenerEnabler
     [SerializeField] [Tooltip("Minimum radius for the bubble")] [Range(0.1f, 2f)] private float minRadius;
     [SerializeField] [Tooltip("Maximum radius for the bubble")] [Range(0.1f, 2f)] private float maxRadius;
     [SerializeField] [Tooltip("At which radius does the collider become active?")] [Range(0.1f, 2f)] private float activationRadius;
-    [SerializeField] [Range(0.1f, 2f)] private float expansionRate;
-    [SerializeField] [Range(100f, 500f)] private float bubblePushStrength;
+    [SerializeField] [Tooltip("How fast is the bubble growing?")] [Range(0.1f, 2f)] private float expansionRate;
+    [SerializeField] [Tooltip("Amount of force applied to objects that are pushed by the bubble")] [Range(100f, 500f)] private float bubblePushStrength;
 
     private bool isExpanding;
 

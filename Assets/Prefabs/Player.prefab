@@ -100,7 +100,7 @@ MonoBehaviour:
   currentSpeed: 0
   journeyCompleted: 0
   canMove: 1
-  timeToGetUp: 0
+  timeToGetUp: 0.1
   maxSpeedEvent: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
   speedLostEvent: {fileID: 11400000, guid: 6164c6b0e1e2bae45b94b244b14fd45f, type: 2}
   knockdownEvent: {fileID: 11400000, guid: c30d14e1d42360d49935bd6f27f1162b, type: 2}

@@ -3,8 +3,8 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     protected Rigidbody2D rigidBody;
-    [SerializeField] [Range(0.1f, 1f)] protected float obstacleMass;
-    [SerializeField] private ObstacleSpriteConfig spriteConfig;
+    [SerializeField] [Tooltip("Mass for the object \n\nOnly relevant for falling or rolling obstacles, does nothing for bird obstacles!")] [Range(0.1f, 10f)] protected float obstacleMass;
+    [SerializeField] [Tooltip("Available sprites to be randomly selected at runtime \n\nOnly relevant for falling or rolling obstacles, does nothing for bird obstacles!")] private ObstacleSpriteConfig spriteConfig;
 
     protected virtual void Awake()
     {
