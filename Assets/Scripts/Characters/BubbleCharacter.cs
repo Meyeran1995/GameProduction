@@ -10,10 +10,10 @@ public class BubbleCharacter : MonoBehaviour
     [SerializeField] [Tooltip("With how much delay is the character following the mouse?")] [Range(0f, 0.5f)] private float movementDelay;
     private const int MAX_FPS = 60;
 
-    private Vector2[] _positionBuffer;
-    private float[] _timeBuffer;
-    private int _oldestIndex;
-    private int _newestIndex;
+    private Vector2[] positionBuffer;
+    private float[] timeBuffer;
+    private int oldestIndex;
+    private int newestIndex;
 
     private void Awake()
     {
@@ -25,14 +25,14 @@ public class BubbleCharacter : MonoBehaviour
     private void Start()
     {
         int bufferLength = Mathf.CeilToInt(movementDelay * MAX_FPS);
-        _positionBuffer = new Vector2[bufferLength];
-        _timeBuffer = new float[bufferLength];
+        positionBuffer = new Vector2[bufferLength];
+        timeBuffer = new float[bufferLength];
 
-        _positionBuffer[0] = _positionBuffer[1] = transform.position;
-        _timeBuffer[0] = _timeBuffer[1] = Time.time;
+        positionBuffer[0] = positionBuffer[1] = transform.position;
+        timeBuffer[0] = timeBuffer[1] = Time.time;
 
-        _oldestIndex = 0;
-        _newestIndex = 1;
+        oldestIndex = 0;
+        newestIndex = 1;
     }
 
     private void FixedUpdate()
@@ -50,12 +50,12 @@ public class BubbleCharacter : MonoBehaviour
     {
         // Insert newest position into our cache.
         // If the cache is full, overwrite the latest sample.
-        int newIndex = (_newestIndex + 1) % _positionBuffer.Length;
-        if (newIndex != _oldestIndex)
-            _newestIndex = newIndex;
+        int newIndex = (newestIndex + 1) % positionBuffer.Length;
+        if (newIndex != oldestIndex)
+            newestIndex = newIndex;
 
-        _positionBuffer[_newestIndex] = mousePos;
-        _timeBuffer[_newestIndex] = Time.time;
+        positionBuffer[newestIndex] = mousePos;
+        timeBuffer[newestIndex] = Time.time;
     }
 
     private void MoveToNextPos()
@@ -63,18 +63,18 @@ public class BubbleCharacter : MonoBehaviour
         // Skip ahead in the buffer to the segment containing our target time.
         float targetTime = Time.time - movementDelay;
         int nextIndex;
-        while (_timeBuffer[nextIndex = (_oldestIndex + 1) % _timeBuffer.Length] < targetTime)
-            _oldestIndex = nextIndex;
+        while (timeBuffer[nextIndex = (oldestIndex + 1) % timeBuffer.Length] < targetTime)
+            oldestIndex = nextIndex;
 
         // Interpolate between the two samples on either side of our target time.
-        float span = _timeBuffer[nextIndex] - _timeBuffer[_oldestIndex];
+        float span = timeBuffer[nextIndex] - timeBuffer[oldestIndex];
         float progress = 0f;
         if (span > 0f)
         {
-            progress = (targetTime - _timeBuffer[_oldestIndex]) / span;
+            progress = (targetTime - timeBuffer[oldestIndex]) / span;
         }
 
-        bubbleBody.MovePosition(mainCam.ScreenToWorldPoint(Vector3.Lerp(_positionBuffer[_oldestIndex], _positionBuffer[nextIndex], progress)));
+        bubbleBody.MovePosition(mainCam.ScreenToWorldPoint(Vector3.Lerp(positionBuffer[oldestIndex], positionBuffer[nextIndex], progress)));
     }
 
     //private void OnDrawGizmos()
