@@ -8,6 +8,8 @@ public class BirdObstacle : AMovingObstacle
 {
     public Transform Target { get; set; }
 
+    protected override void Awake() => rigidBody = GetComponent<Rigidbody2D>();
+
     protected override void OnCollisionEnter2D(Collision2D collision) => StartCoroutine(WaitAndDisable());
 
     protected override void Move()

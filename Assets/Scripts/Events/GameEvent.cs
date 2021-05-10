@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace RoboRyanTron.Unite2017.Events
 {
-    [CreateAssetMenu(menuName = "ScritableObjects/GameEvent")]
+    [CreateAssetMenu(menuName = "ScriptableObjects/GameEvent")]
     public class GameEvent : ScriptableObject
     {
         /// <summary>

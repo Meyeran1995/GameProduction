@@ -4,10 +4,13 @@ public class Obstacle : MonoBehaviour
 {
     protected Rigidbody2D rigidBody;
     [SerializeField] [Range(0.1f, 1f)] protected float obstacleMass;
+    [SerializeField] private ObstacleSpriteConfig spriteConfig;
 
     protected virtual void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        GetComponent<SpriteRenderer>().sprite = spriteConfig.GetRandomSprite();
+        gameObject.AddComponent<CircleCollider2D>();
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -20,4 +23,11 @@ public class Obstacle : MonoBehaviour
     }
 
     protected void OnBecameInvisible() => Destroy(gameObject);
+
+    protected void OnValidate()
+    {
+        if (spriteConfig == null) return;
+
+        GetComponent<SpriteRenderer>().sprite = spriteConfig.GetFirstSprite();
+    }
 }

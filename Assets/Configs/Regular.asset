@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21fb02e2b1d3f34c8a0b4a4de6f57ce, type: 3}
+  m_Name: Regular
+  m_EditorClassIdentifier: 
+  obstacleSprites:
+  - {fileID: 21300000, guid: 1b6180bd94738664897a508db71322e1, type: 3}
+  - {fileID: 21300000, guid: 7da472f2af785424baed00d213b95061, type: 3}
+  - {fileID: 21300000, guid: e43d9a321f2464e4789d46b34583d3b1, type: 3}
+  - {fileID: 21300000, guid: 07999b2c33e376f4ba6e979f8f12d7bd, type: 3}
