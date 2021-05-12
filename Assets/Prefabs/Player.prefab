@@ -68,7 +68,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   mainResourceBar: {fileID: 0}
-  speedGain: 0.1
+  pickupSpeedGain: 0.1
   maxSpeed: 5.03
   minSpeed: 2.45
   speedCurve:
@@ -101,7 +101,6 @@ MonoBehaviour:
   currentSpeed: 0
   journeyCompleted: 0
   canMove: 1
-  timeToGetUp: 0.1
   maxSpeedEvent: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
   speedLostEvent: {fileID: 11400000, guid: 6164c6b0e1e2bae45b94b244b14fd45f, type: 2}
 --- !u!114 &708239604788086185
@@ -336,5 +335,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staggerTime: 0.125
-  numberOfCollidingObjects: 0
   boxSize: {x: 2, y: 1, z: 1}

@@ -8,13 +8,7 @@ public class MainCharacterMovement : AListenerEnabler
 
     [Header("Resources")]
     [SerializeField] private CircularResourceBar mainResourceBar;
-    [SerializeField] [Tooltip("How much of the maximum speed is gained by collecting feathers?")] [Range(0f, 1f)] private float speedGain;
-
-    [Header("Movement")]
-    private static readonly List<Checkpoint> CheckPoints = new List<Checkpoint>();
-    private int currentCheckpointIndex;
-    private Vector2 currentDirection;
-    private Rigidbody2D characterBody;
+    [SerializeField] [Tooltip("How much of the maximum speed is gained by collecting feathers?")] [Range(0f, 1f)] private float pickupSpeedGain;
 
     [Header("Speed")]
     [SerializeField] [Tooltip("Maximum speed to be reached")] [Range(1f, 10f)] private float maxSpeed;
@@ -26,10 +20,15 @@ public class MainCharacterMovement : AListenerEnabler
     [SerializeField] private float speedTime;
     [SerializeField] private float speedProgress, currentSpeed;
 
-    [Header("Movement States")]
+    // Movement
+    private static readonly List<Checkpoint> CheckPoints = new List<Checkpoint>();
+    private int currentCheckpointIndex;
+    private Vector2 currentDirection;
+    private Rigidbody2D characterBody;
+
+    [Header("Movement States Debug")]
     [SerializeField] [Tooltip("Was the end of the journey reached?")] private bool journeyCompleted;
     [SerializeField] [Tooltip("Are we able to move?")] private bool canMove;
-    [SerializeField] [Tooltip("How fast is the character getting back up?")] [Range(0.1f, 1f)] private float timeToGetUp;
 
     [Header("Events")] 
     [SerializeField] [Tooltip("Event when reaching maximum speed")] private GameEvent maxSpeedEvent;
@@ -157,7 +156,7 @@ public class MainCharacterMovement : AListenerEnabler
     /// </summary>
     public void GainSpeed()
     {
-        currentSpeed = Mathf.Clamp(currentSpeed + speedGain * maxSpeed, 0f, maxSpeed);
+        currentSpeed = Mathf.Clamp(currentSpeed + pickupSpeedGain * maxSpeed, 0f, maxSpeed);
         mainResourceBar.SetCurrentValue(Mathf.InverseLerp(minSpeed, maxSpeed, currentSpeed));
     }
 
