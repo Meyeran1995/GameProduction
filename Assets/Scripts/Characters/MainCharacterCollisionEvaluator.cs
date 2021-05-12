@@ -1,4 +1,4 @@
-using System.Collections;
+//using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,9 +11,12 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
     private PlayerStateMachine stateMachine;
 
     [Header("Collisions")]
-    [SerializeField] private float collisionClearTime;
+    //[SerializeField] private float collisionClearTime;
     [SerializeField] private int numberOfCollidingObjects;
-    private readonly List<GameObject> collidingGameObjects = new List<GameObject>();
+    //private readonly List<GameObject> collidingGameObjects = new List<GameObject>();
+
+    [Header("Collision Query")] 
+    [SerializeField] private Vector3 boxSize;
 
     private void Awake()
     {
@@ -22,53 +25,67 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        numberOfCollidingObjects++;
+        //numberOfCollidingObjects++;
 
-        if (collidingGameObjects.Contains(collision.gameObject)) return;
+        //if (collidingGameObjects.Contains(collision.gameObject)) return;
 
-        if (numberOfCollidingObjects == 1)
+        if (++numberOfCollidingObjects == 1)
         {
-            stateMachine.ChangeState(new StaggeredState(stateMachine, staggerTime));
+            stateMachine.ChangeState(new WaitingState(stateMachine, this, staggerTime));
         }
 
-        StartCoroutine(ClearOnGoingCollisionFromList(collision.gameObject));
+        //StartCoroutine(ClearOnGoingCollisionFromList(collision.gameObject));
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (--numberOfCollidingObjects == 0 && stateMachine.Movement.HasStamina)
-        {
-            stateMachine.ChangeState(new MovingState(stateMachine));
-        }
+        //if (--numberOfCollidingObjects == 0 && stateMachine.Movement.HasStamina)
+        //{
+        //    stateMachine.ChangeState(new MovingState(stateMachine));
+        //}
+        --numberOfCollidingObjects;
     }
 
     /// <summary>
     /// Attempt to restart movement after stamina has been restored
     /// </summary>
-    public void AttemptToBeginMoving()
+    //public void AttemptToBeginMoving()
+    //{
+    //    StartCoroutine(WaitForEndOfCollisions());
+    //}
+
+    ///// <summary>
+    ///// Waits for all remaining collisions to be cleared before restarting movement
+    ///// </summary>
+    //private IEnumerator WaitForEndOfCollisions()
+    //{
+    //    yield return new WaitUntil(() => numberOfCollidingObjects == 0);
+
+    //    stateMachine.ChangeState(new MovingState(stateMachine));
+    //}
+
+    ///// <summary>
+    ///// Clears colliding object from the list
+    ///// </summary>
+    //private IEnumerator ClearOnGoingCollisionFromList(GameObject collidingGameObject)
+    //{
+    //    collidingGameObjects.Add(collidingGameObject);
+
+    //    yield return new WaitForSeconds(collisionClearTime);
+
+    //    collidingGameObjects.Remove(collidingGameObject);
+    //}
+
+    public bool QueryForFrontalCollisions()
     {
-        StartCoroutine(WaitForEndOfCollisions());
+        return Physics2D.OverlapBox(transform.position, Vector3.Scale(transform.localScale, boxSize), transform.localEulerAngles.z, 1 << 0);
     }
 
-    /// <summary>
-    /// Waits for all remaining collisions to be cleared before restarting movement
-    /// </summary>
-    private IEnumerator WaitForEndOfCollisions()
+    private void OnDrawGizmosSelected()
     {
-        yield return new WaitUntil(() => numberOfCollidingObjects == 0);
-
-        stateMachine.ChangeState(new MovingState(stateMachine));
-    }
-
-    /// <summary>
-    /// Clears colliding object from the list
-    /// </summary>
-    private IEnumerator ClearOnGoingCollisionFromList(GameObject collidingGameObject)
-    {
-        collidingGameObjects.Add(collidingGameObject);
-
-        yield return new WaitForSeconds(collisionClearTime);
-
-        collidingGameObjects.Remove(collidingGameObject);
+        Gizmos.color = Color.red;
+        // transform gizmo using this scripts transform matrix
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawWireCube(transform.forward, boxSize);
     }
 }

@@ -4,7 +4,7 @@ public class ParallaxEffect : MonoBehaviour
 {
     private float length, startPos;
     private static Transform cinemachineVirtualFollowCam;
-	[SerializeField] [Tooltip("How fast is the object going to scroll?")] [Range(0f, 1f)]private float effectStrength;
+	[SerializeField] [Tooltip("How fast is the object going to scroll?")] [Range(0f, 1f)] private float effectStrength;
     [SerializeField] [Tooltip("Is the object moving to the left side of the screen?")] private bool moveLeft;
 
 	private void Awake() 
@@ -24,11 +24,13 @@ public class ParallaxEffect : MonoBehaviour
 	
 	private void FixedUpdate () 
     {
+        // Parallax effect
 		float temp = cinemachineVirtualFollowCam.position.x * (1-effectStrength);
 		float dist = cinemachineVirtualFollowCam.position.x * effectStrength;
 
 		transform.position = new Vector3(startPos + dist, transform.position.y, transform.position.z);
 
+        // Infinite scroll
         if (temp > startPos + length)
         {
             startPos += length;

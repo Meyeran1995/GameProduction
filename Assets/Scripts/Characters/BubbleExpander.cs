@@ -5,7 +5,7 @@ public class BubbleExpander : AMultiListenerEnabler
 {
     [SerializeField] private CircleCollider2D bubbleCollider;
     [SerializeField] private SpriteRenderer bubbleEdgeRenderer;
-    [SerializeField] private ResourceBar energyBar;
+    [SerializeField] private AutoFillResourceBar energyBar;
 
     [Header("Bubble Properties")]
     [SerializeField] [Tooltip("Minimum radius for the bubble")] [Range(0.1f, 2f)] private float minRadius;

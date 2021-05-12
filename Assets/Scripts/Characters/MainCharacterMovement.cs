@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 using RoboRyanTron.Unite2017.Events;
 
@@ -8,9 +7,8 @@ public class MainCharacterMovement : AListenerEnabler
     #region Fields
 
     [Header("Resources")]
-    [SerializeField] private ResourceBar mainResourceBar;
-    [SerializeField] [Tooltip("How much stamina is lost on being staggered?")] private float staggerDepletion;
-    [SerializeField] [Tooltip("How much stamina is gained by collecting feathers")] private float staminaGain;
+    [SerializeField] private CircularResourceBar mainResourceBar;
+    [SerializeField] [Tooltip("How much of the maximum speed is gained by collecting feathers?")] [Range(0f, 1f)] private float speedGain;
 
     [Header("Movement")]
     private static readonly List<Checkpoint> CheckPoints = new List<Checkpoint>();
@@ -21,22 +19,21 @@ public class MainCharacterMovement : AListenerEnabler
     [Header("Speed")]
     [SerializeField] [Tooltip("Maximum speed to be reached")] [Range(1f, 10f)] private float maxSpeed;
     [SerializeField] [Tooltip("Minimum speed after being hit")] [Range(0.1f, 10f)] private float minSpeed;
-    [SerializeField] [Tooltip("How fast is speed gained?")] private AnimationCurve speedCurve;
-    [SerializeField] private float speedIncrease, currentSpeed;
+    [SerializeField] [Tooltip("How fast is speed gained? \nOnly use values between 0 and 1!")] private AnimationCurve speedCurve;
+    [SerializeField] [Tooltip("How long does it take to gain maximum speed?")] private float rampTime;
+
+    [Header("Speed Debug")] 
+    [SerializeField] private float speedTime;
+    [SerializeField] private float speedProgress, currentSpeed;
 
     [Header("Movement States")]
     [SerializeField] [Tooltip("Was the end of the journey reached?")] private bool journeyCompleted;
     [SerializeField] [Tooltip("Are we able to move?")] private bool canMove;
     [SerializeField] [Tooltip("How fast is the character getting back up?")] [Range(0.1f, 1f)] private float timeToGetUp;
 
-    public bool HasStamina => !mainResourceBar.IsDepleted;
-
-    public bool HasMaximumStamina => mainResourceBar.IsFull;
-
     [Header("Events")] 
     [SerializeField] [Tooltip("Event when reaching maximum speed")] private GameEvent maxSpeedEvent;
     [SerializeField] [Tooltip("Event when the character gets hit and loses speed")] private GameEvent speedLostEvent;
-    [SerializeField] [Tooltip("Event when the character gets knocked down after losing all their stamina")] private GameEvent knockdownEvent;
 
     #endregion
 
@@ -104,55 +101,29 @@ public class MainCharacterMovement : AListenerEnabler
         journeyCompleted = true;
     }
 
-    /// <summary>
-    /// Halt movement, lose speed and deplete stamina
-    /// </summary>
-    public void StaggerCharacterMovement()
-    {
-        mainResourceBar.DepleteResource(staggerDepletion);
-        canMove = false;
-        speedLostEvent.Raise();
-
-        // Check whether the character should be downed because of stamina depletion
-        if (mainResourceBar.IsDepleted)
-        {
-            StopCharacterMovement();
-        }
-    }
-
-    /// <summary>
-    /// Stop moving and go into downed state
-    /// </summary>
-    private void StopCharacterMovement()
-    {
-        knockdownEvent.Raise();
-        PlayerStateMachine.Instance.ChangeState(new DownedState(PlayerStateMachine.Instance, timeToGetUp));
-    }
-
     #endregion
 
     #region Speed
-
-    /// <summary>
-    /// Regain speed after previously being slowed
-    /// </summary>
-    public void RestartSpeedGain()
-    {
-        currentSpeed = minSpeed;
-        speedIncrease = 0f;
-        canMove = true;
-    }
 
     /// <summary>
     /// Increase speed while moving
     /// </summary>
     private void RampUpSpeed()
     {
-
         if (currentSpeed >= maxSpeed) return;
 
-        speedIncrease = Mathf.Clamp01(speedIncrease + Time.fixedDeltaTime);
-        currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, speedIncrease);
+        // Which time is it inside of the speed cycle?
+        speedTime = Mathf.Clamp(speedTime + Time.fixedDeltaTime, 0f, rampTime);
+        // How much progress did we make, according to time?
+        speedProgress = Mathf.InverseLerp(0f, rampTime,speedTime);
+
+        // Compare progress made to actual speed value, in case we picked up a feather
+        if(speedProgress < mainResourceBar.FillAmount) return;
+
+        // Calculate current speed based on progress
+        currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, speedCurve.Evaluate(speedProgress));
+        // Update Ui
+        mainResourceBar.SetCurrentValue(speedProgress);
 
         if (currentSpeed < maxSpeed) return;
 
@@ -160,28 +131,41 @@ public class MainCharacterMovement : AListenerEnabler
         maxSpeedEvent.Raise();
     }
 
-    #endregion
-
-    #region Stamina
-
     /// <summary>
-    /// Start regaining stamina
+    /// Halt movement, lose speed
     /// </summary>
-    public void RegainStamina() => mainResourceBar.IsReplenishing = true;
-
-    /// <summary>
-    /// Stops the character from regaining stamina and checks whether we can move again
-    /// </summary>
-    public void StopStaminaRegain()
+    public void StaggerCharacterMovement()
     {
-        mainResourceBar.IsReplenishing = false;
-        GetComponent<MainCharacterCollisionEvaluator>().AttemptToBeginMoving();
+        canMove = false;
+        speedLostEvent.Raise();
     }
 
     /// <summary>
-    /// Increase maximum amount of stamina (via event)
+    /// Start gaining speed again
     /// </summary>
-    [UsedImplicitly] public void IncreaseMaxStamina() => mainResourceBar.IncreaseMaxResource(staminaGain);
+    public void RestartSpeedGain()
+    {
+        currentSpeed = minSpeed;
+        speedTime = 0f;
+        // Update Ui
+        mainResourceBar.SetCurrentValue(0f);
+        canMove = true;
+    }
+
+    /// <summary>
+    /// Instantly gain a pre-defined amount of speed
+    /// </summary>
+    public void GainSpeed()
+    {
+        currentSpeed = Mathf.Clamp(currentSpeed + speedGain * maxSpeed, 0f, maxSpeed);
+        mainResourceBar.SetCurrentValue(Mathf.InverseLerp(minSpeed, maxSpeed, currentSpeed));
+    }
 
     #endregion
+
+    private void OnValidate()
+    {
+        if(speedCurve.keys[0].value < 0f || speedCurve.keys[speedCurve.keys.Length - 1].value > 1f)
+            Debug.LogError("Speed curve values need to be between 0 and 1");
+    }
 }

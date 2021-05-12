@@ -19,7 +19,7 @@ public class PlayerStateMachine : MonoBehaviour
     public void ChangeState(AState newState)
     {
         if (exitRoutine != null || newState.GetType() == CurrentState.GetType()) return;
-        if (CurrentState.GetType() == typeof(DownedState) && newState.GetType() != typeof(MovingState)) return;
+        if (CurrentState.GetType() == typeof(WaitingState) && newState.GetType() != typeof(MovingState)) return;
 
         if (CurrentState.exitTime != 0f)
         {
@@ -49,8 +49,8 @@ public class PlayerStateMachine : MonoBehaviour
         TransitionToNextState(newState);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        CurrentState.OnUpdate(Time.deltaTime);
+        CurrentState.OnFixedUpdate(Time.fixedDeltaTime);
     }
 }

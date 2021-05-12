@@ -18,7 +18,7 @@ public class MovingState : AState
     {
     }
 
-    public override void OnUpdate(float delta)
+    public override void OnFixedUpdate(float delta)
     {
     }
 }

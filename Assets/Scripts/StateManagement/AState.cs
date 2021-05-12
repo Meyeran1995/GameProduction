@@ -21,7 +21,7 @@ public abstract class AState
     /// States update loop
     /// </summary>
     /// <param name="delta">Delta time</param>
-    public abstract void OnUpdate(float delta);
+    public abstract void OnFixedUpdate(float delta);
 
     /// <summary>
     /// Method to be called upon exiting the state
