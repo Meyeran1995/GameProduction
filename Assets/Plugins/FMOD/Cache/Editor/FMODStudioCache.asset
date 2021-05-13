@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8550749609447950663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/XX/XX_TEST
+  m_EditorClassIdentifier: 
+  Path: event:/XX/XX_TEST
+  guid: 2a5a4568d714084b891c8b63d684fe1c
+  Banks:
+  - {fileID: 7162061975931180972}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 208326
 --- !u!114 &-8176573059234018557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,12 +38,35 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637553978742886482
+  lastModified: 637565140451510846
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 744
+    Value: 1386
   Exists: 1
+--- !u!114 &-6805801878938577804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AMB/ev_sx_amb_mountain_wind_blow
+  m_EditorClassIdentifier: 
+  Path: event:/AMB/ev_sx_amb_mountain_wind_blow
+  guid: 20c331a7bc8c694992bf5f6644fba478
+  Banks:
+  - {fileID: 7162061975931180972}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 30000
 --- !u!114 &-5738671009987181829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,6 +90,98 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 208326
+--- !u!114 &-2002578573656815775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/INT/ev_sx_int_feather_collect
+  m_EditorClassIdentifier: 
+  Path: event:/INT/ev_sx_int_feather_collect
+  guid: 7bc594e69436be4bb8c7509f0e52c305
+  Banks:
+  - {fileID: 7162061975931180972}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4000
+--- !u!114 &-1834395126510485296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENV/Rocks/ev_sx_env_mountains_rocks_falling
+  m_EditorClassIdentifier: 
+  Path: event:/ENV/Rocks/ev_sx_env_mountains_rocks_falling
+  guid: b782de1169ecec4ebb4c82e03a44de40
+  Banks:
+  - {fileID: 7162061975931180972}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1121412501683458106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENV/Rocks/ev_sx_env_mountain_rocks_stomp
+  m_EditorClassIdentifier: 
+  Path: event:/ENV/Rocks/ev_sx_env_mountain_rocks_stomp
+  guid: 291b28961435c044902ae94c2807b22a
+  Banks:
+  - {fileID: 7162061975931180972}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1200
+--- !u!114 &-52927145083867465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLR/ev_sx_plr_bubble_protectplayer
+  m_EditorClassIdentifier: 
+  Path: event:/PLR/ev_sx_plr_bubble_protectplayer
+  guid: 4fd26dffb85a8947a40da33fb34b8e06
+  Banks:
+  - {fileID: 7162061975931180972}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7300
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,14 +198,114 @@ MonoBehaviour:
   - {fileID: -8176573059234018557}
   - {fileID: 7162061975931180972}
   EditorEvents:
-  - {fileID: -5738671009987181829}
-  EditorParameters: []
+  - {fileID: 2439635274567013458}
+  - {fileID: -6805801878938577804}
+  - {fileID: 6597980709192814103}
+  - {fileID: -1121412501683458106}
+  - {fileID: -8550749609447950663}
+  - {fileID: 7761856070888075893}
+  - {fileID: -52927145083867465}
+  - {fileID: -2002578573656815775}
+  - {fileID: 3664828712273128570}
+  - {fileID: -1834395126510485296}
+  EditorParameters:
+  - {fileID: 1821685831969451234}
+  - {fileID: 8712615219921845822}
   MasterBanks:
   - {fileID: 7162061975931180972}
   StringsBanks:
   - {fileID: -8176573059234018557}
-  stringsBankWriteTime: 637553978742886482
+  stringsBankWriteTime: 637565140451510846
   cacheVersion: 6
+--- !u!114 &1821685831969451234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/IsInCave
+  m_EditorClassIdentifier: 
+  Name: IsInCave
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2828390112
+    data2: 2486969673
+  Exists: 1
+--- !u!114 &2439635274567013458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENV/Crow/ev_sx_env_crow_scream
+  m_EditorClassIdentifier: 
+  Path: event:/ENV/Crow/ev_sx_env_crow_scream
+  guid: 0bb1dad5d9504448a0ba71fb69d0e356
+  Banks:
+  - {fileID: 7162061975931180972}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 740
+--- !u!114 &3664828712273128570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLR/ev_sx_plr_foot_step
+  m_EditorClassIdentifier: 
+  Path: event:/PLR/ev_sx_plr_foot_step
+  guid: 9fabee98e43e1246b7c0cec76e7cfb04
+  Banks:
+  - {fileID: 7162061975931180972}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
+--- !u!114 &6597980709192814103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ENV/Crow/ev_sx_env_crow_death
+  m_EditorClassIdentifier: 
+  Path: event:/ENV/Crow/ev_sx_env_crow_death
+  guid: 28cab0cd42aa804fa245a0bff7056cf8
+  Banks:
+  - {fileID: 7162061975931180972}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &7162061975931180972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +321,50 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637553978742876227
+  lastModified: 637565140451480841
   LoadResult: 0
   FileSizes: []
+  Exists: 1
+--- !u!114 &7761856070888075893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PLR/ev_sx_plr_hit
+  m_EditorClassIdentifier: 
+  Path: event:/PLR/ev_sx_plr_hit
+  guid: 314e2c1abd287e4c840014e6dfdbe3a9
+  Banks:
+  - {fileID: 7162061975931180972}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 983
+--- !u!114 &8712615219921845822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/WindIntensity
+  m_EditorClassIdentifier: 
+  Name: WindIntensity
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 61871047
+    data2: 3050193623
   Exists: 1
