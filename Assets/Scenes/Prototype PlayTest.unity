@@ -502,7 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: 
   parameter: IsInCave
-  TriggerEvent: 1
+  TriggerEvent: 11
   value: 0
 --- !u!114 &1266777991
 MonoBehaviour:
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: 
   parameter: WindIntensity
-  TriggerEvent: 1
+  TriggerEvent: 11
   value: 1
 --- !u!114 &1266777992
 MonoBehaviour:
