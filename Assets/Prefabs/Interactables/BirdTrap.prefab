@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleMass: 0
   spriteConfig: {fileID: 0}
-  onTriggeredSound: event:/ENV/Crow/ev_sx_env_crow_death
+  onTriggeredSound: event:/ENV/Crow/ev_sx_env_crow_scream
   continuousSound: 
   obstacleSpeed: 8
   onDestroyedSound: event:/ENV/Crow/ev_sx_env_crow_death

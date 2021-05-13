@@ -1,5 +1,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 public class BubbleExpander : AMultiListenerEnabler
 {
@@ -18,12 +20,27 @@ public class BubbleExpander : AMultiListenerEnabler
 
     public bool HasEnergyLeft => !energyBar.IsDepleted;
 
+    [Header("Sounds")]
+    [EventRef] [SerializeField] [Tooltip("Sound to be played while using the bubble")] private string bubbleSound;
+
+    private Rigidbody2D bubbleRigidbody;
+
+    private EventInstance bubbleSoundInstance;
+
     private void Awake()
     {
         bubbleCollider = GetComponent<CircleCollider2D>();
         bubbleCollider.enabled = false;
         bubbleEdgeRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         bubbleEdgeRenderer.enabled = false;
+
+        bubbleRigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        bubbleSoundInstance = RuntimeManager.CreateInstance(bubbleSound);
+        bubbleSoundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject, bubbleRigidbody));
     }
 
     private void FixedUpdate()
@@ -35,6 +52,8 @@ public class BubbleExpander : AMultiListenerEnabler
                 StopExpanding();
                 return;
             }
+
+            bubbleSoundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject, bubbleRigidbody));
 
             if (bubbleCollider.radius >= maxRadius) return;
 
@@ -52,28 +71,6 @@ public class BubbleExpander : AMultiListenerEnabler
     {
         Vector3 forceDirection = collision.rigidbody.transform.position - transform.position;
         collision.rigidbody.AddForce(forceDirection.normalized * bubblePushStrength);
-    }
-
-    public void StartExpanding()
-    {
-        if(energyBar.IsDepleted) return;
-
-        bubbleCollider.enabled = true;
-        isExpanding = true;
-        bubbleEdgeRenderer.enabled = true;
-        energyBar.IsDepleting = true;
-    }
-
-    public void StopExpanding()
-    {
-        isExpanding = false;
-        energyBar.IsDepleting = false;
-    }
-
-    private void AdjustRadius(int sign)
-    {
-        bubbleCollider.radius = Mathf.Clamp(bubbleCollider.radius + expansionRate * Time.fixedDeltaTime * sign, minRadius, maxRadius);
-        transform.GetChild(0).localScale = new Vector3(bubbleCollider.radius, bubbleCollider.radius) * 2f;
     }
 
     /// <summary>
@@ -96,15 +93,37 @@ public class BubbleExpander : AMultiListenerEnabler
         bubbleEdgeRenderer.enabled = bubbleCollider.radius > minRadius;
     }
 
+    #region Bubble Expansion
+
+    public void StartExpanding()
+    {
+        if (energyBar.IsDepleted) return;
+
+        bubbleSoundInstance.start();
+        isExpanding = true;
+        energyBar.IsDepleting = true;
+    }
+
+    public void StopExpanding()
+    {
+        bubbleSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        isExpanding = false;
+        energyBar.IsDepleting = false;
+    }
+
+    private void AdjustRadius(int sign)
+    {
+        bubbleCollider.radius = Mathf.Clamp(bubbleCollider.radius + expansionRate * Time.fixedDeltaTime * sign, minRadius, maxRadius);
+        transform.GetChild(0).localScale = new Vector3(bubbleCollider.radius, bubbleCollider.radius) * 2f;
+    }
+
+    #endregion
+
     #region Resource Controls
 
     [UsedImplicitly] public void StartResourceRegeneration() => energyBar.IsReplenishing = true;
 
     [UsedImplicitly] public void EndResourceGeneration() => energyBar.IsReplenishing = false;
-
-    public void StartResourceDepletion() => energyBar.IsDepleting = true;
-
-    public void EndResourceDepletion() => energyBar.IsDepleting = false;
 
     #endregion
 
