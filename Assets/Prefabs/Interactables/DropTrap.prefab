@@ -121,8 +121,7 @@ MonoBehaviour:
   obstacleMass: 0.3
   spriteConfig: {fileID: 11400000, guid: 5a13671f00dd96d4e9c1141c52ffa88e, type: 2}
   onTriggeredSound: 
-  continousSound: 
-  onDestroyedSound: 
+  continuousSound: 
 --- !u!114 &1702552403007780681
 MonoBehaviour:
   m_ObjectHideFlags: 0

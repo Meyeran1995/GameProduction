@@ -4934,11 +4934,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9076654391521068543, guid: eb191f6c27b735348a000e4b30016b85, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 9076654391521068543, guid: eb191f6c27b735348a000e4b30016b85, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.35
+      value: 0.525
       objectReference: {fileID: 0}
     - target: {fileID: 9076654392146855685, guid: eb191f6c27b735348a000e4b30016b85, type: 3}
       propertyPath: m_Name

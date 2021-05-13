@@ -10,6 +10,8 @@ public class CircularResourceBar : MonoBehaviour
     [SerializeField] [Range(0f, 1f)] private float maximumValue;
     [SerializeField] private float currentValue;
 
+    public float CurrentValue => currentValue;
+
     public float FillAmount => circleImage.fillAmount;
 
     private void Awake()
