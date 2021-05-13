@@ -1,14 +1,21 @@
 using System.Collections;
 using UnityEngine;
+using FMODUnity;
 
 /// <summary>
 /// An evil bird that charges at the target
 /// </summary>
 public class BirdObstacle : AMovingObstacle
 {
+    [Header("Additional Sounds")]
+    [EventRef] [SerializeField] [Tooltip("Sound to be played on destruction")] protected string onDestroyedSound;
+
     public Transform Target { get; set; }
 
-    protected override void Awake() => rigidBody = GetComponent<Rigidbody2D>();
+    protected override void Awake()
+    {
+        // Overwrite to do nothing in Awake (rigidbody is now set in onenable
+    }
 
     protected override void OnCollisionEnter2D(Collision2D collision) => StartCoroutine(WaitAndDisable());
 
@@ -27,5 +34,13 @@ public class BirdObstacle : AMovingObstacle
         yield return new WaitForEndOfFrame();
 
         transform.parent.gameObject.SetActive(false);
+        OnDestroyedPlay();
+    }
+
+    private void OnDestroyedPlay()
+    {
+        if (string.IsNullOrWhiteSpace(onDestroyedSound)) return;
+
+        RuntimeManager.PlayOneShotAttached(onDestroyedSound, gameObject);
     }
 }
