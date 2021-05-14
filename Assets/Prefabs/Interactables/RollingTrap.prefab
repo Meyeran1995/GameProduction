@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5381015756589903678}
   - component: {fileID: 5381015756589903679}
   - component: {fileID: 4947260926531504739}
+  - component: {fileID: 1599801419940039881}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -119,7 +120,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleMass: 0.5
   spriteConfig: {fileID: 11400000, guid: 5a13671f00dd96d4e9c1141c52ffa88e, type: 2}
+  onTriggeredSound: 
+  continuousSound: 
   obstacleSpeed: 3
+--- !u!70 &1599801419940039881
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5381015756589903674}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 3.7, y: 3.7}
+  m_Direction: 1
 --- !u!1 &5381015758047243715
 GameObject:
   m_ObjectHideFlags: 0
