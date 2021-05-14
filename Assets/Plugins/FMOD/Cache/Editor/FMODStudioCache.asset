@@ -38,11 +38,11 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637565963071518926
+  lastModified: 637566125090847776
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1386
+    Value: 1432
   Exists: 1
 --- !u!114 &-6805801878938577804
 MonoBehaviour:
@@ -208,6 +208,7 @@ MonoBehaviour:
   - {fileID: -2002578573656815775}
   - {fileID: 3664828712273128570}
   - {fileID: -1834395126510485296}
+  - {fileID: 7300841468080187632}
   EditorParameters:
   - {fileID: 1821685831969451234}
   - {fileID: 8712615219921845822}
@@ -215,7 +216,7 @@ MonoBehaviour:
   - {fileID: 7162061975931180972}
   StringsBanks:
   - {fileID: -8176573059234018557}
-  stringsBankWriteTime: 637565963071518926
+  stringsBankWriteTime: 637566125090847776
   cacheVersion: 6
 --- !u!114 &1821685831969451234
 MonoBehaviour:
@@ -321,10 +322,33 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637565963071513845
+  lastModified: 637566125090797734
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &7300841468080187632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AMB/ev_sx_amb_mountain_cave
+  m_EditorClassIdentifier: 
+  Path: event:/AMB/ev_sx_amb_mountain_cave
+  guid: 89e7b1d983fd1f4591491425d64fb58f
+  Banks:
+  - {fileID: 7162061975931180972}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 87851
 --- !u!114 &7761856070888075893
 MonoBehaviour:
   m_ObjectHideFlags: 0
