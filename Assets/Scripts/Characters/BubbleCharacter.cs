@@ -32,6 +32,8 @@ public class BubbleCharacter : MonoBehaviour
 
         oldestIndex = 0;
         newestIndex = 1;
+
+        gameObject.SetActive(false);
     }
 
     private void FixedUpdate()

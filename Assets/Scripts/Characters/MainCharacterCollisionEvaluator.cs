@@ -1,5 +1,3 @@
-//using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -11,6 +9,8 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
 
     [Header("Collisions")]
     [SerializeField] [Tooltip("Minimum amount of time the character will stand still for after being hit")] private float staggerTime;
+
+    public float StaggerTime => staggerTime;
     private int numberOfCollidingObjects;
 
     [Header("Collision Query")] 

@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerStateMachine : MonoBehaviour
 {
     public AState CurrentState { get; private set; }
+
     public static PlayerStateMachine Instance { get; private set; }
     public MainCharacterMovement Movement { get; private set; }
 
@@ -13,17 +14,18 @@ public class PlayerStateMachine : MonoBehaviour
     {
         Instance = this;
         Movement = GetComponent<MainCharacterMovement>();
-        CurrentState = new MovingState(this);
+        var collisionEvaluator = GetComponent<MainCharacterCollisionEvaluator>();
+        CurrentState = new WaitingState(this, collisionEvaluator, collisionEvaluator.StaggerTime);
+        CurrentState.OnStateEnter();
     }
 
     public void ChangeState(AState newState)
     {
         if (exitRoutine != null || newState.GetType() == CurrentState.GetType()) return;
-        if (CurrentState.GetType() == typeof(WaitingState) && newState.GetType() != typeof(MovingState)) return;
 
         if (CurrentState.exitTime != 0f)
         {
-            StartCoroutine(WaitForExitTime(newState));
+            exitRoutine = StartCoroutine(WaitForExitTime(newState));
         }
         else
         {
@@ -47,6 +49,7 @@ public class PlayerStateMachine : MonoBehaviour
         yield return new WaitForSeconds(CurrentState.exitTime);
 
         TransitionToNextState(newState);
+        exitRoutine = null;
     }
 
     private void FixedUpdate()
