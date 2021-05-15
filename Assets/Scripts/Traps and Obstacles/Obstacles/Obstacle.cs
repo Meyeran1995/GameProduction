@@ -1,5 +1,6 @@
 using UnityEngine;
 using FMODUnity;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 [RequireComponent(typeof(CapsuleCollider2D))]
 public class Obstacle : MonoBehaviour
@@ -12,6 +13,7 @@ public class Obstacle : MonoBehaviour
     [Header("Base Sounds")]
     [EventRef] [SerializeField] [Tooltip("Sound to be played when the corresponding trap gets triggered")] protected string onTriggeredSound;
     [EventRef] [SerializeField] [Tooltip("A continuous sound to be played while the obstacle is active")] protected string continuousSound;
+    private FMOD.Studio.EventInstance continuousInstance;
     
 
     protected void OnEnable()
@@ -19,6 +21,7 @@ public class Obstacle : MonoBehaviour
         if (rigidBody)
         {
             OnTriggeredPlay();
+            OnContinuousPlay();
         }
         else
         {
@@ -35,8 +38,9 @@ public class Obstacle : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
+        continuousInstance.stop(STOP_MODE.ALLOWFADEOUT);
         if (!collision.gameObject.CompareTag("Player")) return;
-
+        
         rigidBody.velocity = Vector2.zero;
         rigidBody.angularVelocity = 0f;
         rigidBody.mass = obstacleMass;
@@ -46,6 +50,13 @@ public class Obstacle : MonoBehaviour
 
     #region Sound
 
+    private void OnContinuousPlay()
+    {
+        if(string.IsNullOrWhiteSpace(continuousSound)) return;
+        continuousInstance = RuntimeManager.CreateInstance(continuousSound);
+        continuousInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject, rigidBody));
+        continuousInstance.start();
+    }
     private void OnTriggeredPlay()
     {
         if(string.IsNullOrWhiteSpace(onTriggeredSound)) return;

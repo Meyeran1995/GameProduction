@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5381015756589903679}
   - component: {fileID: 4947260926531504739}
   - component: {fileID: 1599801419940039881}
+  - component: {fileID: 8653751602878942729}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -139,6 +140,29 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 3.7, y: 3.7}
   m_Direction: 1
+--- !u!114 &8653751602878942729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5381015756589903674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/ENV/Rocks/ev_sx_env_mountain_rocks_stomp
+  PlayEvent: 9
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5381015758047243715
 GameObject:
   m_ObjectHideFlags: 0
