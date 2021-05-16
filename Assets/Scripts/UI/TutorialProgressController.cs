@@ -13,6 +13,7 @@ public class TutorialProgressController : MonoBehaviour
     private void Awake()
     {
         playButton.SetActive(false);
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "feathers-intro.mp4");
         videoPlayer.Prepare();
     }
 
@@ -27,6 +28,7 @@ public class TutorialProgressController : MonoBehaviour
     [UsedImplicitly]
     public void StartIntro()
     {
+        
         videoPlayer.Play();
         videoPlayer.loopPointReached += WatchForEndOfClip;
     }

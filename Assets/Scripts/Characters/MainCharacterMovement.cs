@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using RoboRyanTron.Unite2017.Events;
 
@@ -110,6 +111,23 @@ public class MainCharacterMovement : AListenerEnabler
 
     #region Speed
 
+    private void CalcSpeed(float flatTimeIncrease = 0f)
+    {
+        // Which time is it inside of the speed cycle?
+        speedTime = Mathf.Clamp(speedTime + Time.fixedDeltaTime + flatTimeIncrease, 0f, rampTime);
+        // How much progress did we make, according to time?
+        speedProgress = Mathf.InverseLerp(0f, rampTime, speedTime);
+
+        // Compare progress made to actual speed value, in case we picked up a feather
+        if (speedProgress < mainResourceBar.FillAmount) return;
+
+        // Calculate current speed based on progress
+        currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, speedCurve.Evaluate(speedProgress));
+
+        // Update Ui
+        mainResourceBar.SetCurrentValue(speedProgress);
+    }
+
     /// <summary>
     /// Increase speed while moving
     /// </summary>
@@ -117,18 +135,7 @@ public class MainCharacterMovement : AListenerEnabler
     {
         if (currentSpeed >= maxSpeed) return;
 
-        // Which time is it inside of the speed cycle?
-        speedTime = Mathf.Clamp(speedTime + Time.fixedDeltaTime, 0f, rampTime);
-        // How much progress did we make, according to time?
-        speedProgress = Mathf.InverseLerp(0f, rampTime,speedTime);
-
-        // Compare progress made to actual speed value, in case we picked up a feather
-        if(speedProgress < mainResourceBar.FillAmount) return;
-
-        // Calculate current speed based on progress
-        currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, speedCurve.Evaluate(speedProgress));
-        // Update Ui
-        mainResourceBar.SetCurrentValue(speedProgress);
+        CalcSpeed();
 
         if (currentSpeed < maxSpeed) return;
 
@@ -160,12 +167,8 @@ public class MainCharacterMovement : AListenerEnabler
     /// <summary>
     /// Instantly gain a pre-defined amount of speed
     /// </summary>
-    public void GainSpeed()
-    {
-        //TODO: Compute the right bar fill and time amount
-        currentSpeed = Mathf.Clamp(currentSpeed + pickupSpeedGain * maxSpeed, 0f, maxSpeed);
-        mainResourceBar.SetCurrentValue(Mathf.InverseLerp(minSpeed, maxSpeed, currentSpeed));
-    }
+    [UsedImplicitly]
+    public void GainSpeed() => CalcSpeed(flatTimeIncrease: pickupSpeedGain * rampTime);
 
     #endregion
 
