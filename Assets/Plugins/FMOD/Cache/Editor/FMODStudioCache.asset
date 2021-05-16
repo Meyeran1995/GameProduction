@@ -38,11 +38,11 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637566998091560427
+  lastModified: 637567998576677962
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1432
+    Value: 1478
   Exists: 1
 --- !u!114 &-6805801878938577804
 MonoBehaviour:
@@ -212,11 +212,12 @@ MonoBehaviour:
   EditorParameters:
   - {fileID: 1821685831969451234}
   - {fileID: 8712615219921845822}
+  - {fileID: 2488702088546426859}
   MasterBanks:
   - {fileID: 7162061975931180972}
   StringsBanks:
   - {fileID: -8176573059234018557}
-  stringsBankWriteTime: 637566998091560427
+  stringsBankWriteTime: 637567998576677962
   cacheVersion: 6
 --- !u!114 &1821685831969451234
 MonoBehaviour:
@@ -261,6 +262,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 740
+--- !u!114 &2488702088546426859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MuteCollisions
+  m_EditorClassIdentifier: 
+  Name: MuteCollisions
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1691943695
+    data2: 2814707325
+  Exists: 1
 --- !u!114 &3664828712273128570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +343,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637566998091500370
+  lastModified: 637567998576637878
   LoadResult: 0
   FileSizes: []
   Exists: 1
