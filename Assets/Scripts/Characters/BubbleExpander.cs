@@ -8,6 +8,7 @@ public class BubbleExpander : AMultiListenerEnabler
     [SerializeField] private CircleCollider2D bubbleCollider;
     [SerializeField] private SpriteRenderer bubbleEdgeRenderer;
     [SerializeField] private AutoFillResourceBar energyBar;
+    [SerializeField] private Animator bubbleAnimator;
 
     [Header("Bubble Properties")]
     [SerializeField] [Tooltip("Minimum radius for the bubble")] [Range(0.1f, 2f)] private float minRadius;
@@ -99,6 +100,7 @@ public class BubbleExpander : AMultiListenerEnabler
     {
         if (energyBar.IsDepleted) return;
 
+        bubbleAnimator.SetBool("isExpanding",true);
         bubbleSoundInstance.start();
         isExpanding = true;
         energyBar.IsDepleting = true;
@@ -106,6 +108,7 @@ public class BubbleExpander : AMultiListenerEnabler
 
     public void StopExpanding()
     {
+        bubbleAnimator.SetBool("isExpanding", false);
         bubbleSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         isExpanding = false;
         energyBar.IsDepleting = false;

@@ -5,10 +5,18 @@ public class Checkpoint : MonoBehaviour, IComparable<Checkpoint>
 {
     public Vector3 CheckPointPosition => transform.position;
 
+    private static MainCharacterMovement PlayerMovement;
+
     private void Awake()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<MainCharacterMovement>().RegisterCheckpoint(this);
+        if(PlayerMovement == null)
+            PlayerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<MainCharacterMovement>();
         GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    private void Start()
+    {
+        PlayerMovement.RegisterCheckpoint(this);
     }
 
     public int CompareTo(Checkpoint other)

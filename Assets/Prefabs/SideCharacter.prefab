@@ -169,6 +169,7 @@ MonoBehaviour:
   bubbleCollider: {fileID: 7935104195149141418}
   bubbleEdgeRenderer: {fileID: 7935104195725438810}
   energyBar: {fileID: 0}
+  bubbleAnimator: {fileID: 2016450579797188046}
   minRadius: 0.5
   maxRadius: 1
   activationRadius: 0.75
@@ -201,6 +202,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7935104195725438811}
   - component: {fileID: 7935104195725438810}
+  - component: {fileID: 2092946416466023036}
+  - component: {fileID: 2016450579797188046}
   m_Layer: 10
   m_Name: Circle
   m_TagString: Untagged
@@ -262,8 +265,8 @@ SpriteRenderer:
   m_SortingLayerID: 992675225
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: e3237cd3ac0e4af429dc6798cc83e7eb, type: 3}
-  m_Color: {r: 0.6792453, g: 0.40931195, b: 0.18903525, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 020dc4ace0986404fbbcd81a03df072a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -273,3 +276,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &2092946416466023036
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935104195725438808}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!95 &2016450579797188046
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935104195725438808}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 41df371943edd4d4a94acaeedeaab8c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
