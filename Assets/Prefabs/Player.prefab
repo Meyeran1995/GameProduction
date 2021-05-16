@@ -104,6 +104,7 @@ MonoBehaviour:
   canMove: 1
   maxSpeedEvent: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
   speedLostEvent: {fileID: 11400000, guid: 6164c6b0e1e2bae45b94b244b14fd45f, type: 2}
+  endOfGameEvent: {fileID: 0}
 --- !u!114 &825583281937199436
 MonoBehaviour:
   m_ObjectHideFlags: 0

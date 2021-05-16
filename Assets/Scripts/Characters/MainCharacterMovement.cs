@@ -21,7 +21,7 @@ public class MainCharacterMovement : AListenerEnabler
     [SerializeField] private float speedProgress, currentSpeed;
 
     // Movement
-    private static readonly List<Checkpoint> CheckPoints = new List<Checkpoint>();
+    private List<Checkpoint> checkPoints;
     private int currentCheckpointIndex;
     private Vector2 currentDirection;
     private Rigidbody2D characterBody;
@@ -33,16 +33,22 @@ public class MainCharacterMovement : AListenerEnabler
     [Header("Events")] 
     [SerializeField] [Tooltip("Event when reaching maximum speed")] private GameEvent maxSpeedEvent;
     [SerializeField] [Tooltip("Event when the character gets hit and loses speed")] private GameEvent speedLostEvent;
+    [SerializeField] [Tooltip("Event when the journey has been completed")] private GameEvent endOfGameEvent;
 
     #endregion
+
+    private void Awake()
+    {
+        checkPoints = new List<Checkpoint>();
+    }
 
     private void Start()
     {
         characterBody = GetComponent<Rigidbody2D>();
 
-        if (CheckPoints.Count != 0)
+        if (checkPoints.Count != 0)
         {
-            CheckPoints.Sort();
+            checkPoints.Sort();
         }
 
         currentSpeed = minSpeed;
@@ -72,7 +78,7 @@ public class MainCharacterMovement : AListenerEnabler
         if (hit.transform == null)
         {
             journeyCompleted = true;
-            Debug.LogError("No ground tiles left for movement!");
+            endOfGameEvent.Raise();
         }
         else
         {
@@ -82,20 +88,20 @@ public class MainCharacterMovement : AListenerEnabler
 
     private void MoveForward() => characterBody.MovePosition(characterBody.position + currentDirection * Time.fixedDeltaTime);
 
-    public void RegisterCheckpoint(Checkpoint checkpoint) => CheckPoints.Add(checkpoint);
+    public void RegisterCheckpoint(Checkpoint checkpoint) => checkPoints.Add(checkpoint);
 
     /// <summary>
     /// Checks whether the current checkpoint has been passed. Passing the last checkpoint completes the journey
     /// </summary>
     private void CheckPointCompletionProgress()
     {
-        var directionToCheckpoint = CheckPoints[currentCheckpointIndex].CheckPointPosition - transform.position;
+        var directionToCheckpoint = checkPoints[currentCheckpointIndex].CheckPointPosition - transform.position;
 
         if (directionToCheckpoint.x > 0f) return;
 
         currentCheckpointIndex++;
 
-        if (currentCheckpointIndex != CheckPoints.Count) return;
+        if (currentCheckpointIndex != checkPoints.Count) return;
 
         journeyCompleted = true;
     }

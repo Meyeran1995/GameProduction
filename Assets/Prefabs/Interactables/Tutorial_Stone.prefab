@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9049279112907985836}
   - component: {fileID: 9055131929331049533}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: Tutorial_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

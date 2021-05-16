@@ -1,26 +1,39 @@
+using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class TutorialProgressController : MonoBehaviour
 {
     [Header("Content")] 
-    [SerializeField] private Image firstPage;
-    [SerializeField] private Image lastPage;
-    [SerializeField] [Tooltip("Additional tutorial pages beyond the first one")] private Sprite[] additionalPages;
-    private int currentPage;
+    [SerializeField] private GameObject playButton;
+    [SerializeField] private VideoPlayer videoPlayer;
+
+    private void Awake()
+    {
+        playButton.SetActive(false);
+        videoPlayer.Prepare();
+    }
 
     [UsedImplicitly]
-    public void OnNextPage()
+    public void StopIntro()
     {
-        if (++currentPage == additionalPages.Length)
-        {
-            gameObject.SetActive(false);
-            lastPage.gameObject.SetActive(true);
-        }
-        else
-        {
-            firstPage.sprite = additionalPages[currentPage];
-        }
+        videoPlayer.Stop();
+        playButton.SetActive(true);
+        videoPlayer.loopPointReached -= WatchForEndOfClip;
+    }
+
+    [UsedImplicitly]
+    public void StartIntro()
+    {
+        videoPlayer.Play();
+        videoPlayer.loopPointReached += WatchForEndOfClip;
+    }
+
+    private void WatchForEndOfClip(VideoPlayer video)
+    {
+        playButton.SetActive(true);
+        video.loopPointReached -= WatchForEndOfClip;
     }
 }
