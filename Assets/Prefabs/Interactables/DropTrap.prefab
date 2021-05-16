@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d056a12267c198449abef40bc7a63ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleMass: 0.3
+  obstacleMass: 0.005
   spriteConfig: {fileID: 11400000, guid: 5a13671f00dd96d4e9c1141c52ffa88e, type: 2}
   onTriggeredSound: 
   continuousSound: event:/ENV/Rocks/ev_sx_env_mountains_rocks_falling

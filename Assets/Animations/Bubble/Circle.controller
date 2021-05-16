@@ -137,7 +137,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CircleSpin
+  m_Name: BubbleSpin
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -151,7 +151,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 49f9c8cfab388a2438ae05a6d62f4dfd, type: 2}
+  m_Motion: {fileID: 7400000, guid: 70aa2de5bd95395418214925967c4666, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

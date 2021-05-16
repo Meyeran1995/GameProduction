@@ -162,6 +162,7 @@ public class MainCharacterMovement : AListenerEnabler
     /// </summary>
     public void GainSpeed()
     {
+        //TODO: Compute the right bar fill and time amount
         currentSpeed = Mathf.Clamp(currentSpeed + pickupSpeedGain * maxSpeed, 0f, maxSpeed);
         mainResourceBar.SetCurrentValue(Mathf.InverseLerp(minSpeed, maxSpeed, currentSpeed));
     }

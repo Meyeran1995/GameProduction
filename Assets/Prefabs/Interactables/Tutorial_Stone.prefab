@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 2348878279540739036}
   - component: {fileID: 2348878279540739035}
   - component: {fileID: 2348878279540739034}
-  - component: {fileID: 2348878279540739032}
   - component: {fileID: 9049279112907985836}
-  - component: {fileID: 9055131929331049533}
+  - component: {fileID: 6947817286632909576}
   m_Layer: 0
   m_Name: Tutorial_Stone
   m_TagString: Untagged
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1b6180bd94738664897a508db71322e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 07999b2c33e376f4ba6e979f8f12d7bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,22 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2348878279540739032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2348878279540739039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d056a12267c198449abef40bc7a63ccf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacleMass: 0.3
-  spriteConfig: {fileID: 11400000, guid: 5a13671f00dd96d4e9c1141c52ffa88e, type: 2}
-  onTriggeredSound: 
-  continuousSound: event:/ENV/Rocks/ev_sx_env_mountains_rocks_falling
 --- !u!114 &9049279112907985836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +113,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2348878279540739039}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -146,7 +129,7 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!70 &9055131929331049533
+--- !u!70 &6947817286632909576
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,5 +143,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3.7, y: 3.7}
+  m_Size: {x: 1.92, y: 2.3}
   m_Direction: 1

@@ -122,7 +122,7 @@ MonoBehaviour:
   spriteConfig: {fileID: 0}
   onTriggeredSound: event:/ENV/Crow/ev_sx_env_crow_scream
   continuousSound: 
-  obstacleSpeed: 8
+  obstacleSpeed: 6
   onDestroyedSound: event:/ENV/Crow/ev_sx_env_crow_death
 --- !u!70 &3011790616282080800
 CapsuleCollider2D:

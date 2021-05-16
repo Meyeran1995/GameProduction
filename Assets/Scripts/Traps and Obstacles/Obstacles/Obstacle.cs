@@ -7,7 +7,7 @@ public class Obstacle : MonoBehaviour
 {
     protected Rigidbody2D rigidBody;
     [Header("Base Values")]
-    [SerializeField] [Tooltip("Mass for the object \n\nOnly relevant for falling or rolling obstacles, does nothing for bird obstacles!")] [Range(0.1f, 10f)] protected float obstacleMass;
+    [SerializeField] [Tooltip("Mass for the object \n\nOnly relevant for falling or rolling obstacles, does nothing for bird obstacles!")] [Range(0.001f, 0.1f)] protected float obstacleMass;
     [SerializeField] [Tooltip("Available sprites to be randomly selected at runtime \n\nOnly relevant for falling or rolling obstacles, does nothing for bird obstacles!")] private ObstacleSpriteConfig spriteConfig;
 
     [Header("Base Sounds")]
