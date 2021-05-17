@@ -118,7 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staggerTime: 0.125
-  boxSize: {x: 2, y: 1, z: 1}
+  boxSize: {x: 1, y: 0.75, z: 1}
+  boxOffset: {x: 0.45, y: 0.11, z: 0}
 --- !u!114 &708239604788086185
 MonoBehaviour:
   m_ObjectHideFlags: 0
