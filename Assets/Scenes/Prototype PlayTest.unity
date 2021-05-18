@@ -1443,10 +1443,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 708239604788086191, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
-      propertyPath: endOfGameEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: b35c1dd7853addf4982c3d1f67bc101e, type: 2}
-    - target: {fileID: 708239604788086191, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
       propertyPath: mainResourceBar
       value: 
       objectReference: {fileID: 496437708}
@@ -2817,7 +2813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7973267208138978260, guid: 07c926e4901cb084caad8e82cc1d5066, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7973267208138978261, guid: 07c926e4901cb084caad8e82cc1d5066, type: 3}
       propertyPath: m_Pivot.x
@@ -2974,13 +2970,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 1232148174}
     m_Modifications:
     - target: {fileID: 1516476945778606242, guid: d7551852d04937145a9c6b02d450a115, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516476945778606242, guid: d7551852d04937145a9c6b02d450a115, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516476945778606242, guid: d7551852d04937145a9c6b02d450a115, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1607699656}
+      objectReference: {fileID: 1619718425}
     - target: {fileID: 1516476945778606242, guid: d7551852d04937145a9c6b02d450a115, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1619718425}
+    - target: {fileID: 1516476945778606242, guid: d7551852d04937145a9c6b02d450a115, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartIntro
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516476945778606242, guid: d7551852d04937145a9c6b02d450a115, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TutorialProgressController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6593365138180947206, guid: d7551852d04937145a9c6b02d450a115, type: 3}
       propertyPath: m_Name
       value: MainMenu

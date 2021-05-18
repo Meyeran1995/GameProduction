@@ -15,6 +15,7 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
 
     [Header("Collision Query")] 
     [SerializeField] private Vector3 boxSize;
+    [SerializeField] private Vector3 boxOffset;
 
     private void Awake()
     {
@@ -36,7 +37,7 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
     
     public bool QueryForFrontalCollisions()
     {
-        return Physics2D.OverlapBox(transform.position, Vector3.Scale(transform.localScale, boxSize), transform.localEulerAngles.z, 1 << 0);
+        return Physics2D.OverlapBox(transform.TransformPoint(boxOffset), Vector3.Scale(transform.localScale, boxSize), transform.localEulerAngles.z, 1 << 0);
     }
 
     private void OnDrawGizmosSelected()
@@ -44,6 +45,6 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
         Gizmos.color = Color.red;
         // transform gizmo using this scripts transform matrix
         Gizmos.matrix = transform.localToWorldMatrix;
-        Gizmos.DrawWireCube(transform.forward, boxSize);
+        Gizmos.DrawWireCube(boxOffset, boxSize);
     }
 }
