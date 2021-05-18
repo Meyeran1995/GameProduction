@@ -70,7 +70,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.5, y: 12}
+  m_AnchoredPosition: {x: 39.01, y: -3.8}
   m_SizeDelta: {x: 16.18, y: 20.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3226259838690829313
@@ -680,7 +680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6784314, g: 0.40784317, b: 0.18823531, a: 0.8156863}
+  m_Color: {r: 0.9607843, g: 0.49411765, b: 0.09411765, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -821,7 +821,7 @@ MonoBehaviour:
           m_CallState: 2
   effect: {fileID: 1499417218727880074}
   speedBar: {fileID: 4360254417164285615}
-  effectStrength: 0
+  startingEffectStrength: 0
 --- !u!223 &3174346687711886469
 Canvas:
   m_ObjectHideFlags: 0
