@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// Reacts to Collisions for the main character and changes state accordingly
 /// </summary>
-public class MainCharacterCollisionEvaluator : MonoBehaviour
+public class MainCharacterCollisionEvaluator : MonoBehaviour, IRestartable
 {
     private PlayerStateMachine stateMachine;
 
@@ -17,10 +17,9 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
     [SerializeField] private Vector3 boxSize;
     [SerializeField] private Vector3 boxOffset;
 
-    private void Awake()
-    {
-        stateMachine = GetComponent<PlayerStateMachine>();
-    }
+    private void Awake() => stateMachine = GetComponent<PlayerStateMachine>();
+
+    private void Start() => RegisterWithHandler();
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -47,4 +46,7 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.DrawWireCube(boxOffset, boxSize);
     }
+
+    public void Restart() => numberOfCollidingObjects = 0;
+    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
 }

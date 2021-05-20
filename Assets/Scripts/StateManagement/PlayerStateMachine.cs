@@ -1,23 +1,23 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerStateMachine : MonoBehaviour
+public class PlayerStateMachine : MonoBehaviour, IRestartable
 {
     public AState CurrentState { get; private set; }
 
     public static PlayerStateMachine Instance { get; private set; }
-    public MainCharacterMovement Movement { get; private set; }
 
     private Coroutine exitRoutine;
 
     private void Awake()
     {
         Instance = this;
-        Movement = GetComponent<MainCharacterMovement>();
         var collisionEvaluator = GetComponent<MainCharacterCollisionEvaluator>();
         CurrentState = new WaitingState(gameObject, collisionEvaluator, collisionEvaluator.StaggerTime);
         CurrentState.OnStateEnter();
     }
+
+    private void Start() => RegisterWithHandler();
 
     public void ChangeState(AState newState)
     {
@@ -53,4 +53,14 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     private void FixedUpdate() => CurrentState.OnFixedUpdate(Time.fixedDeltaTime);
+
+    public void Restart()
+    {
+        if (exitRoutine != null)
+            StopCoroutine(exitRoutine);
+        exitRoutine = null;
+        Awake();
+    }
+
+    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
 }

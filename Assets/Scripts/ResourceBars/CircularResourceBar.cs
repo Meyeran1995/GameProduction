@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CircularResourceBar : MonoBehaviour
+public class CircularResourceBar : MonoBehaviour, IRestartable
 {
     [SerializeField] private Image circleImage;
 
@@ -21,6 +21,8 @@ public class CircularResourceBar : MonoBehaviour
 
         currentValue = circleImage.fillAmount;
     }
+
+    private void Start() => RegisterWithHandler();
 
     public void SetCurrentValue(float newValue)
     {
@@ -42,4 +44,7 @@ public class CircularResourceBar : MonoBehaviour
             circleImage.fillAmount = startingValue;
         }
     }
+
+    public void Restart() => circleImage.fillAmount = startingValue;
+    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
 }

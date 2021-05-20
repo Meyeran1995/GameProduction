@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using RoboRyanTron.Unite2017.Events;
 
-public class MainCharacterMovement : AListenerEnabler
+public class MainCharacterMovement : AListenerEnabler, IRestartable
 {
     #region Fields
 
@@ -38,21 +38,35 @@ public class MainCharacterMovement : AListenerEnabler
 
     #endregion
 
+    #region Restart
+
+    private Vector3 originalPosition;
+
+    public void Restart()
+    {
+        transform.position = originalPosition;
+        currentCheckpointIndex = 0;
+        speedTime = 0;
+        speedProgress = 0;
+        currentSpeed = minSpeed;
+    }
+
+    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this, 0);
+
+    #endregion
+
     private void Awake()
     {
+        characterBody = GetComponent<Rigidbody2D>();
         checkPoints = new List<Checkpoint>();
+        currentSpeed = minSpeed;
+        originalPosition = transform.position;
     }
 
     private void Start()
     {
-        characterBody = GetComponent<Rigidbody2D>();
-
-        if (checkPoints.Count != 0)
-        {
-            checkPoints.Sort();
-        }
-
-        currentSpeed = minSpeed;
+        checkPoints.Sort();
+        RegisterWithHandler();
     }
 
     #region Movement
