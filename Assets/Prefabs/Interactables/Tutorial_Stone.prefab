@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2348878279540739034}
   - component: {fileID: 9049279112907985836}
   - component: {fileID: 6947817286632909576}
+  - component: {fileID: 694520477089566168}
   m_Layer: 0
   m_Name: Tutorial_Stone
   m_TagString: Untagged
@@ -145,3 +146,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.92, y: 2.3}
   m_Direction: 1
+--- !u!114 &694520477089566168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2348878279540739039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d056a12267c198449abef40bc7a63ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleMass: 0.001
+  spriteConfig: {fileID: 0}
+  onTriggeredSound: 
+  continuousSound: 

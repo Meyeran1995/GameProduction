@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class BubbleCharacter : MonoBehaviour
+public class BubbleCharacter : MonoBehaviour, IRestartable
 {
     private Rigidbody2D bubbleBody;
     private PlayerInputController inputController;
@@ -14,26 +14,33 @@ public class BubbleCharacter : MonoBehaviour
     private int oldestIndex;
     private int newestIndex;
 
+    #region Restart
+
+    private Vector3 originalPosition;
+
+    public void Restart()
+    {
+        transform.position = originalPosition;
+        SetUpBuffers();
+    }
+
+    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
+
+    #endregion
+
     private void Awake()
     {
         mainCam = Camera.main;
         bubbleBody = GetComponent<Rigidbody2D>();
         inputController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputController>();
+        originalPosition = transform.position;
     }
 
     private void Start()
     {
-        int bufferLength = Mathf.CeilToInt(movementDelay * MAX_FPS);
-        positionBuffer = new Vector2[bufferLength];
-        timeBuffer = new float[bufferLength];
-
-        positionBuffer[0] = positionBuffer[1] = mainCam.WorldToScreenPoint(transform.position);
-        timeBuffer[0] = timeBuffer[1] = Time.time;
-
-        oldestIndex = 0;
-        newestIndex = 1;
-
-        gameObject.SetActive(false);
+       SetUpBuffers();
+       RegisterWithHandler();
+       gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -47,6 +54,19 @@ public class BubbleCharacter : MonoBehaviour
     //Delay code adapted from:
     //https://gamedev.stackexchange.com/questions/120189/unity-method-to-get-a-vector-which-is-x-seconds-behind-another-moving-vector-a/120225#120225
 
+    private void SetUpBuffers()
+    {
+        int bufferLength = Mathf.CeilToInt(movementDelay * MAX_FPS);
+        positionBuffer = new Vector2[bufferLength];
+        timeBuffer = new float[bufferLength];
+
+        positionBuffer[0] = positionBuffer[1] = mainCam.WorldToScreenPoint(transform.position);
+        timeBuffer[0] = timeBuffer[1] = Time.time;
+
+        oldestIndex = 0;
+        newestIndex = 1;
+    }
+    
     /// <summary>
     /// Tries to add a new position to the cache
     /// </summary>

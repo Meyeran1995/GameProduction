@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AutoFillResourceBar : MonoBehaviour
+public class AutoFillResourceBar : MonoBehaviour, IRestartable
 {
     [SerializeField] protected Slider resource;
 
@@ -20,11 +20,11 @@ public class AutoFillResourceBar : MonoBehaviour
 
     private void Awake()
     {
-        resource.maxValue = maximumValue;
-        resource.minValue = minimumValue;
-        resource.value = startingValue;
         resource = GetComponent<Slider>();
+        resource.value = startingValue;
     }
+
+    private void Start() => RegisterWithHandler();
 
     private void Update()
     {
@@ -58,9 +58,17 @@ public class AutoFillResourceBar : MonoBehaviour
 
     private void OnValidate()
     {
-        Slider slider = GetComponent<Slider>();
-        slider.maxValue = maximumValue;
-        slider.minValue = minimumValue;
-        slider.value = startingValue;
+        resource = GetComponent<Slider>();
+        resource.maxValue = maximumValue;
+        resource.minValue = minimumValue;
     }
+
+    public void Restart()
+    {
+        resource.value = startingValue;
+        IsReplenishing = false;
+        IsDepleting = false;
+    }
+
+    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
 }
