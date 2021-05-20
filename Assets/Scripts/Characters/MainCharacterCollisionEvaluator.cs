@@ -26,7 +26,7 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
     {
         if (++numberOfCollidingObjects == 1)
         {
-            stateMachine.ChangeState(new WaitingState(stateMachine, this, staggerTime));
+            stateMachine.ChangeState(new WaitingState(gameObject, this, staggerTime));
         }
     }
 

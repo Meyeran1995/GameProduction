@@ -15,7 +15,7 @@ public class PlayerStateMachine : MonoBehaviour
         Instance = this;
         Movement = GetComponent<MainCharacterMovement>();
         var collisionEvaluator = GetComponent<MainCharacterCollisionEvaluator>();
-        CurrentState = new WaitingState(this, collisionEvaluator, collisionEvaluator.StaggerTime);
+        CurrentState = new WaitingState(gameObject, collisionEvaluator, collisionEvaluator.StaggerTime);
         CurrentState.OnStateEnter();
     }
 
@@ -52,8 +52,5 @@ public class PlayerStateMachine : MonoBehaviour
         exitRoutine = null;
     }
 
-    private void FixedUpdate()
-    {
-        CurrentState.OnFixedUpdate(Time.fixedDeltaTime);
-    }
+    private void FixedUpdate() => CurrentState.OnFixedUpdate(Time.fixedDeltaTime);
 }

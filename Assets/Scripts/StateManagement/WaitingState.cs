@@ -6,27 +6,29 @@ using UnityEngine;
 public class WaitingState : AState
 {
     private readonly MainCharacterCollisionEvaluator collisionEval;
+    private readonly MainCharacterMovement movement;
 
-    public WaitingState(PlayerStateMachine owner, MainCharacterCollisionEvaluator collisionEval, float exitTime = 0f) : base(owner, exitTime)
+    public WaitingState(GameObject owner, MainCharacterCollisionEvaluator collisionEval, float exitTime = 0f) : base(owner, exitTime)
     {
         this.collisionEval = collisionEval;
+        movement = owner.GetComponent<MainCharacterMovement>();
     }
 
     public override void OnStateEnter()
     {
         owner.GetComponent<SpriteRenderer>().color = Color.red;
-        owner.Movement.StaggerCharacterMovement();
+        movement.StaggerCharacterMovement();
     }
 
     public override void OnStateExit(AState newState)
     {
-        owner.Movement.RestartSpeedGain();
+        movement.RestartSpeedGain();
         owner.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public override void OnFixedUpdate(float delta)
     {
         if(!collisionEval.QueryForFrontalCollisions())
-            owner.ChangeState(new MovingState(owner));
+            PlayerStateMachine.Instance.ChangeState(new MovingState(owner));
     }
 }
