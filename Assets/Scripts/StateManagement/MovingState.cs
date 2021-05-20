@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class MovingState : AState
 {
-    public MovingState(PlayerStateMachine owner, float exitTime = 0) : base(owner, exitTime)
+    public MovingState(GameObject owner, float exitTime = 0) : base(owner, exitTime)
     {
     }
 

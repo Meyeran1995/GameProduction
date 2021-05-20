@@ -1,12 +1,14 @@
+using UnityEngine;
+
 /// <summary>
 /// Abstract base class for a state with enter, exit events and update loop
 /// </summary>
 public abstract class AState
 {
-    protected readonly PlayerStateMachine owner;
+    protected readonly GameObject owner;
     public readonly float exitTime;
 
-    protected AState(PlayerStateMachine owner, float exitTime = 0f)
+    protected AState(GameObject owner, float exitTime = 0f)
     {
         this.owner = owner;
         this.exitTime = exitTime;
