@@ -49,6 +49,7 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
         speedTime = 0;
         speedProgress = 0;
         currentSpeed = minSpeed;
+        journeyCompleted = false;
     }
 
     public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this, 0);
@@ -177,6 +178,9 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
         mainResourceBar.SetCurrentValue(0f);
         canMove = true;
     }
+
+    [UsedImplicitly]
+    public void ToggleAbilityToMove() => Time.timeScale = Time.timeScale == 0f ? 1f : 0f;
 
     /// <summary>
     /// Instantly gain a pre-defined amount of speed
