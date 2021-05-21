@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -35,11 +36,13 @@ public class PlayerInputController : AListenerEnabler
         IsQuitting = true;
     }
 
-    #region Controls while main character is moving
-
     private void OnBeginBubbleExpansion(InputAction.CallbackContext context) => bubble.StartExpanding();
 
     private void OnEndBubbleExpansion(InputAction.CallbackContext context) => bubble.StopExpanding();
 
-    #endregion
+    [UsedImplicitly]
+    public void StopListeningForInput() => OnDisable();
+
+    [UsedImplicitly]
+    public void ContinueListeningForInput() => OnEnable();
 }
