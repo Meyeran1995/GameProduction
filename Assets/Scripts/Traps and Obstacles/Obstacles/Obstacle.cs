@@ -17,7 +17,7 @@ public class Obstacle : MonoBehaviour, IRestartable
 
     #region Restart
 
-    private Vector3 originalPosition;
+    protected Vector3 originalPosition;
 
     public virtual void Restart()
     {
@@ -25,9 +25,7 @@ public class Obstacle : MonoBehaviour, IRestartable
         rigidBody.velocity = Vector2.zero;
         rigidBody.angularVelocity = 0f;
 
-        if (spriteConfig) return;
-
-        gameObject.SetActive(true);
+        gameObject.SetActive(!spriteConfig);
     }
 
     public virtual void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
