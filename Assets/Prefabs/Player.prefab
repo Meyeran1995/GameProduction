@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcceb44002f885240b154fb602c98ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restartWalkingEvent: {fileID: 11400000, guid: 321b9d5ddd555544b95867b38ebff632, type: 2}
 --- !u!212 &708239604788086188
 SpriteRenderer:
   m_ObjectHideFlags: 0

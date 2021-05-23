@@ -1,7 +1,8 @@
+using RoboRyanTron.Unite2017.Events;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AutoFillResourceBar : MonoBehaviour
+public class AutoFillResourceBar : MonoBehaviour, IRestartable
 {
     [SerializeField] protected Slider resource;
 
@@ -14,17 +15,24 @@ public class AutoFillResourceBar : MonoBehaviour
     [SerializeField] [Range(1f, 10f)] private float depletionRate;
     [SerializeField] [Range(1f, 15f)] private float increaseRate;
 
+    [Header("Low Resource Events")]
+    [SerializeField] private GameEvent lowEvent;
+    [SerializeField] private GameEvent lowAvertedEvent;
+    private float lowResourceThreshold;
+    private bool isBelowThreshold;
+
     public bool IsDepleted => resource.value <= minimumValue;
     public bool IsDepleting { get; set; }
     public bool IsReplenishing { get; set; }
 
     private void Awake()
     {
-        resource.maxValue = maximumValue;
-        resource.minValue = minimumValue;
-        resource.value = startingValue;
         resource = GetComponent<Slider>();
+        resource.value = startingValue;
+        lowResourceThreshold = 0.25f * maximumValue;
     }
+
+    private void Start() => RegisterWithHandler();
 
     private void Update()
     {
@@ -42,25 +50,45 @@ public class AutoFillResourceBar : MonoBehaviour
 
     private void DepleteResource()
     {
-        if (resource.value > minimumValue)
-        {
-            resource.value -= depletionRate * Time.deltaTime;
-        }
+        if (resource.value <= minimumValue) return;
+
+        resource.value -= depletionRate * Time.deltaTime;
+
+        if(isBelowThreshold) return;
+
+        isBelowThreshold = resource.value <= lowResourceThreshold;
+
+        if(isBelowThreshold)
+            lowEvent.Raise();
     }
 
     public void ReplenishResource(float timeModifier)
     {
-        if (resource.value < maximumValue)
-        {
-            resource.value += increaseRate * timeModifier;
-        }
+        if (resource.value >= maximumValue) return;
+
+        resource.value += increaseRate * timeModifier;
+
+        if (!isBelowThreshold) return;
+
+        isBelowThreshold = resource.value > lowResourceThreshold;
+
+        if (!isBelowThreshold)
+            lowAvertedEvent.Raise();
     }
 
     private void OnValidate()
     {
-        Slider slider = GetComponent<Slider>();
-        slider.maxValue = maximumValue;
-        slider.minValue = minimumValue;
-        slider.value = startingValue;
+        resource = GetComponent<Slider>();
+        resource.maxValue = maximumValue;
+        resource.minValue = minimumValue;
     }
+
+    public void Restart()
+    {
+        resource.value = startingValue;
+        IsReplenishing = false;
+        IsDepleting = false;
+    }
+
+    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
 }
