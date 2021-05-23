@@ -14,7 +14,14 @@ public class BirdObstacle : AMovingObstacle
 
     protected override void Awake()
     {
-        // Overwrite to do nothing in Awake (rigidbody is now set in onenable
+        // Overwrite to do nothing in Awake (rigidbody is now set in OnEnable)
+    }
+
+    public override void Restart()
+    {
+        transform.localPosition = originalPosition;
+        rigidBody.velocity = Vector2.zero;
+        rigidBody.angularVelocity = 0f;
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision) => StartCoroutine(WaitAndDisable());
@@ -33,7 +40,7 @@ public class BirdObstacle : AMovingObstacle
     {
         yield return new WaitForEndOfFrame();
 
-        transform.parent.gameObject.SetActive(false);
+        gameObject.SetActive(false);
         OnDestroyedPlay();
     }
 

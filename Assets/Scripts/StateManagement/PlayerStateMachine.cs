@@ -1,23 +1,26 @@
 using System.Collections;
+using RoboRyanTron.Unite2017.Events;
 using UnityEngine;
 
-public class PlayerStateMachine : MonoBehaviour
+public class PlayerStateMachine : MonoBehaviour, IRestartable
 {
     public AState CurrentState { get; private set; }
 
     public static PlayerStateMachine Instance { get; private set; }
-    public MainCharacterMovement Movement { get; private set; }
 
     private Coroutine exitRoutine;
+
+    [SerializeField] private GameEvent restartWalkingEvent;
 
     private void Awake()
     {
         Instance = this;
-        Movement = GetComponent<MainCharacterMovement>();
         var collisionEvaluator = GetComponent<MainCharacterCollisionEvaluator>();
-        CurrentState = new WaitingState(this, collisionEvaluator, collisionEvaluator.StaggerTime);
+        CurrentState = new WaitingState(gameObject, collisionEvaluator, collisionEvaluator.StaggerTime);
         CurrentState.OnStateEnter();
     }
+
+    private void Start() => RegisterWithHandler();
 
     public void ChangeState(AState newState)
     {
@@ -31,6 +34,10 @@ public class PlayerStateMachine : MonoBehaviour
         {
             TransitionToNextState(newState);
         }
+
+        if(newState is WaitingState) return;
+
+        restartWalkingEvent.Raise();
     }
 
     private void TransitionToNextState(AState newState)
@@ -52,8 +59,15 @@ public class PlayerStateMachine : MonoBehaviour
         exitRoutine = null;
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate() => CurrentState.OnFixedUpdate(Time.fixedDeltaTime);
+
+    public void Restart()
     {
-        CurrentState.OnFixedUpdate(Time.fixedDeltaTime);
+        if (exitRoutine != null)
+            StopCoroutine(exitRoutine);
+        exitRoutine = null;
+        Awake();
     }
+
+    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
 }

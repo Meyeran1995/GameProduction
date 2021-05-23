@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// Reacts to Collisions for the main character and changes state accordingly
 /// </summary>
-public class MainCharacterCollisionEvaluator : MonoBehaviour
+public class MainCharacterCollisionEvaluator : MonoBehaviour, IRestartable
 {
     private PlayerStateMachine stateMachine;
 
@@ -17,28 +17,23 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
     [SerializeField] private Vector3 boxSize;
     [SerializeField] private Vector3 boxOffset;
 
-    private void Awake()
-    {
-        stateMachine = GetComponent<PlayerStateMachine>();
-    }
+    private void Awake() => stateMachine = GetComponent<PlayerStateMachine>();
+
+    private void Start() => RegisterWithHandler();
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (++numberOfCollidingObjects == 1)
         {
-            stateMachine.ChangeState(new WaitingState(stateMachine, this, staggerTime));
+            stateMachine.ChangeState(new WaitingState(gameObject, this, staggerTime));
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        --numberOfCollidingObjects;
-    }
-    
-    public bool QueryForFrontalCollisions()
-    {
-        return Physics2D.OverlapBox(transform.TransformPoint(boxOffset), Vector3.Scale(transform.localScale, boxSize), transform.localEulerAngles.z, 1 << 0);
-    }
+    private void OnCollisionExit2D(Collision2D collision) => --numberOfCollidingObjects;
+
+    public bool QueryForFrontalCollisions() => Physics2D.OverlapBox(transform.TransformPoint(boxOffset),
+                                            Vector3.Scale(transform.localScale, boxSize), transform.localEulerAngles.z, 1 << 0);
+
 
     private void OnDrawGizmosSelected()
     {
@@ -47,4 +42,7 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.DrawWireCube(boxOffset, boxSize);
     }
+
+    public void Restart() => numberOfCollidingObjects = 0;
+    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
 }

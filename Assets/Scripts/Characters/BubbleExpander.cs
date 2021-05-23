@@ -3,12 +3,13 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 
-public class BubbleExpander : AMultiListenerEnabler
+public class BubbleExpander : AMultiListenerEnabler, IRestartable
 {
     [SerializeField] private CircleCollider2D bubbleCollider;
     [SerializeField] private SpriteRenderer bubbleEdgeRenderer;
     [SerializeField] private AutoFillResourceBar energyBar;
     [SerializeField] private Animator bubbleAnimator;
+    private Rigidbody2D bubbleRigidbody;
 
     [Header("Bubble Properties")]
     [SerializeField] [Tooltip("Minimum radius for the bubble")] [Range(0.1f, 2f)] private float minRadius;
@@ -23,10 +24,23 @@ public class BubbleExpander : AMultiListenerEnabler
 
     [Header("Sounds")]
     [EventRef] [SerializeField] [Tooltip("Sound to be played while using the bubble")] private string bubbleSound;
-
-    private Rigidbody2D bubbleRigidbody;
-
     private EventInstance bubbleSoundInstance;
+
+    #region Restart
+
+    public void Restart()
+    {
+        StopExpanding();
+        bubbleCollider.radius = minRadius;
+        transform.GetChild(0).localScale = new Vector3(minRadius, minRadius) * 2f;
+
+        bubbleCollider.enabled = false;
+        bubbleEdgeRenderer.enabled = false;
+    }
+
+    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
+
+    #endregion
 
     private void Awake()
     {
@@ -42,6 +56,8 @@ public class BubbleExpander : AMultiListenerEnabler
     {
         bubbleSoundInstance = RuntimeManager.CreateInstance(bubbleSound);
         bubbleSoundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject, bubbleRigidbody));
+
+        RegisterWithHandler();
     }
 
     private void FixedUpdate()
