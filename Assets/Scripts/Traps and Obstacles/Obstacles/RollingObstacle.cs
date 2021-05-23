@@ -10,12 +10,6 @@ public class RollingObstacle : AMovingObstacle
         this.enabled = false;
     }
 
-    public override void Restart()
-    {
-        base.Restart();
-        this.enabled = true;
-    }
-
     protected override void Move()
     {
         GroundObstacle();

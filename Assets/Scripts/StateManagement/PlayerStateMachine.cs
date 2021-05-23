@@ -1,5 +1,4 @@
 using System.Collections;
-using RoboRyanTron.Unite2017.Events;
 using UnityEngine;
 
 public class PlayerStateMachine : MonoBehaviour
@@ -10,8 +9,6 @@ public class PlayerStateMachine : MonoBehaviour
     public MainCharacterMovement Movement { get; private set; }
 
     private Coroutine exitRoutine;
-
-    [SerializeField] private GameEvent restartWalkingEvent;
 
     private void Awake()
     {
@@ -34,10 +31,6 @@ public class PlayerStateMachine : MonoBehaviour
         {
             TransitionToNextState(newState);
         }
-
-        if(newState is WaitingState) return;
-
-        restartWalkingEvent.Raise();
     }
 
     private void TransitionToNextState(AState newState)

@@ -3,7 +3,7 @@ using FMODUnity;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 [RequireComponent(typeof(CapsuleCollider2D))]
-public class Obstacle : MonoBehaviour, IRestartable
+public class Obstacle : MonoBehaviour
 {
     protected Rigidbody2D rigidBody;
     [Header("Base Values")]
@@ -14,23 +14,7 @@ public class Obstacle : MonoBehaviour, IRestartable
     [EventRef] [SerializeField] [Tooltip("Sound to be played when the corresponding trap gets triggered")] protected string onTriggeredSound;
     [EventRef] [SerializeField] [Tooltip("A continuous sound to be played while the obstacle is active")] protected string continuousSound;
     private FMOD.Studio.EventInstance continuousInstance;
-
-    #region Restart
-
-    protected Vector3 originalPosition;
-
-    public virtual void Restart()
-    {
-        transform.localPosition = originalPosition;
-        rigidBody.velocity = Vector2.zero;
-        rigidBody.angularVelocity = 0f;
-
-        gameObject.SetActive(!spriteConfig);
-    }
-
-    public virtual void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
-
-    #endregion
+    
 
     protected void OnEnable()
     {
@@ -47,17 +31,9 @@ public class Obstacle : MonoBehaviour, IRestartable
 
     protected virtual void Awake()
     {
-        if (!spriteConfig) return;
-
         Sprite sprite = spriteConfig.GetRandomSprite();
         GetComponent<SpriteRenderer>().sprite = sprite;
         ResizeCollider(sprite);
-    }
-
-    protected void Start()
-    {
-        originalPosition = transform.localPosition;
-        RegisterWithHandler();
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -70,7 +46,7 @@ public class Obstacle : MonoBehaviour, IRestartable
         rigidBody.mass = obstacleMass;
     }
 
-    protected void OnBecameInvisible() => gameObject.SetActive(false);
+    protected void OnBecameInvisible() => Destroy(gameObject);
 
     #region Sound
 

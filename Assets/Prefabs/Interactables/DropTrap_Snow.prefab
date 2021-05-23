@@ -63,9 +63,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: DropTrap_Snow
       objectReference: {fileID: 0}
-    - target: {fileID: 6429109595791177187, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}
-      propertyPath: UVModule.sprites.Array.data[0].sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 480a24acf8bddfe4dad60cde53a49893, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ea83e15115e2e4f8d10796e9f5ba59, type: 3}

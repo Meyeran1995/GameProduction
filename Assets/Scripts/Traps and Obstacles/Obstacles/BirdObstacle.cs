@@ -17,13 +17,6 @@ public class BirdObstacle : AMovingObstacle
         // Overwrite to do nothing in Awake (rigidbody is now set in onenable
     }
 
-    public override void Restart()
-    {
-        transform.localPosition = originalPosition;
-        rigidBody.velocity = Vector2.zero;
-        rigidBody.angularVelocity = 0f;
-    }
-
     protected override void OnCollisionEnter2D(Collision2D collision) => StartCoroutine(WaitAndDisable());
 
     protected override void Move()

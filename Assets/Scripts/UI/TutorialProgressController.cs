@@ -1,34 +1,41 @@
 using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
-public class TutorialProgressController : MonoBehaviour, IRestartable
+public class TutorialProgressController : MonoBehaviour
 {
-    [SerializeField] private Animator introAnimator;
-    [SerializeField] private GameObject sideCharacter;
+    [Header("Content")] 
+    [SerializeField] private GameObject playButton;
+    [SerializeField] private VideoPlayer videoPlayer;
 
-    [UsedImplicitly]
-    public void StartListeningForIntroEnd()
+    private void Awake()
     {
-        introAnimator.SetTrigger("SceneStart");
-        StartCoroutine(WatchForEndOfClips());
-    }
-
-    private IEnumerator WatchForEndOfClips()
-    {
-        yield return new WaitForSeconds(1f);
-
-        yield return new WaitUntil(() => introAnimator.GetCurrentAnimatorStateInfo(0).IsTag("End"));
-
-        gameObject.SetActive(false);
-        sideCharacter.SetActive(true);
-        CollisionSoundController.UnmuteCollisions();
+        playButton.SetActive(false);
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "feathers-intro.mp4");
+        videoPlayer.Prepare();
     }
 
     [UsedImplicitly]
-    public void SkipIntro() => introAnimator.SetTrigger("SkipIntro");
+    public void StopIntro()
+    {
+        videoPlayer.Stop();
+        playButton.SetActive(true);
+        videoPlayer.loopPointReached -= WatchForEndOfClip;
+    }
 
-    public void Restart() => introAnimator.SetTrigger("BackToMain");
+    [UsedImplicitly]
+    public void StartIntro()
+    {
+        
+        videoPlayer.Play();
+        videoPlayer.loopPointReached += WatchForEndOfClip;
+    }
 
-    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
+    private void WatchForEndOfClip(VideoPlayer video)
+    {
+        playButton.SetActive(true);
+        video.loopPointReached -= WatchForEndOfClip;
+    }
 }

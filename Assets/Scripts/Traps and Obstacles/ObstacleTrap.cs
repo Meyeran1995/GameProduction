@@ -3,9 +3,6 @@ using UnityEngine;
 public class ObstacleTrap : ATrap
 {
     [SerializeField] protected Rigidbody2D obstacleBody;
-    [Header("Particles")]
-    [SerializeField] protected ParticleSystem particelEffect;
-    //[SerializeField] protected Vector2 particleOffset;
 
     protected virtual void Awake()
     {
@@ -42,8 +39,5 @@ public class ObstacleTrap : ATrap
         }
 
         obstacleBody.transform.position = newPos;
-        
-        particelEffect.transform.position = new Vector2(newPos.x, particelEffect.transform.position.y);
-        particelEffect.Play();
     }
 }
