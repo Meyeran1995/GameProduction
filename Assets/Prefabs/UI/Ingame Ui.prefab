@@ -300,13 +300,9 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4360254417164285615, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: startingValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7227383517070152491, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_FillAmount
-      value: 0
+    - target: {fileID: 4213738375419749998, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8248592822145566051, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
       propertyPath: m_AnchoredPosition.x
