@@ -22,6 +22,7 @@ public class TutorialProgressController : MonoBehaviour, IRestartable
 
         gameObject.SetActive(false);
         sideCharacter.SetActive(true);
+        CollisionSoundController.UnmuteCollisions();
     }
 
     [UsedImplicitly]
