@@ -50,6 +50,7 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
         speedProgress = 0;
         currentSpeed = minSpeed;
         journeyCompleted = false;
+        RestartMovingOnUpdate();
     }
 
     public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this, 0);
@@ -164,29 +165,29 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
     public void StaggerCharacterMovement()
     {
         canMove = false;
+        currentSpeed = minSpeed;
+        speedTime = 0f;
+        // Update Ui
+        mainResourceBar.SetCurrentValue(0f);
         speedLostEvent.Raise();
     }
 
     /// <summary>
     /// Start gaining speed again
     /// </summary>
-    public void RestartSpeedGain()
-    {
-        currentSpeed = minSpeed;
-        speedTime = 0f;
-        // Update Ui
-        mainResourceBar.SetCurrentValue(0f);
-        canMove = true;
-    }
-
-    [UsedImplicitly]
-    public void ToggleAbilityToMove() => Time.timeScale = Time.timeScale == 0f ? 1f : 0f;
+    public void RestartSpeedGain() => canMove = true;
 
     /// <summary>
     /// Instantly gain a pre-defined amount of speed
     /// </summary>
     [UsedImplicitly]
     public void GainSpeed() => CalcSpeed(flatTimeIncrease: pickupSpeedGain * rampTime);
+
+    [UsedImplicitly]
+    public void StopMovingOnUpdate() => Time.timeScale = 0f;
+
+    [UsedImplicitly]
+    public void RestartMovingOnUpdate() => Time.timeScale = 1f;
 
     #endregion
 
