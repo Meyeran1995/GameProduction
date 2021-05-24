@@ -34,7 +34,8 @@ public class JourneyFailedObserver : AMultiListenerEnabler, IRestartable
     [UsedImplicitly]
     public void OnMovementRestarted()
     {
-        StopCoroutine(waitRoutine);
+        if (waitRoutine != null)
+            StopCoroutine(waitRoutine);
         waitRoutine = null;
     }
 
