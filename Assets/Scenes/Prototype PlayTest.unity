@@ -3257,6 +3257,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7935104195149141412, guid: cf3172af334961e4f97d002316be1c99, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 654415de788af9341a19a9889afa9dde, type: 3}
     - target: {fileID: 7935104195149141413, guid: cf3172af334961e4f97d002316be1c99, type: 3}
       propertyPath: energyBar
       value: 
