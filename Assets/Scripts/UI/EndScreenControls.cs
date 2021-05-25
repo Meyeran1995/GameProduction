@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class EndScreenControls : AListenerEnabler
 {
+    public static bool IsQuitting { get; private set; }
+
     [UsedImplicitly]
     public void RestartGame()
     {
@@ -13,6 +15,7 @@ public class EndScreenControls : AListenerEnabler
     [UsedImplicitly]
     public void QuitGame()
     {
+        IsQuitting = true;
         Application.Quit();
     }
 }

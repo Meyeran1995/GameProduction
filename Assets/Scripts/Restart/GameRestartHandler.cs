@@ -9,6 +9,8 @@ public class GameRestartHandler : AListenerEnabler
 
     public static void RegisterRestartable(IRestartable restartable, int index) => objectsForRestart.Insert(index, restartable);
 
+    public static void UnRegisterRestartable(IRestartable restartable) => objectsForRestart.Remove(restartable);
+
     [UsedImplicitly]
     public void RestartGame()
     {
