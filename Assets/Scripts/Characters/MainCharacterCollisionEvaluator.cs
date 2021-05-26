@@ -6,6 +6,7 @@ using UnityEngine;
 public class MainCharacterCollisionEvaluator : MonoBehaviour, IRestartable
 {
     private PlayerStateMachine stateMachine;
+    private Animator playerAnimator;
 
     [Header("Collisions")]
     [SerializeField] [Tooltip("Minimum amount of time the character will stand still for after being hit")] private float staggerTime;
@@ -17,7 +18,11 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour, IRestartable
     [SerializeField] private Vector3 boxSize;
     [SerializeField] private Vector3 boxOffset;
 
-    private void Awake() => stateMachine = GetComponent<PlayerStateMachine>();
+    private void Awake()
+    {
+        stateMachine = GetComponent<PlayerStateMachine>();
+        playerAnimator = GetComponent<Animator>();
+    }
 
     private void Start() => RegisterWithHandler();
 
@@ -25,7 +30,7 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour, IRestartable
     {
         if (++numberOfCollidingObjects == 1)
         {
-            stateMachine.ChangeState(new WaitingState(gameObject, this, staggerTime));
+            stateMachine.ChangeState(new CrouchedState(this, playerAnimator, staggerTime));
         }
     }
 

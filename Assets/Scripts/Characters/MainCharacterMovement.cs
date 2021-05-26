@@ -20,6 +20,7 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
     [Header("Speed Debug")] 
     [SerializeField] private float speedTime;
     [SerializeField] private float speedProgress, currentSpeed;
+    public float CurrentSpeed => currentSpeed;
 
     // Movement
     private List<Checkpoint> checkPoints;

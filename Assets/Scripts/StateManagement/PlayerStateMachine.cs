@@ -8,19 +8,34 @@ public class PlayerStateMachine : MonoBehaviour, IRestartable
 
     public static PlayerStateMachine Instance { get; private set; }
 
-    private Coroutine exitRoutine;
+    private Animator playerAnimator;
+    private int animatorParameterId;
+    private MainCharacterMovement playerMovement;
 
+    private Coroutine exitRoutine;
     [SerializeField] private GameEvent restartWalkingEvent;
 
     private void Awake()
     {
         Instance = this;
+
+        animatorParameterId = Animator.StringToHash("Speed");
+        playerAnimator = GetComponent<Animator>();
+        playerMovement = GetComponent<MainCharacterMovement>();
+    }
+
+    private void InitializeState()
+    {
         var collisionEvaluator = GetComponent<MainCharacterCollisionEvaluator>();
-        CurrentState = new WaitingState(gameObject, collisionEvaluator, collisionEvaluator.StaggerTime);
+        CurrentState = new CrouchedState(collisionEvaluator, playerMovement, playerAnimator,collisionEvaluator.StaggerTime);
         CurrentState.OnStateEnter();
     }
 
-    private void Start() => RegisterWithHandler();
+    private void Start()
+    {
+        RegisterWithHandler();
+        InitializeState();
+    }
 
     public void ChangeState(AState newState)
     {
@@ -35,7 +50,7 @@ public class PlayerStateMachine : MonoBehaviour, IRestartable
             TransitionToNextState(newState);
         }
 
-        if(newState is WaitingState) return;
+        if(newState is CrouchedState) return;
 
         restartWalkingEvent.Raise();
     }
@@ -59,14 +74,19 @@ public class PlayerStateMachine : MonoBehaviour, IRestartable
         exitRoutine = null;
     }
 
-    private void FixedUpdate() => CurrentState.OnFixedUpdate(Time.fixedDeltaTime);
+    private void FixedUpdate()
+    {
+        playerAnimator.SetFloat(animatorParameterId, playerMovement.CurrentSpeed);
+        CurrentState.OnFixedUpdate(Time.fixedDeltaTime);
+    }
 
     public void Restart()
     {
         if (exitRoutine != null)
             StopCoroutine(exitRoutine);
         exitRoutine = null;
-        Awake();
+
+        InitializeState();
     }
 
     public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
