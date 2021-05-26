@@ -1,5 +1,4 @@
 using System.Collections;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +6,7 @@ public class ImageFadeEffect : MonoBehaviour, IRestartable
 {
     [SerializeField] private float fadeSpeed;
     [SerializeField] private Image targetImage;
+    [SerializeField] private bool setActiveOnRestart;
     private Color imageColor, originalColor;
 
     private void Start()
@@ -28,9 +28,17 @@ public class ImageFadeEffect : MonoBehaviour, IRestartable
             targetImage.color = imageColor;
             yield return null;
         }
+
+        gameObject.SetActive(false);
     }
 
-    public void Restart() => targetImage.color = originalColor;
+    public void Restart()
+    {
+        targetImage.color = originalColor;
+        imageColor = originalColor;
+        if(setActiveOnRestart)
+            gameObject.SetActive(true);
+    }
 
     public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
 

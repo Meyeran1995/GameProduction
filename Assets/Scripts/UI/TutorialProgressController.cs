@@ -1,142 +1,144 @@
 using System.Collections;
 using JetBrains.Annotations;
-using RoboRyanTron.Unite2017.Events;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.UI;
 
-public class TutorialProgressController : MonoBehaviour, IRestartable
+public class TutorialProgressController : MonoBehaviour
 {
-    [SerializeField] private GameEvent startEvent;
-    [SerializeField] private GameObject sideCharacter, mainMenu;
-    private ImageFadeEffect mainMenuFade;
-
     [Header("Intro")]
     [SerializeField] private AssetReference[] introScenes;
     private int currentScene;
-    private Animator currentAnimator, nextAnimator;
+    private Animator[] animators;
+
+    [Header("Loading")]
+    [SerializeField] private float[] loadProgress;
+    [SerializeField] private Image loadProgressImage;
+    private int currentSceneLoadIndex;
+    private AsyncOperationHandle<GameObject> currentHandle;
+    private Coroutine loadRoutine;
 
     private void Awake()
     {
         currentScene = 0;
-        LoadNextClip();
+        animators = new Animator[introScenes.Length];
+
+        loadProgress = new float[introScenes.Length];
+        for (int i  = 0;  i < loadProgress.Length; i++)
+        {
+            loadProgress[i] = 0f;
+        }
+
+        loadRoutine = StartCoroutine(LoadClips());
+        loadProgressImage.fillAmount = 0f;
     }
 
-    private void Start()
+    private IEnumerator LoadClips()
     {
-        mainMenuFade = mainMenu.GetComponent<ImageFadeEffect>();
-        RegisterWithHandler();
+        for (int i = 0; i < introScenes.Length; i++)
+        {
+            currentHandle = introScenes[i].InstantiateAsync(transform);
+            currentSceneLoadIndex = i;
+            currentHandle.Completed += handle => handle.Result.gameObject.SetActive(false);
+
+            yield return currentHandle;
+
+            var currentAnimator = currentHandle.Result.GetComponent<Animator>();
+            animators[i] = currentAnimator;
+
+            loadProgress[currentSceneLoadIndex] = 1f / introScenes.Length;
+            currentAnimator.transform.SetAsFirstSibling();
+        }
+
+        StartCoroutine(FadeOutLogo());
+        loadRoutine = null;
+    }
+
+    private float GetLoadProgress()
+    {
+        float progress = 0f;
+
+        foreach (var p in loadProgress)
+        {
+            progress += p;
+        }
+
+        return progress;
+    }
+
+    private void FixedUpdate()
+    {
+        if(loadRoutine == null) return;
+
+        loadProgress[currentSceneLoadIndex] = currentHandle.PercentComplete / introScenes.Length;
+        loadProgressImage.fillAmount = GetLoadProgress();
+    }
+
+    private IEnumerator PlayClip()
+    {
+        if (currentScene < introScenes.Length)
+        {
+            var currentAnimator = animators[currentScene];
+            currentAnimator.gameObject.SetActive(true);
+            currentAnimator.SetTrigger("SceneStart");
+
+            yield return new WaitUntil(() => currentAnimator.GetCurrentAnimatorStateInfo(0).IsTag("End"));
+
+            if (++currentScene < introScenes.Length)
+            {
+                currentAnimator.gameObject.SetActive(false);
+            }
+
+            StartCoroutine(PlayClip());
+        }
+        else
+        {
+            yield return new WaitUntil(() => animators[introScenes.Length - 1].GetCurrentAnimatorStateInfo(0).IsTag("End"));
+
+            StartCoroutine(FadeToMain());
+        }
     }
 
     [UsedImplicitly]
     public void SkipIntro()
     {
         StopAllCoroutines();
-        StartCoroutine(FadeToGameplay());
+        loadRoutine = null;
+        Addressables.ReleaseInstance(currentHandle);
+        StartCoroutine(FadeToMain());
     }
 
-    [UsedImplicitly]
-    public void StartIntro()
+    private IEnumerator FadeToMain()
     {
-        if(transform.childCount == 1)
-            Awake();
-
-        StartCoroutine(WaitForIntroLoad());
-    }
-
-    private IEnumerator WaitForIntroLoad()
-    {
-        yield return new WaitUntil(() => currentAnimator != null);
-        yield return StartCoroutine(mainMenuFade.FadeOut());
-        
-        mainMenu.SetActive(false);
-        currentAnimator.SetTrigger("SceneStart");
-    }
-
-    private AsyncOperationHandle<GameObject> LoadNextClip()
-    {
-        var handle = introScenes[currentScene].InstantiateAsync(transform);
-        handle.Completed += OnClipLoaded;
-
-        currentScene++;
-
-        return handle;
-    }
-
-    private void OnClipLoaded(AsyncOperationHandle<GameObject> handle)
-    {
-        if (currentScene == 1)
+        if (animators[0] != null)
         {
-            currentAnimator = handle.Result.GetComponent<Animator>();
-            currentAnimator.transform.SetAsFirstSibling();
-            StartCoroutine(WatchForEndOfClip());
+            var fade = currentScene < introScenes.Length ? animators[currentScene].GetComponent<ImageFadeEffect>() : animators[introScenes.Length - 1].GetComponent<ImageFadeEffect>();
+
+            yield return StartCoroutine(fade.FadeOut());
         }
-        else
-        {
-            nextAnimator = handle.Result.GetComponent<Animator>();
-            nextAnimator.transform.SetAsFirstSibling();
-            nextAnimator.gameObject.SetActive(false);
-        }
+
+        CleanUpIntro();
     }
 
-    private IEnumerator WatchForEndOfClip()
+    private IEnumerator FadeOutLogo()
     {
-        if (currentScene < introScenes.Length)
-        {
-            yield return LoadNextClip();
-
-            yield return new WaitUntil(() => currentAnimator.GetCurrentAnimatorStateInfo(0).IsTag("End"));
-
-            nextAnimator.gameObject.SetActive(true);
-            nextAnimator.SetTrigger("SceneStart");
-
-            Addressables.ReleaseInstance(currentAnimator.gameObject);
-            currentAnimator = nextAnimator;
-
-            StartCoroutine(WatchForEndOfClip());
-        }
-        else
-        {
-            yield return new WaitUntil(() => currentAnimator.GetCurrentAnimatorStateInfo(0).IsTag("End"));
-
-            StartCoroutine(FadeToGameplay());
-        }
-    }
-
-    private IEnumerator FadeToGameplay()
-    {
-        var fade = currentAnimator.GetComponent<ImageFadeEffect>();
+        var fade = loadProgressImage.GetComponent<ImageFadeEffect>();
 
         yield return StartCoroutine(fade.FadeOut());
 
-        StartGamePlay();
+        StartCoroutine(PlayClip());
+        Destroy(loadProgressImage);
     }
 
-    private void StartGamePlay()
+    private void CleanUpIntro()
     {
-        foreach (Transform clip in transform)
+        foreach (var t in animators)
         {
-            if (clip.CompareTag("Skip"))
-            {
-                clip.gameObject.SetActive(false);
-            }
-            else
-            {
-                Addressables.ReleaseInstance(clip.gameObject);
-            }    
+            if(t != null)
+                Addressables.ReleaseInstance(t.gameObject);
         }
 
-        startEvent.Raise();
-        sideCharacter.SetActive(true);
-        CollisionSoundController.UnmuteCollisions();
+        Destroy(gameObject);
     }
-
-    public void Restart()
-    {
-        if(!mainMenu.activeSelf) return;
-
-        Awake();
-    }
-
-    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
 }

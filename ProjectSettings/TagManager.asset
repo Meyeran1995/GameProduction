@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Bubble
   - ParallaxCam
-  - Skip
   layers:
   - Default
   - TransparentFX

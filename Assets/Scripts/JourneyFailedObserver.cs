@@ -11,6 +11,8 @@ public class JourneyFailedObserver : AMultiListenerEnabler, IRestartable
 
     private void Awake() => RegisterWithHandler();
 
+    private void Start() => waitRoutine = StartCoroutine(ObserveRemainingEnergy());
+
     private IEnumerator ObserveRemainingEnergy()
     {
         yield return new WaitUntil(() => companionBar.IsDepleted);
@@ -41,10 +43,11 @@ public class JourneyFailedObserver : AMultiListenerEnabler, IRestartable
 
     public void Restart()
     {
-        if(!gameLost) return;
+        if (!gameLost) return;
 
         continueButton.SetActive(true);
         menuButton.SetActive(true);
+        gameLost = false;
     }
 
     public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);

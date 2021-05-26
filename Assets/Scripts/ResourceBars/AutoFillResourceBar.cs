@@ -90,5 +90,5 @@ public class AutoFillResourceBar : MonoBehaviour, IRestartable
         IsDepleting = false;
     }
 
-    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
+    public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this, 1);
 }

@@ -29,7 +29,7 @@ public class MainCharacterCollisionEvaluator : MonoBehaviour, IRestartable
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision) => --numberOfCollidingObjects;
+    private void OnCollisionExit2D(Collision2D collision) => numberOfCollidingObjects = numberOfCollidingObjects != 0 ? numberOfCollidingObjects - 1 : 0;
 
     public bool QueryForFrontalCollisions() => Physics2D.OverlapBox(transform.TransformPoint(boxOffset),
                                             Vector3.Scale(transform.localScale, boxSize), transform.localEulerAngles.z, 1 << 0);

@@ -31,7 +31,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4115909395392722193}
-  - {fileID: 488080329472866983}
   m_Father: {fileID: 8424473887469029285}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -245,6 +244,7 @@ GameObject:
   - component: {fileID: 8997986787768673552}
   - component: {fileID: 8569060210203447994}
   - component: {fileID: 4822056423865532595}
+  - component: {fileID: 167804348023273441}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -264,6 +264,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4016554395037712797}
+  - {fileID: 488080329472866983}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -323,7 +324,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeSpeed: 2.5
-  targetImage: {fileID: 0}
+  targetImage: {fileID: 8569060210203447994}
+  setActiveOnRestart: 0
+--- !u!114 &167804348023273441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593365138180947206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cead42d1abf308547aa808588c264bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    Event: {fileID: 11400000, guid: 8bc96153ba48ae04fbdd13ed942ccd8b, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 167804348023273441}
+          m_TargetAssemblyTypeName: ImageAutoFade, Assembly-CSharp
+          m_MethodName: OnGameStartFade
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6972653745410308075
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,12 +385,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4016554395037712797}
+  m_Father: {fileID: 8424473887469029285}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -250}
+  m_AnchoredPosition: {x: 0, y: 154.5}
   m_SizeDelta: {x: 216, y: 129}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4221354210526445279
