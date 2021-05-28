@@ -10,11 +10,14 @@ public class BirdObstacle : AMovingObstacle
     [Header("Additional Sounds")]
     [EventRef] [SerializeField] [Tooltip("Sound to be played on destruction")] protected string onDestroyedSound;
 
+    [Header("Effect")]
+    [SerializeField] private ParticleSystem deathEffect;
+
     public Transform Target { get; set; }
 
     protected override void Awake()
     {
-        // Overwrite to do nothing in Awake (rigidbody is now set in OnEnable)
+        // empty method override
     }
 
     public override void Restart()
@@ -24,7 +27,7 @@ public class BirdObstacle : AMovingObstacle
         rigidBody.angularVelocity = 0f;
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision) => StartCoroutine(WaitAndDisable());
+    protected override void OnCollisionEnter2D(Collision2D collision) => StartCoroutine(WaitAndDisable(collision));
 
     protected override void Move()
     {
@@ -36,8 +39,11 @@ public class BirdObstacle : AMovingObstacle
     /// Waits til all OnCollisions have been resolved
     /// </summary>
     /// <returns></returns>
-    private IEnumerator WaitAndDisable()
+    private IEnumerator WaitAndDisable(Collision2D collision)
     {
+        deathEffect.transform.position = collision.GetContact(0).point;
+        deathEffect.Play();
+
         yield return new WaitForEndOfFrame();
 
         gameObject.SetActive(false);
