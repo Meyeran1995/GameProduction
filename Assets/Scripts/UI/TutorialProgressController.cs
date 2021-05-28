@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class TutorialProgressController : MonoBehaviour
 {
+    [Header("Music")]
+    [SerializeField] private MusicPiece mainMenuMusicPiece;
+
     [Header("Intro")]
     [SerializeField] private AssetReference[] introScenes;
     private int currentScene;
@@ -111,6 +114,8 @@ public class TutorialProgressController : MonoBehaviour
 
     private IEnumerator FadeToMain()
     {
+        mainMenuMusicPiece.PlaySolo();
+
         if (animators[0] != null)
         {
             var fade = currentScene < introScenes.Length ? animators[currentScene].GetComponent<ImageFadeEffect>() : animators[introScenes.Length - 1].GetComponent<ImageFadeEffect>();

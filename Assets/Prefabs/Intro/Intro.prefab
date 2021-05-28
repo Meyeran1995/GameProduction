@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c96a3b88c61534e98b33a35ad07285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainMenuMusicPiece: {fileID: 11400000, guid: 3709e841e6872574d9df133419b38987, type: 2}
   introScenes:
   - m_AssetGUID: 4408e9cef7d07494fbdfcbb99e863281
     m_SubObjectName: 
