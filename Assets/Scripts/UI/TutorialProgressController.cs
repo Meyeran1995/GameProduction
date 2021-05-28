@@ -123,7 +123,7 @@ public class TutorialProgressController : MonoBehaviour
             yield return StartCoroutine(fade.FadeOut());
         }
 
-        CleanUpIntro();
+        StartCoroutine(CleanUpIntro());
     }
 
     private IEnumerator FadeOutLogo()
@@ -136,12 +136,14 @@ public class TutorialProgressController : MonoBehaviour
         Destroy(loadProgressImage);
     }
 
-    private void CleanUpIntro()
+    private IEnumerator CleanUpIntro()
     {
         foreach (var t in animators)
         {
-            if(t != null)
-                Addressables.ReleaseInstance(t.gameObject);
+            if (t == null) continue;
+            
+            Addressables.ReleaseInstance(t.gameObject);
+            yield return null;
         }
 
         Destroy(gameObject);
