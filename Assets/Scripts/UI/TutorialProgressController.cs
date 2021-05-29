@@ -1,5 +1,6 @@
 using System.Collections;
 using JetBrains.Annotations;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -39,6 +40,8 @@ public class TutorialProgressController : MonoBehaviour
 
     private IEnumerator LoadClips()
     {
+        yield return new WaitUntil(() => RuntimeManager.HasBankLoaded("Master"));
+
         for (int i = 0; i < introScenes.Length; i++)
         {
             currentHandle = introScenes[i].InstantiateAsync(transform);
@@ -72,7 +75,7 @@ public class TutorialProgressController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(loadRoutine == null) return;
+        if(loadRoutine == null || !currentHandle.IsValid()) return;
 
         loadProgress[currentSceneLoadIndex] = currentHandle.PercentComplete / introScenes.Length;
         loadProgressImage.fillAmount = GetLoadProgress();

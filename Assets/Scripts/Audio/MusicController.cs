@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using FMODUnity;
 using FMOD.Studio;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
 
@@ -6,9 +8,11 @@ public class MusicController : MonoBehaviour
 {
     [SerializeField] private MusicPiece[] pieces;
 
-    private void Awake()
+    private IEnumerator Start()
     {
-        foreach(MusicPiece p in pieces)
+        yield return new WaitUntil(() => RuntimeManager.HasBankLoaded("Master"));
+
+        foreach (MusicPiece p in pieces)
         {
             p.Initialize();
         }
