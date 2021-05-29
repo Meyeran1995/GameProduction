@@ -572,8 +572,8 @@ PlayerSettings:
   useDeterministicCompilation: 1
   useReferenceAssemblies: 1
   enableRoslynAnalyzers: 1
-  additionalIl2CppArgs: --additional-cpp="D:/GameDevStuff/GameProduction/Assets/../Temp/fmod_register_static_plugins.cpp"
-    --additional-cpp="D:/GameDevStuff/GameProduction/Assets/Plugins/FMOD/src/Runtime/fmod_static_plugin_support.h"
+  additionalIl2CppArgs: --additional-cpp="C:/Portfolio_Stuff/GameProduction/Assets/../Temp/fmod_register_static_plugins.cpp"
+    --additional-cpp="C:/Portfolio_Stuff/GameProduction/Assets/Plugins/FMOD/src/Runtime/fmod_static_plugin_support.h"
   scriptingRuntimeVersion: 1
   gcIncremental: 1
   assemblyVersionValidation: 1

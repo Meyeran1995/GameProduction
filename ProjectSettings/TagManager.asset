@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bubble
   - ParallaxCam
+  - PauseControls
   layers:
   - Default
   - TransparentFX

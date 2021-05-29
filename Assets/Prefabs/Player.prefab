@@ -133,14 +133,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497eff17a0bf2bb4698482992fba8ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listener:
-    Event: {fileID: 0}
+  listeners:
+  - Event: {fileID: 11400000, guid: 8bc96153ba48ae04fbdd13ed942ccd8b, type: 2}
     Response:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 708239604788086185}
           m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
-          m_MethodName: OnMainCharacterStaminaDepleted
+          m_MethodName: EnableControls
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Event: {fileID: 11400000, guid: b35c1dd7853addf4982c3d1f67bc101e, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 708239604788086185}
+          m_TargetAssemblyTypeName: PlayerInputController, Assembly-CSharp
+          m_MethodName: DisableControls
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

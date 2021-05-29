@@ -33,6 +33,14 @@ public class @GameInputsDefault : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""PauseGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""42898baa-01c6-4750-b006-ed132d679658"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -64,7 +72,7 @@ public class @GameInputsDefault : IInputActionCollection, IDisposable
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -75,8 +83,19 @@ public class @GameInputsDefault : IInputActionCollection, IDisposable
                     ""path"": ""<Touchscreen>/primaryTouch/position"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Touch"",
                     ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b4af95d-ac2b-435a-b70c-aaaedb88239b"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""PauseGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -656,6 +675,7 @@ public class @GameInputsDefault : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Protect = m_Player.FindAction("Protect", throwIfNotFound: true);
+        m_Player_PauseGame = m_Player.FindAction("PauseGame", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -719,12 +739,14 @@ public class @GameInputsDefault : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Protect;
+    private readonly InputAction m_Player_PauseGame;
     public struct PlayerActions
     {
         private @GameInputsDefault m_Wrapper;
         public PlayerActions(@GameInputsDefault wrapper) { m_Wrapper = wrapper; }
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Protect => m_Wrapper.m_Player_Protect;
+        public InputAction @PauseGame => m_Wrapper.m_Player_PauseGame;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -740,6 +762,9 @@ public class @GameInputsDefault : IInputActionCollection, IDisposable
                 @Protect.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtect;
                 @Protect.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtect;
                 @Protect.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnProtect;
+                @PauseGame.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseGame;
+                @PauseGame.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseGame;
+                @PauseGame.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseGame;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -750,6 +775,9 @@ public class @GameInputsDefault : IInputActionCollection, IDisposable
                 @Protect.started += instance.OnProtect;
                 @Protect.performed += instance.OnProtect;
                 @Protect.canceled += instance.OnProtect;
+                @PauseGame.started += instance.OnPauseGame;
+                @PauseGame.performed += instance.OnPauseGame;
+                @PauseGame.canceled += instance.OnPauseGame;
             }
         }
     }
@@ -908,6 +936,7 @@ public class @GameInputsDefault : IInputActionCollection, IDisposable
     {
         void OnAim(InputAction.CallbackContext context);
         void OnProtect(InputAction.CallbackContext context);
+        void OnPauseGame(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
