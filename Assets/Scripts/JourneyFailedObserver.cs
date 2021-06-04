@@ -9,9 +9,11 @@ public class JourneyFailedObserver : AMultiListenerEnabler, IRestartable
     private Coroutine waitRoutine;
     private bool gameLost;
 
-    private void Awake() => RegisterWithHandler();
-
-    private void Start() => waitRoutine = StartCoroutine(ObserveRemainingEnergy());
+    private void Start()
+    {
+        RegisterWithHandler();
+        waitRoutine = StartCoroutine(ObserveRemainingEnergy());
+    }
 
     private IEnumerator ObserveRemainingEnergy()
     {
