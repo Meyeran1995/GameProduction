@@ -1,15 +1,12 @@
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using RoboRyanTron.Unite2017.Events;
 
-public class MainCharacterMovement : AListenerEnabler, IRestartable
+public class MainCharacterMovement : MonoBehaviour, IRestartable
 {
     #region Fields
 
-    [Header("Resources")]
     [SerializeField] private CircularResourceBar mainResourceBar;
-    [SerializeField] [Tooltip("How much of the maximum speed is gained by collecting feathers?")] [Range(0f, 1f)] private float pickupSpeedGain;
 
     [Header("Speed")]
     [SerializeField] [Tooltip("Maximum speed to be reached")] [Range(1f, 10f)] private float maxSpeed;
@@ -23,8 +20,6 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
     public float CurrentSpeed => currentSpeed;
 
     // Movement
-    private List<Checkpoint> checkPoints;
-    private int currentCheckpointIndex;
     private Vector2 currentDirection;
     private Rigidbody2D characterBody;
 
@@ -46,7 +41,6 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
     public void Restart()
     {
         transform.position = originalPosition;
-        currentCheckpointIndex = 0;
         speedTime = 0;
         speedProgress = 0;
         currentSpeed = minSpeed;
@@ -61,16 +55,11 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
     private void Awake()
     {
         characterBody = GetComponent<Rigidbody2D>();
-        checkPoints = new List<Checkpoint>();
         currentSpeed = minSpeed;
         originalPosition = transform.position;
     }
 
-    private void Start()
-    {
-        checkPoints.Sort();
-        RegisterWithHandler();
-    }
+    private void Start() => RegisterWithHandler();
 
     #region Movement
 
@@ -79,7 +68,6 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
         if (journeyCompleted || !canMove) return;
 
         RampUpSpeed();
-        CheckPointCompletionProgress();
         GroundCharacter();
 
         if (journeyCompleted) return;
@@ -106,32 +94,14 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
 
     private void MoveForward() => characterBody.MovePosition(characterBody.position + currentDirection * Time.fixedDeltaTime);
 
-    public void RegisterCheckpoint(Checkpoint checkpoint) => checkPoints.Add(checkpoint);
-
-    /// <summary>
-    /// Checks whether the current checkpoint has been passed. Passing the last checkpoint completes the journey
-    /// </summary>
-    private void CheckPointCompletionProgress()
-    {
-        var directionToCheckpoint = checkPoints[currentCheckpointIndex].CheckPointPosition - transform.position;
-
-        if (directionToCheckpoint.x > 0f) return;
-
-        currentCheckpointIndex++;
-
-        if (currentCheckpointIndex != checkPoints.Count) return;
-
-        journeyCompleted = true;
-    }
-
     #endregion
 
     #region Speed
 
-    private void CalcSpeed(float flatTimeIncrease = 0f)
+    private void CalcSpeed()
     {
         // Which time is it inside of the speed cycle?
-        speedTime = Mathf.Clamp(speedTime + Time.fixedDeltaTime + flatTimeIncrease, 0f, rampTime);
+        speedTime = Mathf.Clamp(speedTime + Time.fixedDeltaTime, 0f, rampTime);
         // How much progress did we make, according to time?
         speedProgress = Mathf.InverseLerp(0f, rampTime, speedTime);
 
@@ -177,12 +147,6 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
     /// Start gaining speed again
     /// </summary>
     public void RestartSpeedGain() => canMove = true;
-
-    /// <summary>
-    /// Instantly gain a pre-defined amount of speed
-    /// </summary>
-    [UsedImplicitly]
-    public void GainSpeed() => CalcSpeed(flatTimeIncrease: pickupSpeedGain * rampTime);
 
     [UsedImplicitly]
     public void StopMovingOnUpdate() => Time.timeScale = 0f;
