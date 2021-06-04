@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
@@ -10,6 +9,7 @@ public class BubbleExpander : AMultiListenerEnabler, IRestartable
     [SerializeField] private AutoFillResourceBar energyBar;
     [SerializeField] private Animator bubbleAnimator;
     private Rigidbody2D bubbleRigidbody;
+    private BubbleResourceController bubbleResourceController;
 
     [Header("Bubble Properties")]
     [SerializeField] [Tooltip("Minimum radius for the bubble")] [Range(0.1f, 2f)] private float minRadius;
@@ -65,6 +65,8 @@ public class BubbleExpander : AMultiListenerEnabler, IRestartable
         bubbleRigidbody = GetComponent<Rigidbody2D>();
 
         bubbleActiveColor = new Color(1f, 0.5f, 0f);
+
+        bubbleResourceController = GetComponent<BubbleResourceController>();
     }
 
     private void Start()
@@ -145,7 +147,7 @@ public class BubbleExpander : AMultiListenerEnabler, IRestartable
         bubbleAnimator.SetBool("isExpanding",true);
         bubbleSoundInstance.start();
         isExpanding = true;
-        energyBar.IsDepleting = true;
+        bubbleResourceController.StartResourceDepletion();
     }
 
     public void StopExpanding()
@@ -153,7 +155,7 @@ public class BubbleExpander : AMultiListenerEnabler, IRestartable
         bubbleAnimator.SetBool("isExpanding", false);
         bubbleSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         isExpanding = false;
-        energyBar.IsDepleting = false;
+        bubbleResourceController.EndResourceDepletion();
     }
 
     private void AdjustRadius(int sign)
@@ -161,14 +163,6 @@ public class BubbleExpander : AMultiListenerEnabler, IRestartable
         bubbleCollider.radius = Mathf.Clamp(bubbleCollider.radius + expansionRate * Time.fixedDeltaTime * sign, minRadius, maxRadius);
         transform.GetChild(0).localScale = new Vector3(bubbleCollider.radius, bubbleCollider.radius) * 2f;
     }
-
-    #endregion
-
-    #region Resource Controls
-
-    [UsedImplicitly] public void StartResourceRegeneration() => energyBar.IsReplenishing = true;
-
-    [UsedImplicitly] public void EndResourceGeneration() => energyBar.IsReplenishing = false;
 
     #endregion
 

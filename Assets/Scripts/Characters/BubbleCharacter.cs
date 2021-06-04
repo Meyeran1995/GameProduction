@@ -7,7 +7,11 @@ public class BubbleCharacter : MonoBehaviour, IRestartable
     private PlayerInputController inputController;
     private Camera mainCam;
 
-    [SerializeField] [Tooltip("With how much delay is the character following the mouse?")] [Range(0f, 0.5f)] private float movementDelay;
+    [SerializeField] 
+    [Tooltip("With how much delay is the character following the mouse?")] 
+    [Range(0f, 0.5f)] 
+    private float movementDelay;
+
     private const int MAX_FPS = 60;
     private Vector2[] positionBuffer;
     private float[] timeBuffer;

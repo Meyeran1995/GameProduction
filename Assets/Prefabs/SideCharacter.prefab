@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7935104195149141414}
   - component: {fileID: 7935104195149141415}
   - component: {fileID: 7935104195149141413}
+  - component: {fileID: 3631657067492888801}
   - component: {fileID: 7935104195149141418}
   - component: {fileID: 1301155105563465446}
   m_Layer: 6
@@ -178,6 +179,85 @@ MonoBehaviour:
   expansionRate: 1.5
   bubblePushStrength: 0.5
   bubbleSound: event:/PLR/ev_sx_plr_bubble_protectplayer
+--- !u!114 &3631657067492888801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935104195149141416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b201ac205f2ab3146ad765cf9ee5ee97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeners:
+  - Event: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3631657067492888801}
+          m_TargetAssemblyTypeName: BubbleResourceController, Assembly-CSharp
+          m_MethodName: StartResourceRegeneration
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Event: {fileID: 11400000, guid: 6164c6b0e1e2bae45b94b244b14fd45f, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3631657067492888801}
+          m_TargetAssemblyTypeName: BubbleResourceController, Assembly-CSharp
+          m_MethodName: EndResourceRegeneration
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Event: {fileID: 11400000, guid: 6d7481ea88463bb4993d8aa9a7f321df, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3631657067492888801}
+          m_TargetAssemblyTypeName: BubbleResourceController, Assembly-CSharp
+          m_MethodName: OnLowEnergyDetected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Event: {fileID: 11400000, guid: b59ea4a3943f3284ab9cded922566ec7, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3631657067492888801}
+          m_TargetAssemblyTypeName: BubbleResourceController, Assembly-CSharp
+          m_MethodName: OnLowEnergyAverted
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  sideCharacterAnimator: {fileID: 1301155105563465446}
+  energyBar: {fileID: 0}
 --- !u!58 &7935104195149141418
 CircleCollider2D:
   m_ObjectHideFlags: 0

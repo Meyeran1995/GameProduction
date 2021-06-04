@@ -3344,6 +3344,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3631657067492888801, guid: cf3172af334961e4f97d002316be1c99, type: 3}
+      propertyPath: energyBar
+      value: 
+      objectReference: {fileID: 333188047}
     - target: {fileID: 7935104195149141413, guid: cf3172af334961e4f97d002316be1c99, type: 3}
       propertyPath: energyBar
       value: 
