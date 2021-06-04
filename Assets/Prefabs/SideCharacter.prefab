@@ -222,7 +222,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7935104195725438811}
   - component: {fileID: 7935104195725438810}
-  - component: {fileID: 2092946416466023036}
   - component: {fileID: 2016450579797188046}
   m_Layer: 10
   m_Name: Circle
@@ -296,22 +295,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &2092946416466023036
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7935104195725438808}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!95 &2016450579797188046
 Animator:
   serializedVersion: 3

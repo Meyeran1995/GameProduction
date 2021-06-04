@@ -20,8 +20,6 @@ public class BubbleExpander : AMultiListenerEnabler, IRestartable
 
     private bool isExpanding;
 
-    public bool HasEnergyLeft => !energyBar.IsDepleted;
-
     [Header("Sounds")]
     [EventRef] [SerializeField] [Tooltip("Sound to be played while using the bubble")] private string bubbleSound;
     private EventInstance bubbleSoundInstance;
