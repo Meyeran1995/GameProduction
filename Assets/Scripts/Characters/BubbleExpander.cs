@@ -15,10 +15,24 @@ public class BubbleExpander : AMultiListenerEnabler, IRestartable
     [SerializeField] [Tooltip("Minimum radius for the bubble")] [Range(0.1f, 2f)] private float minRadius;
     [SerializeField] [Tooltip("Maximum radius for the bubble")] [Range(0.1f, 2f)] private float maxRadius;
     [SerializeField] [Tooltip("At which radius does the collider become active?")] [Range(0.1f, 2f)] private float activationRadius;
-    [SerializeField] [Tooltip("How fast is the bubble growing?")] [Range(0.1f, 2f)] private float expansionRate;
-    [SerializeField] [Tooltip("Amount of force applied to objects that are pushed by the bubble")] [Range(0.1f, 1f)] private float bubblePushStrength;
+
+    [SerializeField] 
+    [Tooltip("How much is the bubbles opacity offset from the amount of energy remaining?")]
+    [Range(0f, 1f)]
+    private float edgeOpacityOffset;
+
+    [SerializeField] 
+    [Tooltip("How fast is the bubble growing?")] 
+    [Range(0.1f, 2f)] 
+    private float expansionRate;
+
+    [SerializeField] 
+    [Tooltip("Amount of force applied to objects that are pushed by the bubble")] 
+    [Range(0.1f, 1f)] 
+    private float bubblePushStrength;
 
     private bool isExpanding;
+    private Color bubbleActiveColor;
 
     [Header("Sounds")]
     [EventRef] [SerializeField] [Tooltip("Sound to be played while using the bubble")] private string bubbleSound;
@@ -34,6 +48,7 @@ public class BubbleExpander : AMultiListenerEnabler, IRestartable
 
         bubbleCollider.enabled = false;
         bubbleEdgeRenderer.enabled = false;
+        bubbleActiveColor = new Color(1f, 0.5f, 0f);
     }
 
     public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
@@ -48,6 +63,8 @@ public class BubbleExpander : AMultiListenerEnabler, IRestartable
         bubbleEdgeRenderer.enabled = false;
 
         bubbleRigidbody = GetComponent<Rigidbody2D>();
+
+        bubbleActiveColor = new Color(1f, 0.5f, 0f);
     }
 
     private void Start()
@@ -67,6 +84,8 @@ public class BubbleExpander : AMultiListenerEnabler, IRestartable
                 StopExpanding();
                 return;
             }
+
+            EvaluateEnergyAmount();
 
             bubbleSoundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject, bubbleRigidbody));
 
@@ -93,19 +112,28 @@ public class BubbleExpander : AMultiListenerEnabler, IRestartable
     /// </summary>
     private void EvaluateBubbleState()
     {
-
         if (bubbleCollider.radius >= activationRadius)
         {
             bubbleCollider.enabled = true;
-            bubbleEdgeRenderer.color = new Color(1f, 0.5f, 0f);
         }
         else
         {
             bubbleCollider.enabled = false;
             bubbleEdgeRenderer.color = Color.grey;
         }
-
+        
         bubbleEdgeRenderer.enabled = bubbleCollider.radius > minRadius;
+    }
+
+    /// <summary>
+    /// Changes bubble opacity based on remaining energy
+    /// </summary>
+    private void EvaluateEnergyAmount()
+    {
+        if(!bubbleCollider.enabled) return;
+
+        bubbleActiveColor.a = Mathf.Clamp01(energyBar.FillAmount + edgeOpacityOffset);
+        bubbleEdgeRenderer.color = bubbleActiveColor;
     }
 
     #region Bubble Expansion

@@ -25,6 +25,8 @@ public class AutoFillResourceBar : MonoBehaviour, IRestartable
     public bool IsDepleting { get; set; }
     public bool IsReplenishing { get; set; }
 
+    public float FillAmount => Mathf.InverseLerp(minimumValue, maximumValue, resource.value);
+
     private void Awake()
     {
         resource = GetComponent<Slider>();
