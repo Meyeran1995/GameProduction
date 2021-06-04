@@ -1190,6 +1190,7 @@ GameObject:
   - component: {fileID: 1266777992}
   - component: {fileID: 1266777991}
   - component: {fileID: 1266777990}
+  - component: {fileID: 1266777994}
   m_Layer: 0
   m_Name: Wind Audio Object
   m_TagString: Untagged
@@ -1204,7 +1205,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266777989}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
   m_Name: 
@@ -1220,7 +1221,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266777989}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
   m_Name: 
@@ -1236,14 +1237,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266777989}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
   Event: event:/AMB/ev_sx_amb_mountain_wind_blow
-  PlayEvent: 1
+  PlayEvent: 11
   StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
@@ -1270,6 +1271,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1266777994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266777989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89e13690409c164ab9d490f2a5b24bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behavioursToEnable:
+  - {fileID: 1266777990}
+  - {fileID: 1266777991}
+  - {fileID: 1266777992}
+  bankName: Master
 --- !u!1001 &1322957760
 PrefabInstance:
   m_ObjectHideFlags: 0
