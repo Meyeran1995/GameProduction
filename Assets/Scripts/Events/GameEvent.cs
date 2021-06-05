@@ -19,6 +19,8 @@ namespace RoboRyanTron.Unite2017.Events
         private readonly List<GameEventListener> eventListeners = 
             new List<GameEventListener>();
 
+        public int ListenerCount => eventListeners.Count;
+
         public void Raise()
         {
             for(int i = eventListeners.Count -1; i >= 0; i--)
