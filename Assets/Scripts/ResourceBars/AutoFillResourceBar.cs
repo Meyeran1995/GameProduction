@@ -18,6 +18,7 @@ public class AutoFillResourceBar : MonoBehaviour, IRestartable
     [Header("Low Resource Events")]
     [SerializeField] private GameEvent lowEvent;
     [SerializeField] private GameEvent lowAvertedEvent;
+    [SerializeField] private GameEvent ResourceDepletedEvent;
     private float lowResourceThreshold;
     private bool isBelowThreshold;
 
@@ -56,12 +57,18 @@ public class AutoFillResourceBar : MonoBehaviour, IRestartable
 
         resource.value -= depletionRate * Time.deltaTime;
 
-        if(isBelowThreshold) return;
+        if (isBelowThreshold)
+        {
+            if(IsDepleted)
+                ResourceDepletedEvent.Raise();
+        }
+        else
+        {
+            isBelowThreshold = resource.value <= lowResourceThreshold;
 
-        isBelowThreshold = resource.value <= lowResourceThreshold;
-
-        if(isBelowThreshold)
-            lowEvent.Raise();
+            if (isBelowThreshold)
+                lowEvent.Raise();
+        }
     }
 
     public void ReplenishResource(float timeModifier)

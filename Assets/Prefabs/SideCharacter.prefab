@@ -122,6 +122,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c22be756ec2cc4899537caba824520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listeners:
+  - Event: {fileID: 11400000, guid: ac709af0e905531448c0b292d0bc9bbb, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7935104195149141415}
+          m_TargetAssemblyTypeName: BubbleCharacter, Assembly-CSharp
+          m_MethodName: OnResourceDepleted
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Event: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7935104195149141415}
+          m_TargetAssemblyTypeName: BubbleCharacter, Assembly-CSharp
+          m_MethodName: OnEnergyRegained
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  sinkSpeed: 2.5
   movementDelay: 0.125
 --- !u!114 &7935104195149141413
 MonoBehaviour:
@@ -135,30 +169,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8641bcee82e857a47bc5f1c3364f4f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listeners:
-  - Event: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
+  listener:
+    Event: {fileID: 11400000, guid: ac709af0e905531448c0b292d0bc9bbb, type: 2}
     Response:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7935104195149141413}
           m_TargetAssemblyTypeName: BubbleExpander, Assembly-CSharp
-          m_MethodName: StartResourceRegeneration
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - Event: {fileID: 11400000, guid: 6164c6b0e1e2bae45b94b244b14fd45f, type: 2}
-    Response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7935104195149141413}
-          m_TargetAssemblyTypeName: BubbleExpander, Assembly-CSharp
-          m_MethodName: EndResourceGeneration
+          m_MethodName: StopExpanding
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

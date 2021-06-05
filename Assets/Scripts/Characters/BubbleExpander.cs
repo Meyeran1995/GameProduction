@@ -2,7 +2,7 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 
-public class BubbleExpander : AMultiListenerEnabler, IRestartable
+public class BubbleExpander : AListenerEnabler, IRestartable
 {
     [SerializeField] private CircleCollider2D bubbleCollider;
     [SerializeField] private SpriteRenderer bubbleEdgeRenderer;
@@ -81,12 +81,6 @@ public class BubbleExpander : AMultiListenerEnabler, IRestartable
     {
         if (isExpanding)
         {
-            if (energyBar.IsDepleted)
-            {
-                StopExpanding();
-                return;
-            }
-
             EvaluateEnergyAmount();
 
             bubbleSoundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject, bubbleRigidbody));

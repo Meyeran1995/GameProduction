@@ -347,6 +347,7 @@ MonoBehaviour:
   increaseRate: 15
   lowEvent: {fileID: 11400000, guid: 6d7481ea88463bb4993d8aa9a7f321df, type: 2}
   lowAvertedEvent: {fileID: 11400000, guid: b59ea4a3943f3284ab9cded922566ec7, type: 2}
+  ResourceDepletedEvent: {fileID: 11400000, guid: ac709af0e905531448c0b292d0bc9bbb, type: 2}
 --- !u!223 &5641552453087726900
 Canvas:
   m_ObjectHideFlags: 0

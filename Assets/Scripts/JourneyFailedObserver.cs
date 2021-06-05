@@ -9,17 +9,11 @@ public class JourneyFailedObserver : AMultiListenerEnabler, IRestartable
     private Coroutine waitRoutine;
     private bool gameLost;
 
-    private void Start()
-    {
-        RegisterWithHandler();
-        waitRoutine = StartCoroutine(ObserveRemainingEnergy());
-    }
+    private void Start() => RegisterWithHandler();
 
     private IEnumerator ObserveRemainingEnergy()
     {
-        yield return new WaitUntil(() => companionBar.IsDepleted);
-
-        if(PlayerStateMachine.Instance.CurrentState is MovingState) yield break;
+        yield return new WaitUntil(() => PlayerStateMachine.Instance.CurrentState is CrouchedState);
         
         transform.GetChild(0).gameObject.SetActive(true);
         continueButton.SetActive(false);
@@ -28,23 +22,31 @@ public class JourneyFailedObserver : AMultiListenerEnabler, IRestartable
     }
 
     [UsedImplicitly] 
-    public void OnSpeedLost()
+    public void OnEnergyDepleted()
     {
-        if(waitRoutine != null)
-            StopCoroutine(waitRoutine);
+        CheckForActiveRoutine();
         waitRoutine = StartCoroutine(ObserveRemainingEnergy());
     }
 
     [UsedImplicitly]
-    public void OnMovementRestarted()
+    public void OnBeginEnergyRefill()
     {
-        if (waitRoutine != null)
-            StopCoroutine(waitRoutine);
+        CheckForActiveRoutine();
         waitRoutine = null;
+    }
+
+    private void CheckForActiveRoutine()
+    {
+        if (waitRoutine == null) return;
+
+        StopCoroutine(waitRoutine);
     }
 
     public void Restart()
     {
+        CheckForActiveRoutine();
+        waitRoutine = null;
+
         if (!gameLost) return;
 
         continueButton.SetActive(true);

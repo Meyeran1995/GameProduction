@@ -1,17 +1,28 @@
+using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class BubbleCharacter : MonoBehaviour, IRestartable
+public class BubbleCharacter : AMultiListenerEnabler, IRestartable
 {
     private Rigidbody2D bubbleBody;
     private PlayerInputController inputController;
     private Camera mainCam;
+
+    [SerializeField]
+    [Tooltip("How fast is the character going to sink after losing all its energy?")]
+    [Range(1f, 10f)]
+    private float sinkSpeed;
+
+    private bool isMoving = true;
+    private Coroutine sinkRoutine;
 
     [SerializeField] 
     [Tooltip("With how much delay is the character following the mouse?")] 
     [Range(0f, 0.5f)] 
     private float movementDelay;
 
+    // Delayed movement fields
     private const int MAX_FPS = 60;
     private Vector2[] positionBuffer;
     private float[] timeBuffer;
@@ -24,8 +35,12 @@ public class BubbleCharacter : MonoBehaviour, IRestartable
 
     public void Restart()
     {
+        isMoving = true;
         transform.position = originalPosition;
         SetUpBuffers();
+        if(sinkRoutine != null)
+            StopCoroutine(sinkRoutine);
+        sinkRoutine = null;
     }
 
     public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
@@ -38,6 +53,7 @@ public class BubbleCharacter : MonoBehaviour, IRestartable
         bubbleBody = GetComponent<Rigidbody2D>();
         inputController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputController>();
         originalPosition = transform.position;
+        sinkSpeed = -sinkSpeed;
     }
 
     private void Start()
@@ -49,9 +65,46 @@ public class BubbleCharacter : MonoBehaviour, IRestartable
 
     private void FixedUpdate()
     {
+        if (!isMoving) return;
+
         AddNewPosToCache(inputController.InputControls.Player.Aim.ReadValue<Vector2>());
         MoveToNextPos();
     }
+
+    #region No Energy behaviour
+
+    [UsedImplicitly]
+    public void OnResourceDepleted()
+    {
+        isMoving = false;
+        StartCoroutine(SinkToGround());
+    }
+
+    private IEnumerator SinkToGround()
+    {
+        // move downwards with a drift towards the x of last recorded position
+        float drift = mainCam.ScreenToWorldPoint(positionBuffer[newestIndex]).x - transform.position.x;
+        var characterRenderer = GetComponent<SpriteRenderer>();
+        
+        var downSpeed = new Vector2(drift, sinkSpeed);
+
+        while (characterRenderer.isVisible)
+        {
+            bubbleBody.MovePosition(bubbleBody.position + downSpeed * Time.fixedDeltaTime);
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
+    [UsedImplicitly]
+    public void OnEnergyRegained()
+    {
+        if (sinkRoutine != null)
+            StopCoroutine(sinkRoutine);
+        sinkRoutine = null;
+        isMoving = true;
+    }
+
+    #endregion
 
     #region Delayed movement
 
@@ -124,10 +177,10 @@ public class BubbleCharacter : MonoBehaviour, IRestartable
         {
             progress = (targetTime - timeBuffer[oldestIndex]) / span;
         }
-
-        //float progress = (targetTime - timeBuffer[oldestIndex]) / span;
+        
         bubbleBody.MovePosition(mainCam.ScreenToWorldPoint(Vector3.Lerp(positionBuffer[oldestIndex], positionBuffer[nextIndex], progress)));
     }
 
 #endregion
+
 }

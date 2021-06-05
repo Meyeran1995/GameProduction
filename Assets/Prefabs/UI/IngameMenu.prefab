@@ -665,13 +665,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listeners:
-  - Event: {fileID: 11400000, guid: 6164c6b0e1e2bae45b94b244b14fd45f, type: 2}
+  - Event: {fileID: 11400000, guid: ac709af0e905531448c0b292d0bc9bbb, type: 2}
     Response:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2852820623838080364}
           m_TargetAssemblyTypeName: JourneyFailedObserver, Assembly-CSharp
-          m_MethodName: OnSpeedLost
+          m_MethodName: OnEnergyDepleted
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -681,13 +681,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Event: {fileID: 11400000, guid: 321b9d5ddd555544b95867b38ebff632, type: 2}
+  - Event: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
     Response:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2852820623838080364}
           m_TargetAssemblyTypeName: JourneyFailedObserver, Assembly-CSharp
-          m_MethodName: OnMovementRestarted
+          m_MethodName: OnBeginEnergyRefill
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
