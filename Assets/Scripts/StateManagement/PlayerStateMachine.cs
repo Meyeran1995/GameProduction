@@ -13,7 +13,6 @@ public class PlayerStateMachine : MonoBehaviour, IRestartable
     private MainCharacterMovement playerMovement;
 
     private Coroutine exitRoutine;
-    [SerializeField] private GameEvent restartWalkingEvent;
 
     private void Awake()
     {
@@ -49,10 +48,6 @@ public class PlayerStateMachine : MonoBehaviour, IRestartable
         {
             TransitionToNextState(newState);
         }
-
-        if(newState is CrouchedState) return;
-
-        restartWalkingEvent.Raise();
     }
 
     private void TransitionToNextState(AState newState)

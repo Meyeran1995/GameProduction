@@ -5,20 +5,39 @@ using UnityEngine;
 public class JourneyFailedObserver : AMultiListenerEnabler, IRestartable
 {
     [SerializeField] private AutoFillResourceBar companionBar;
-    [SerializeField] private GameObject continueButton, menuButton;
+    [SerializeField] private GameObject logo, youLostText;
+
+    [Header("Buttons")] 
+    [SerializeField] private GameObject restartButton;
+    [SerializeField] private GameObject tryAgainButton, continueButton, menuButton;
     private Coroutine waitRoutine;
     private bool gameLost;
+
+    [Header("Waiting")] 
+    [SerializeField]
+    [Tooltip("How much time will pass between failing and displaying of the game over screen?")]
+    [Range(1f, 3f)]
+    private float transitionTime;
 
     private void Start() => RegisterWithHandler();
 
     private IEnumerator ObserveRemainingEnergy()
     {
         yield return new WaitUntil(() => PlayerStateMachine.Instance.CurrentState is CrouchedState);
-        
-        transform.GetChild(0).gameObject.SetActive(true);
-        continueButton.SetActive(false);
+
         menuButton.SetActive(false);
+
+        yield return new WaitForSeconds(transitionTime);
+
+        transform.GetChild(0).gameObject.SetActive(true);
+
+        continueButton.SetActive(false);
+        logo.SetActive(false);
+        restartButton.SetActive(false);
+
         gameLost = true;
+        youLostText.SetActive(true);
+        tryAgainButton.SetActive(true);
     }
 
     [UsedImplicitly] 
@@ -50,8 +69,13 @@ public class JourneyFailedObserver : AMultiListenerEnabler, IRestartable
         if (!gameLost) return;
 
         continueButton.SetActive(true);
+        logo.SetActive(true);
+        restartButton.SetActive(true);
         menuButton.SetActive(true);
+
         gameLost = false;
+        youLostText.SetActive(false);
+        tryAgainButton.SetActive(false);
     }
 
     public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
