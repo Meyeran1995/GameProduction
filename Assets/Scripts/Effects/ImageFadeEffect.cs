@@ -40,6 +40,15 @@ public class ImageFadeEffect : MonoBehaviour, IRestartable
             gameObject.SetActive(true);
     }
 
+    public void ResetEffect()
+    {
+        imageColor = targetImage.color;
+        originalColor = imageColor;
+
+        if (setActiveOnRestart)
+            gameObject.SetActive(true);
+    }
+
     public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);
 
     private void OnDestroy()
