@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -108,6 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaea0fc0df8d4b544b81ac77a5fcd64a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 0.35
+  fadeSpeed: 0.5
   targetImage: {fileID: 8418262983359923961}
   setActiveOnRestart: 0

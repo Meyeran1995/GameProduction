@@ -88,6 +88,8 @@ public class IntroProgressController : MonoBehaviour
 
     private IEnumerator FadeToMain()
     {
+        GetComponent<Image>().raycastTarget = false;
+
         var fade = bubbleSequence.GetComponent<ImageFadeEffect>();
         mainMenuMusicPiece.PlaySolo();
 

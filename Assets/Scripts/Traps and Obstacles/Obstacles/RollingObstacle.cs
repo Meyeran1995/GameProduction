@@ -19,7 +19,7 @@ public class RollingObstacle : AMovingObstacle
     protected override void Move()
     {
         GroundObstacle();
-        rigidBody.MovePosition(rigidBody.position + MovementDir * Time.fixedDeltaTime);
+        rigidBody.MovePosition(rigidBody.position + movementDir * Time.fixedDeltaTime);
     }
 
     /// <summary>
@@ -35,7 +35,7 @@ public class RollingObstacle : AMovingObstacle
         }
         else
         {
-            MovementDir = -hit.transform.right * obstacleSpeed;
+            movementDir = -hit.transform.right * obstacleSpeed;
         }
     }
 }

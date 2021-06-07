@@ -4875,7 +4875,7 @@ GameObject:
   - component: {fileID: 5381015756589903679}
   - component: {fileID: 2407133829035870075}
   - component: {fileID: 3011790616282080800}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4891,7 +4891,7 @@ Transform:
   m_GameObject: {fileID: 5381015756589903674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.5, y: 1.35, z: 0}
-  m_LocalScale: {x: 0.375, y: 0.25, z: 0.375}
+  m_LocalScale: {x: 0.3, y: 0.2, z: 0.3}
   m_Children: []
   m_Father: {fileID: 5381015758047243713}
   m_RootOrder: 1
@@ -4985,6 +4985,9 @@ MonoBehaviour:
   onTriggeredSound: event:/ENV/Crow/ev_sx_env_crow_scream
   continuousSound: 
   obstacleSpeed: 6
+  chargeSpeed: 12
+  birdRenderer: {fileID: 5381015756589903678}
+  startingMovement: {x: -1, y: 0}
   onDestroyedSound: event:/ENV/Crow/ev_sx_env_crow_death
   deathEffect: {fileID: 3096164462697374317}
 --- !u!70 &3011790616282080800
@@ -5118,4 +5121,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleBody: {fileID: 5381015756589903679}
-  particelEffect: {fileID: 0}
+  particelEffect: {fileID: 3096164462697374317}

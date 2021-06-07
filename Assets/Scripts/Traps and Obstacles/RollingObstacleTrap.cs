@@ -9,7 +9,6 @@ public class RollingObstacleTrap : ObstacleTrap
         obstacleBody.gameObject.SetActive(true);
         SnapToScreenBounds();
         obstacleBody.bodyType = RigidbodyType2D.Dynamic;
-        obstacleBody.transform.GetComponent<AMovingObstacle>().MovementDir = (collision.transform.position - obstacleBody.transform.position).normalized;
     }
 
     protected override void SnapToScreenBounds(bool matchX = true, bool matchY = true)

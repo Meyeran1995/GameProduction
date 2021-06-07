@@ -70,7 +70,7 @@ public class Obstacle : MonoBehaviour, IRestartable
         rigidBody.mass = obstacleMass;
     }
 
-    protected void OnBecameInvisible() => gameObject.SetActive(false);
+    protected virtual void OnBecameInvisible() => gameObject.SetActive(false);
 
     #region Sound
 
@@ -81,7 +81,7 @@ public class Obstacle : MonoBehaviour, IRestartable
         continuousInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject, rigidBody));
         continuousInstance.start();
     }
-    private void OnTriggeredPlay()
+    protected void OnTriggeredPlay()
     {
         if(string.IsNullOrWhiteSpace(onTriggeredSound)) return;
 
