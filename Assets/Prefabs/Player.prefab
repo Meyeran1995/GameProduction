@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1329979320937891156}
   - component: {fileID: 4933763526420180431}
   - component: {fileID: 4067246858426868007}
+  - component: {fileID: 5882837995384501624}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -52,25 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b43eac45a299ff4288c73f12c518729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listener:
-    Event: {fileID: 11400000, guid: 21a4a861214fc254b8327c8c1b359e66, type: 2}
-    Response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 708239604788086191}
-          m_TargetAssemblyTypeName: MainCharacterMovement, Assembly-CSharp
-          m_MethodName: GainSpeed
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   mainResourceBar: {fileID: 0}
-  pickupSpeedGain: 0.1
   maxSpeed: 5.03
   minSpeed: 2.45
   speedCurve:
@@ -180,7 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcceb44002f885240b154fb602c98ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartWalkingEvent: {fileID: 11400000, guid: 321b9d5ddd555544b95867b38ebff632, type: 2}
 --- !u!212 &708239604788086188
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -399,3 +381,40 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5882837995384501624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708239604788086190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e47645498c4024ea26442433d90241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener:
+    Event: {fileID: 11400000, guid: 21a4a861214fc254b8327c8c1b359e66, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5882837995384501624}
+          m_TargetAssemblyTypeName: MainCharacterAnimationStageController, Assembly-CSharp
+          m_MethodName: OnFeatherCollected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  playerAnimator: {fileID: 4067246858426868007}
+  playerMovement: {fileID: 708239604788086191}
+  stages:
+  - {fileID: 9100000, guid: b1fd4e7e7a1adb844b6570fcd08d58e6, type: 2}
+  - {fileID: 9100000, guid: c3caf85292b7e6840aa402f1d0c9a68d, type: 2}
+  - {fileID: 9100000, guid: 0ffafbc14088fda4dbd44d35a85011eb, type: 2}
+  currentStage: 0
+  threshHoldValue: 5

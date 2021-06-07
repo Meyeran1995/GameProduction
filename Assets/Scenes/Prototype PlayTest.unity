@@ -1685,6 +1685,14 @@ PrefabInstance:
       propertyPath: mainResourceBar
       value: 
       objectReference: {fileID: 496437708}
+    - target: {fileID: 4933763526420180431, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.96027464
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933763526420180431, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.6555
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9090535399090672483, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}

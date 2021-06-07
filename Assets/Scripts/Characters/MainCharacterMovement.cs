@@ -27,6 +27,8 @@ public class MainCharacterMovement : MonoBehaviour, IRestartable
     [SerializeField] [Tooltip("Was the end of the journey reached?")] private bool journeyCompleted;
     [SerializeField] [Tooltip("Are we able to move?")] private bool canMove;
 
+    public bool CanMove => canMove;
+
     [Header("Events")] 
     [SerializeField] [Tooltip("Event when reaching maximum speed")] private GameEvent maxSpeedEvent;
     [SerializeField] [Tooltip("Event when the character gets hit and loses speed")] private GameEvent speedLostEvent;
