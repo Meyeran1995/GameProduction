@@ -10,7 +10,7 @@ public class BirdObstacle : AMovingObstacle
     [Header("Bird Values")]
     [SerializeField] private float chargeSpeed;
     [SerializeField] private SpriteRenderer birdRenderer;
-    [SerializeField] private Vector2 startingMovement = Vector2.left;
+    [SerializeField] [Tooltip("Direction the crow will first move in upon being triggered")] private Vector2 startingMovement = Vector2.left;
     private Vector2 lastHorizontalMovement;
     private bool isCharging;
     private bool hasHitPlayer;
