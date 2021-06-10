@@ -11,6 +11,7 @@ public class IntroProgressController : MonoBehaviour
 {
     [Header("Music")]
     [SerializeField] private MusicPiece mainMenuMusicPiece;
+    [SerializeField] private MusicPiece introMusicPiece;
 
     [Header("Intro")] 
     [SerializeField] private Animator bubbleSequence;
@@ -43,6 +44,7 @@ public class IntroProgressController : MonoBehaviour
         yield return new WaitUntil(() => RuntimeManager.HasBankLoaded("Master"));
 
         StartCoroutine(FadeOutLogo());
+        introMusicPiece.PlaySolo();
     }
 
     private void OnPageLoaded(AsyncOperationHandle<Sprite> pageHandle)

@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuMusicPiece: {fileID: 11400000, guid: 3709e841e6872574d9df133419b38987, type: 2}
+  introMusicPiece: {fileID: 11400000, guid: df1c71196da353f4195a4462d9beec8c, type: 2}
   bubbleSequence: {fileID: 5435864593563315042}
   introScenes:
   - m_AssetGUID: 90002dcaca93ffc4693841121853efcc
