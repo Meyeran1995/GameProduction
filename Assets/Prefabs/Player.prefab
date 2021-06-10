@@ -53,9 +53,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b43eac45a299ff4288c73f12c518729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listener:
+    Event: {fileID: 11400000, guid: 9ca548dc511bbb64b91a5e9a6590f8b4, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 708239604788086191}
+          m_TargetAssemblyTypeName: MainCharacterMovement, Assembly-CSharp
+          m_MethodName: OnStageTransitionHaltSpeedGain
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   mainResourceBar: {fileID: 0}
-  maxSpeed: 5.03
-  minSpeed: 2.45
+  maxSpeeds:
+  - 3.03
+  - 4.03
+  - 5.03
+  minSpeed: 2.03
   speedCurve:
     serializedVersion: 2
     m_Curve:
@@ -84,6 +104,7 @@ MonoBehaviour:
   speedTime: 0
   speedProgress: 0
   currentSpeed: 0
+  stageTransitionHaltTime: 1.125
   journeyCompleted: 0
   canMove: 1
   maxSpeedEvent: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
@@ -393,8 +414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e47645498c4024ea26442433d90241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listener:
-    Event: {fileID: 11400000, guid: 21a4a861214fc254b8327c8c1b359e66, type: 2}
+  listeners:
+  - Event: {fileID: 11400000, guid: 21a4a861214fc254b8327c8c1b359e66, type: 2}
     Response:
       m_PersistentCalls:
         m_Calls:
@@ -410,11 +431,49 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - Event: {fileID: 11400000, guid: 6164c6b0e1e2bae45b94b244b14fd45f, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5882837995384501624}
+          m_TargetAssemblyTypeName: MainCharacterAnimationStageController, Assembly-CSharp
+          m_MethodName: OnMaxSpeedLost
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Event: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5882837995384501624}
+          m_TargetAssemblyTypeName: MainCharacterAnimationStageController, Assembly-CSharp
+          m_MethodName: OnMaxSpeedReached
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   playerAnimator: {fileID: 4067246858426868007}
   playerMovement: {fileID: 708239604788086191}
   stages:
   - {fileID: 9100000, guid: b1fd4e7e7a1adb844b6570fcd08d58e6, type: 2}
-  - {fileID: 9100000, guid: c3caf85292b7e6840aa402f1d0c9a68d, type: 2}
-  - {fileID: 9100000, guid: 0ffafbc14088fda4dbd44d35a85011eb, type: 2}
-  currentStage: 0
+  - {fileID: 0}
+  - {fileID: 0}
   threshHoldValue: 5
+  stageRefs:
+  - m_AssetGUID: 529c201b404ff944fa06719e94784b13
+    m_SubObjectName: 
+    m_SubObjectType: 
+  - m_AssetGUID: fca59635f52eb1d47b187e21aebfac70
+    m_SubObjectName: 
+    m_SubObjectType: 

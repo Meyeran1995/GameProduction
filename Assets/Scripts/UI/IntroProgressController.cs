@@ -26,7 +26,6 @@ public class IntroProgressController : MonoBehaviour
     private void Awake()
     {
         currentScene = 0;
-        loadProgressImage.fillAmount = 0f;
         progressButton = GetComponent<Button>();
         progressButton.interactable = false;
 

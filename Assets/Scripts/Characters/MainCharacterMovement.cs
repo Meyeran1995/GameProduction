@@ -1,23 +1,25 @@
+using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
 using RoboRyanTron.Unite2017.Events;
 
-public class MainCharacterMovement : MonoBehaviour, IRestartable
+public class MainCharacterMovement : AListenerEnabler, IRestartable
 {
     #region Fields
 
     [SerializeField] private CircularResourceBar mainResourceBar;
 
     [Header("Speed")]
-    [SerializeField] [Tooltip("Maximum speed to be reached")] [Range(1f, 10f)] private float maxSpeed;
+    [SerializeField] [Tooltip("Maximum speed to be reached for each stage")] private float[] maxSpeeds;
     [SerializeField] [Tooltip("Minimum speed after being hit")] [Range(0.1f, 10f)] private float minSpeed;
     [SerializeField] [Tooltip("How fast is speed gained? \nOnly use values between 0 and 1!")] private AnimationCurve speedCurve;
     [SerializeField] [Tooltip("How long does it take to gain maximum speed?")] private float rampTime;
 
     [Header("Speed Debug")] 
     [SerializeField] private float speedTime;
-    [SerializeField] private float speedProgress, currentSpeed;
-    public float CurrentSpeed => currentSpeed;
+    [SerializeField] private float speedProgress, currentSpeed, stageTransitionHaltTime;
+    private int currentMaxSpeed;
+    private Coroutine haltSpeedGainRoutine;
 
     // Movement
     private Vector2 currentDirection;
@@ -28,6 +30,7 @@ public class MainCharacterMovement : MonoBehaviour, IRestartable
     [SerializeField] [Tooltip("Are we able to move?")] private bool canMove;
 
     public bool CanMove => canMove;
+    public bool MaxSpeedReached => currentSpeed >= maxSpeeds[currentMaxSpeed];
 
     [Header("Events")] 
     [SerializeField] [Tooltip("Event when reaching maximum speed")] private GameEvent maxSpeedEvent;
@@ -43,6 +46,7 @@ public class MainCharacterMovement : MonoBehaviour, IRestartable
     public void Restart()
     {
         transform.position = originalPosition;
+        currentMaxSpeed = 0;
         speedTime = 0;
         speedProgress = 0;
         currentSpeed = minSpeed;
@@ -100,18 +104,33 @@ public class MainCharacterMovement : MonoBehaviour, IRestartable
 
     #region Speed
 
+    /// <summary>
+    /// Halt speed gain on stage transition
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator HaltSpeedGain()
+    {
+        yield return new WaitForSeconds(stageTransitionHaltTime);
+
+        haltSpeedGainRoutine = null;
+
+        if (currentMaxSpeed < maxSpeeds.Length - 1)
+            currentMaxSpeed++;
+    }
+
+    [UsedImplicitly]
+    public void OnStageTransitionHaltSpeedGain() => haltSpeedGainRoutine = StartCoroutine(HaltSpeedGain());
+
     private void CalcSpeed()
     {
         // Which time is it inside of the speed cycle?
         speedTime = Mathf.Clamp(speedTime + Time.fixedDeltaTime, 0f, rampTime);
+
         // How much progress did we make, according to time?
         speedProgress = Mathf.InverseLerp(0f, rampTime, speedTime);
 
-        // Compare progress made to actual speed value, in case we picked up a feather
-        if (speedProgress < mainResourceBar.FillAmount) return;
-
         // Calculate current speed based on progress
-        currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, speedCurve.Evaluate(speedProgress));
+        currentSpeed = Mathf.Lerp(minSpeed, maxSpeeds[currentMaxSpeed], speedCurve.Evaluate(speedProgress));
 
         // Update Ui
         mainResourceBar.SetCurrentValue(speedProgress);
@@ -122,13 +141,13 @@ public class MainCharacterMovement : MonoBehaviour, IRestartable
     /// </summary>
     private void RampUpSpeed()
     {
-        if (currentSpeed >= maxSpeed) return;
+        if (haltSpeedGainRoutine != null || currentSpeed >= maxSpeeds[currentMaxSpeed]) return;
 
         CalcSpeed();
 
-        if (currentSpeed < maxSpeed) return;
+        if (currentSpeed < maxSpeeds[currentMaxSpeed]) return;
 
-        currentSpeed = maxSpeed;
+        currentSpeed = maxSpeeds[currentMaxSpeed];
         maxSpeedEvent.Raise();
     }
 
@@ -152,8 +171,7 @@ public class MainCharacterMovement : MonoBehaviour, IRestartable
 
     [UsedImplicitly]
     public void StopMovingOnUpdate() => Time.timeScale = 0f;
-
-    [UsedImplicitly]
+    
     public void RestartMovingOnUpdate() => Time.timeScale = 1f;
 
     #endregion

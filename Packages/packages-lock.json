@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.coffee.ui-particle": {
+      "version": "file:C:/Users/Andre/Downloads/ParticleEffectForUGUI-3.3.8/ParticleEffectForUGUI-3.3.8",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "5.0.4",
       "depth": 0,

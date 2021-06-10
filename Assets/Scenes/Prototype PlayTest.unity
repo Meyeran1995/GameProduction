@@ -1047,7 +1047,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1349,6 +1349,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2348878279540739036, guid: a334e0a5c6138f642a1afeb47febf7b9, type: 3}
   m_PrefabInstance: {fileID: 1236120723}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1476618610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5322638084479069073, guid: 410332a3654cec2418bcd5e2c3d7522b, type: 3}
+  m_PrefabInstance: {fileID: 7726962094770042214}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1499525042 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5843600649089627536, guid: 6d09d4176ca75c9488465becf97552fe, type: 3}
@@ -1693,6 +1704,14 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.6555
       objectReference: {fileID: 0}
+    - target: {fileID: 5882837995384501624, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
+      propertyPath: stages.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: c3caf85292b7e6840aa402f1d0c9a68d, type: 2}
+    - target: {fileID: 5882837995384501624, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
+      propertyPath: stages.Array.data[2]
+      value: 
+      objectReference: {fileID: 9100000, guid: 0ffafbc14088fda4dbd44d35a85011eb, type: 2}
     m_RemovedComponents:
     - {fileID: 9090535399090672483, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
@@ -3381,6 +3400,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8421522825698173006, guid: e5c2e75d81eeeac40b5b9ecccdce45e0, type: 3}
+      propertyPath: ingameFeatherCount
+      value: 
+      objectReference: {fileID: 1476618610}
     - target: {fileID: 8604630546280138271, guid: e5c2e75d81eeeac40b5b9ecccdce45e0, type: 3}
       propertyPath: m_Name
       value: EndScreen
@@ -3548,6 +3571,10 @@ PrefabInstance:
       propertyPath: beginPause.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 1244821961}
+    - target: {fileID: 7726962095350532678, guid: 410332a3654cec2418bcd5e2c3d7522b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -78.29999
+      objectReference: {fileID: 0}
     - target: {fileID: 7726962095350532679, guid: 410332a3654cec2418bcd5e2c3d7522b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -3841,6 +3868,14 @@ PrefabInstance:
     - target: {fileID: 3680139636672307913, guid: d7551852d04937145a9c6b02d450a115, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5544315916334864942, guid: d7551852d04937145a9c6b02d450a115, type: 3}
+      propertyPath: m_Particles.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706052439470097695, guid: d7551852d04937145a9c6b02d450a115, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6593365138180947206, guid: d7551852d04937145a9c6b02d450a115, type: 3}
       propertyPath: m_Name

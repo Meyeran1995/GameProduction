@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.coffee.ui-particle": "file:C:/Users/Andre/Downloads/ParticleEffectForUGUI-3.3.8/ParticleEffectForUGUI-3.3.8",
     "com.unity.2d.animation": "5.0.4",
     "com.unity.2d.pixel-perfect": "4.0.1",
     "com.unity.2d.psdimporter": "4.0.2",

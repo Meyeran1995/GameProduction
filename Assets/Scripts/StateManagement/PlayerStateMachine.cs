@@ -4,20 +4,16 @@ using UnityEngine;
 public class PlayerStateMachine : MonoBehaviour, IRestartable
 {
     public AState CurrentState { get; private set; }
+    private Coroutine exitRoutine;
 
     public static PlayerStateMachine Instance { get; private set; }
 
     private Animator playerAnimator;
-    private int animatorParameterId;
     private MainCharacterMovement playerMovement;
-
-    private Coroutine exitRoutine;
-
+    
     private void Awake()
     {
         Instance = this;
-
-        animatorParameterId = Animator.StringToHash("Speed");
         playerAnimator = GetComponent<Animator>();
         playerMovement = GetComponent<MainCharacterMovement>();
     }
@@ -25,7 +21,7 @@ public class PlayerStateMachine : MonoBehaviour, IRestartable
     private void InitializeState()
     {
         var collisionEvaluator = GetComponent<MainCharacterCollisionEvaluator>();
-        CurrentState = new CrouchedState(collisionEvaluator, playerMovement, playerAnimator,collisionEvaluator.StaggerTime);
+        CurrentState = new CrouchedState(collisionEvaluator, playerMovement, playerAnimator, collisionEvaluator.StaggerTime);
         CurrentState.OnStateEnter();
     }
 
@@ -68,11 +64,7 @@ public class PlayerStateMachine : MonoBehaviour, IRestartable
         exitRoutine = null;
     }
 
-    private void FixedUpdate()
-    {
-        playerAnimator.SetFloat(animatorParameterId, playerMovement.CurrentSpeed);
-        CurrentState.OnFixedUpdate(Time.fixedDeltaTime);
-    }
+    private void FixedUpdate() => CurrentState.OnFixedUpdate(Time.fixedDeltaTime);
 
     public void Restart()
     {

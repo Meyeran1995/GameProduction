@@ -10,7 +10,7 @@ public class StatTracker : AMultiListenerEnabler, IRestartable
 {
     [Header("Texts")] 
     [SerializeField] private TextMeshProUGUI timeText;
-    [SerializeField] private TextMeshProUGUI featherText;
+    [SerializeField] private TextMeshProUGUI featherText, ingameFeatherCount;
 
     private float timeElapsed;
     private int amountOfCollectedFeathers, bestFeathers, bestTime;
@@ -21,7 +21,7 @@ public class StatTracker : AMultiListenerEnabler, IRestartable
     private void Update() => timeElapsed += Time.deltaTime;
 
     [UsedImplicitly]
-    public void OnFeatherCollected() => ++amountOfCollectedFeathers;
+    public void OnFeatherCollected() => ingameFeatherCount.text = $"{++amountOfCollectedFeathers}";
 
     [UsedImplicitly]
     public void ShowStats()
@@ -42,6 +42,7 @@ public class StatTracker : AMultiListenerEnabler, IRestartable
     {
         timeElapsed = 0f;
         amountOfCollectedFeathers = 0;
+        ingameFeatherCount.text = "0";
     }
 
     public void RegisterWithHandler() => GameRestartHandler.RegisterRestartable(this);

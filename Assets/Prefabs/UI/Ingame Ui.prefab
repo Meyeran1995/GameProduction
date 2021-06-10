@@ -291,22 +291,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7726962096502403154}
     m_Modifications:
-    - target: {fileID: 3419062090869277634, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419062090869277693, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.7999878
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419062090869277693, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 3.6499996
-      objectReference: {fileID: 0}
-    - target: {fileID: 3707244022545759068, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3896476533008987212, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -382,38 +366,6 @@ PrefabInstance:
     - target: {fileID: 3896476533008987213, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
       propertyPath: m_Name
       value: EnergyBars
-      objectReference: {fileID: 0}
-    - target: {fileID: 3896476533008987213, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4213738375419749998, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6986797136025539757, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 3446603133709586981, guid: 962b11a41bcd23f43aba24b637d8d17f, type: 3}
-    - target: {fileID: 8248592822145566051, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -17.400024
-      objectReference: {fileID: 0}
-    - target: {fileID: 8475791134950083382, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8517034171457606056, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8517034171457606056, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722040735167432916, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b25b252b39827043b36bc84ef64c51b, type: 3}
