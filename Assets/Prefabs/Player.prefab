@@ -395,7 +395,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b1fd4e7e7a1adb844b6570fcd08d58e6, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -469,11 +469,3 @@ MonoBehaviour:
   - {fileID: 9100000, guid: b1fd4e7e7a1adb844b6570fcd08d58e6, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  threshHoldValue: 5
-  stageRefs:
-  - m_AssetGUID: 529c201b404ff944fa06719e94784b13
-    m_SubObjectName: 
-    m_SubObjectType: 
-  - m_AssetGUID: fca59635f52eb1d47b187e21aebfac70
-    m_SubObjectName: 
-    m_SubObjectType: 
