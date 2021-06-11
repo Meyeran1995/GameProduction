@@ -224,12 +224,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: c12215d5b1ac7b44d8f9f67370167045, type: 3}
+  m_Sprite: {fileID: 4119635973440755227, guid: da0d8e82f737c0e49bcea3a99508a859, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.71481484, y: 0.7585185}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -329,6 +329,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7c41a406-d578-4dea-af26-fa86e968f556
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 42898baa-01c6-4750-b006-ed132d679658
+    m_ActionName: Player/PauseGame[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -374,8 +378,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96027464, y: 0.6555}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.71481484, y: 0.7585185}
+    newSize: {x: 0.71481484, y: 0.7585185}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
