@@ -1,0 +1,250 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Kreis
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 1
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 70
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 647fac252f1f74942bfbcc5c743c64a1, type: 3}
+    totalSpriteSurfaceArea: 57212928
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 91ce15109744fea4789aacb60722c425, type: 3}
+  - {fileID: 21300000, guid: ff756b103b73829499dd40dc2c42878c, type: 3}
+  - {fileID: 21300000, guid: 61c0c920baeb7e74aaa02d35e8447524, type: 3}
+  - {fileID: 21300000, guid: 62fa42601fc00a741a3ff92e302785f4, type: 3}
+  - {fileID: 21300000, guid: cb0e07808c11d5440ab8c5dc16d3710a, type: 3}
+  - {fileID: 21300000, guid: e1beeba08865934438a3cd105084df8f, type: 3}
+  - {fileID: 21300000, guid: 47e6eda01d97c884681eba2ace94ad69, type: 3}
+  - {fileID: 21300000, guid: 6c028ab0192697d45a5d002eec675f04, type: 3}
+  - {fileID: 21300000, guid: 5c9f27f05af61854c853e5921d6fc700, type: 3}
+  - {fileID: 21300000, guid: 60a76ef024853044d81b0c15a5916f37, type: 3}
+  - {fileID: 21300000, guid: 9ec216010747eb441b1eefcc07313387, type: 3}
+  - {fileID: 21300000, guid: e603ad1113fe6574592b2053abd38e0e, type: 3}
+  - {fileID: 21300000, guid: a1923c71f590953439bdd679f06a67b6, type: 3}
+  - {fileID: 21300000, guid: 411267b1d84a09a4f8d87d9bfeb260b3, type: 3}
+  - {fileID: 21300000, guid: 9cae30422e614ea4387b951ec47ba139, type: 3}
+  - {fileID: 21300000, guid: efe66f427bba8504ca58cc1c3020646a, type: 3}
+  - {fileID: 21300000, guid: aab20b628713d8d41aadb91be0efdff6, type: 3}
+  - {fileID: 21300000, guid: e8b96f7256da949488c553549c7957a9, type: 3}
+  - {fileID: 21300000, guid: cc532092a2f296845bbbf3361ccc6890, type: 3}
+  - {fileID: 21300000, guid: 9726a1929b96efe4289db1167d5c0a1b, type: 3}
+  - {fileID: 21300000, guid: 1e62f9927bd7fc94c80c0fd4c63a8405, type: 3}
+  - {fileID: 21300000, guid: d7bff7e27c5af6e42bd6c286c3f972cb, type: 3}
+  - {fileID: 21300000, guid: 20646e03eb57bd34eb8074196eed3173, type: 3}
+  - {fileID: 21300000, guid: d4c3b213687ee294bbb01fc93bcbb92b, type: 3}
+  - {fileID: 21300000, guid: ccc1c653284224740be2f108a3287f47, type: 3}
+  - {fileID: 21300000, guid: 31f1559332aec1849b2f01af65858a9b, type: 3}
+  - {fileID: 21300000, guid: 3f0517a32110b714d88f5bf432d5cf0c, type: 3}
+  - {fileID: 21300000, guid: b019eeb35cc371646a19b2802af85765, type: 3}
+  - {fileID: 21300000, guid: cafaf9d3f78572d40804de6fb20c7e5a, type: 3}
+  - {fileID: 21300000, guid: 9ed46cf35e6ae1145ab0e6869453948c, type: 3}
+  - {fileID: 21300000, guid: cf050d84b4ca53343aae51bc6c692cfe, type: 3}
+  - {fileID: 21300000, guid: d347abb4874f0ef459c85df339db9a9b, type: 3}
+  - {fileID: 21300000, guid: bbc3cdb49d6944f42ae61731d0616b9b, type: 3}
+  - {fileID: 21300000, guid: b4388ff477c64e2428aad72bbc0a0e96, type: 3}
+  - {fileID: 21300000, guid: ddebcc0566e734242a1a74ec23f29d1d, type: 3}
+  - {fileID: 21300000, guid: 4e0b2635d0dd0d84c8535c6a02475bb2, type: 3}
+  - {fileID: 21300000, guid: 1fe1b965b05ada74baae448b4be90531, type: 3}
+  - {fileID: 21300000, guid: e8f69585efb089a48b5c7f96d92dbdf6, type: 3}
+  - {fileID: 21300000, guid: 386276853b07ac44f82234007fceae7d, type: 3}
+  - {fileID: 21300000, guid: 0bf9e5a58bdb75949ab633ab01ee14dd, type: 3}
+  - {fileID: 21300000, guid: ffa9b1d56450c984fa60942e880a5846, type: 3}
+  - {fileID: 21300000, guid: 57f53326ddb313c46a50efe524da328f, type: 3}
+  - {fileID: 21300000, guid: 4646fe36dafeab64e8181e09a61017c0, type: 3}
+  - {fileID: 21300000, guid: 0840db56f7770074ea83260d76a4e759, type: 3}
+  - {fileID: 21300000, guid: 08c811767d1e2c44d8f6d1e073dd02b5, type: 3}
+  - {fileID: 21300000, guid: c06310866f4ef4b4a869d34e4db59823, type: 3}
+  - {fileID: 21300000, guid: 4eb28386e0e5ddb45a28026311456ec7, type: 3}
+  - {fileID: 21300000, guid: 65fd19e6f0aee164cb983df1241c7f5b, type: 3}
+  - {fileID: 21300000, guid: c9c06fe6f0057ad4293c478a0f5a7264, type: 3}
+  - {fileID: 21300000, guid: fa41c427c43e73a4c8843c4188c7b278, type: 3}
+  - {fileID: 21300000, guid: 732e68577a210484caf92a35743431fc, type: 3}
+  - {fileID: 21300000, guid: 40a620c790a5a8f4dba90db9ab27a630, type: 3}
+  - {fileID: 21300000, guid: ea517408c3d8ebb42b45d65b2f81b657, type: 3}
+  - {fileID: 21300000, guid: 93186c481c2c9d24fa9fb88b67322de4, type: 3}
+  - {fileID: 21300000, guid: 7b9cb1789b8e5134ca0f1ee64a5b5e23, type: 3}
+  - {fileID: 21300000, guid: 56a0c8d891273f4499cb52042f322f46, type: 3}
+  - {fileID: 21300000, guid: 11a22639220e07c4d9f2b06128e31ce2, type: 3}
+  - {fileID: 21300000, guid: acc32069dbbe43b4bb5efa08ef3818b1, type: 3}
+  - {fileID: 21300000, guid: 1adee1b940597c242bd4e58b9876ce1d, type: 3}
+  - {fileID: 21300000, guid: a26a90d9fd7137447a93e9ab4f2c65f7, type: 3}
+  - {fileID: 21300000, guid: 7dc9b9d9dc6c55b44b7728e1da2ca80f, type: 3}
+  - {fileID: 21300000, guid: b4884ed949311324482d528900db7950, type: 3}
+  - {fileID: 21300000, guid: e5098b0aff871cb41a079055dd5e758c, type: 3}
+  - {fileID: 21300000, guid: 5637e31adcc9b264c8e59a44d7b7eb93, type: 3}
+  - {fileID: 21300000, guid: ba3f2c1acc5795a489e06ac6bfaecb0f, type: 3}
+  - {fileID: 21300000, guid: ed486c4a21c26c14b840054f20e6890d, type: 3}
+  - {fileID: 21300000, guid: de81c17a56df57742966780b95af9470, type: 3}
+  - {fileID: 21300000, guid: 8162ae8aaee644744bffe26d73abfdd3, type: 3}
+  - {fileID: 21300000, guid: edc5a49a8c1e68648ad7f841dc385b76, type: 3}
+  - {fileID: 21300000, guid: ac16b0aa9ed54c044b8d2193f79d51a8, type: 3}
+  - {fileID: 21300000, guid: 9f2f84aa6edda4d409f2ae541d087b1b, type: 3}
+  - {fileID: 21300000, guid: 95f1011b4d0af2b45a487dd72ee5e17c, type: 3}
+  - {fileID: 21300000, guid: 980ddd9b2072e794e8fdde7833b4095f, type: 3}
+  - {fileID: 21300000, guid: 13ca84fb9708ef6489592e16449b1fff, type: 3}
+  - {fileID: 21300000, guid: 8cecce3c3ae031047b70a2923d1561a4, type: 3}
+  - {fileID: 21300000, guid: 1582634cbb9ec18458be296d807f85b9, type: 3}
+  - {fileID: 21300000, guid: 0c573e6c75dd45b418080bcc9b41ebe3, type: 3}
+  - {fileID: 21300000, guid: ac569c9c3bdea2249b271a52f8e17653, type: 3}
+  - {fileID: 21300000, guid: e89886ccf682a124095d36d6a0516be8, type: 3}
+  - {fileID: 21300000, guid: 0f1f64dc016f32247bd44149f30fc525, type: 3}
+  - {fileID: 21300000, guid: 2842940d1277ff24e838ab29dfe6606d, type: 3}
+  - {fileID: 21300000, guid: 06015b0def7a6394a93dcee2555a0161, type: 3}
+  - {fileID: 21300000, guid: 5f103a1db2834f54592cfa79a6345082, type: 3}
+  - {fileID: 21300000, guid: be36ab2db3432ba4987f27efab08718f, type: 3}
+  - {fileID: 21300000, guid: d089dc2d3c7ed2d4d86d1c6004d3925f, type: 3}
+  - {fileID: 21300000, guid: 9089c93d2f7c09e4bbfe9973c6e1415f, type: 3}
+  - {fileID: 21300000, guid: acf7c84d2108fda4eb86aaef0569bb23, type: 3}
+  - {fileID: 21300000, guid: 379c276da6ea53a41a6fd69e873abe06, type: 3}
+  - {fileID: 21300000, guid: 62a43eed583422d4c856735a01e59090, type: 3}
+  - {fileID: 21300000, guid: 4e3847fd402d6a946864728431863df6, type: 3}
+  - {fileID: 21300000, guid: b107002e205c4a9439a81be3b3109344, type: 3}
+  - {fileID: 21300000, guid: 780d9c5ed2f05f14e9a0fafa3750061c, type: 3}
+  - {fileID: 21300000, guid: 8674dade907891442a32d87e96416794, type: 3}
+  - {fileID: 21300000, guid: cc7a021f8b3082747a944dd7f2a44735, type: 3}
+  - {fileID: 21300000, guid: 2ad5013fee148fc4ba16bbffeb985b9c, type: 3}
+  - {fileID: 21300000, guid: 4097347f2f675984ca0b79f366d91de7, type: 3}
+  - {fileID: 21300000, guid: bec054bfa7c96594cafeffd49e588c7e, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Kreis-PNG-v0290
+  - Kreis-PNG-v0257
+  - Kreis-PNG-v0235
+  - Kreis-PNG-v0293
+  - Kreis-PNG-v0266
+  - Kreis-PNG-v0253
+  - Kreis-PNG-v0259
+  - Kreis-PNG-v0281
+  - Kreis-PNG-v0202
+  - Kreis-PNG-v0250
+  - Kreis-PNG-v0287
+  - Kreis-PNG-v0278
+  - Kreis-PNG-v0256
+  - Kreis-PNG-v0206
+  - Kreis-PNG-v0289
+  - Kreis-PNG-v0200
+  - Kreis-PNG-v0262
+  - Kreis-PNG-v0226
+  - Kreis-PNG-v0275
+  - Kreis-PNG-v0271
+  - Kreis-PNG-v0212
+  - Kreis-PNG-v0248
+  - Kreis-PNG-v0285
+  - Kreis-PNG-v0205
+  - Kreis-PNG-v0209
+  - Kreis-PNG-v0211
+  - Kreis-PNG-v0294
+  - Kreis-PNG-v0265
+  - Kreis-PNG-v0203
+  - Kreis-PNG-v0219
+  - Kreis-PNG-v0244
+  - Kreis-PNG-v0238
+  - Kreis-PNG-v0279
+  - Kreis-PNG-v0296
+  - Kreis-PNG-v0241
+  - Kreis-PNG-v0217
+  - Kreis-PNG-v0215
+  - Kreis-PNG-v0273
+  - Kreis-PNG-v0208
+  - Kreis-PNG-v0292
+  - Kreis-PNG-v0284
+  - Kreis-PNG-v0201
+  - Kreis-PNG-v0227
+  - Kreis-PNG-v0276
+  - Kreis-PNG-v0242
+  - Kreis-PNG-v0207
+  - Kreis-PNG-v0213
+  - Kreis-PNG-v0216
+  - Kreis-PNG-v0246
+  - Kreis-PNG-v0204
+  - Kreis-PNG-v0220
+  - Kreis-PNG-v0232
+  - Kreis-PNG-v0240
+  - Kreis-PNG-v0224
+  - Kreis-PNG-v0249
+  - Kreis-PNG-v0261
+  - Kreis-PNG-v0239
+  - Kreis-PNG-v0222
+  - Kreis-PNG-v0277
+  - Kreis-PNG-v0286
+  - Kreis-PNG-v0282
+  - Kreis-PNG-v0210
+  - Kreis-PNG-v0230
+  - Kreis-PNG-v0243
+  - Kreis-PNG-v0258
+  - Kreis-PNG-v0252
+  - Kreis-PNG-v0225
+  - Kreis-PNG-v0247
+  - Kreis-PNG-v0229
+  - Kreis-PNG-v0272
+  - Kreis-PNG-v0263
+  - Kreis-PNG-v0221
+  - Kreis-PNG-v0231
+  - Kreis-PNG-v0268
+  - Kreis-PNG-v0245
+  - Kreis-PNG-v0233
+  - Kreis-PNG-v0234
+  - Kreis-PNG-v0223
+  - Kreis-PNG-v0283
+  - Kreis-PNG-v0264
+  - Kreis-PNG-v0236
+  - Kreis-PNG-v0260
+  - Kreis-PNG-v0270
+  - Kreis-PNG-v0237
+  - Kreis-PNG-v0255
+  - Kreis-PNG-v0269
+  - Kreis-PNG-v0251
+  - Kreis-PNG-v0267
+  - Kreis-PNG-v0218
+  - Kreis-PNG-v0274
+  - Kreis-PNG-v0280
+  - Kreis-PNG-v0295
+  - Kreis-PNG-v0288
+  - Kreis-PNG-v0291
+  - Kreis-PNG-v0228
+  - Kreis-PNG-v0254
+  - Kreis-PNG-v0214
+  m_RenderDataMap: {}
+  m_Tag: Kreis
+  m_IsVariant: 0
