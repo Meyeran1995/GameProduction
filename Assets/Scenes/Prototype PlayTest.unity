@@ -2226,6 +2226,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1499525042}
+    - target: {fileID: 5021895686338260488, guid: 2f51266a29f63154092d94f2b3e821fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021895686338260488, guid: 2f51266a29f63154092d94f2b3e821fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021895686338260488, guid: 2f51266a29f63154092d94f2b3e821fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: df1c71196da353f4195a4462d9beec8c, type: 2}
+    - target: {fileID: 5021895686338260488, guid: 2f51266a29f63154092d94f2b3e821fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021895686338260488, guid: 2f51266a29f63154092d94f2b3e821fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlaySolo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021895686338260488, guid: 2f51266a29f63154092d94f2b3e821fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MusicPiece, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021895686338260488, guid: 2f51266a29f63154092d94f2b3e821fe, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8127195677559540031, guid: 2f51266a29f63154092d94f2b3e821fe, type: 3}
       propertyPath: m_Name
       value: Intro

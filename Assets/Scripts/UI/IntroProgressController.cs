@@ -44,6 +44,8 @@ public class IntroProgressController : MonoBehaviour
         yield return new WaitUntil(() => RuntimeManager.HasBankLoaded("Master"));
 
         StartCoroutine(FadeOutLogo());
+
+        yield return new WaitForSeconds(0.125f);
         introMusicPiece.PlaySolo();
     }
 
