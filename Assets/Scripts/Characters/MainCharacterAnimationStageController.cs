@@ -1,8 +1,5 @@
-using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 [RequireComponent(typeof(Animator))]
 public class MainCharacterAnimationStageController : AMultiListenerEnabler, IRestartable
@@ -11,10 +8,7 @@ public class MainCharacterAnimationStageController : AMultiListenerEnabler, IRes
     [SerializeField] private MainCharacterMovement playerMovement;
     [Header("Animation Stages")]
     [SerializeField] private RuntimeAnimatorController[] stages;
-    //[SerializeField] private AssetReferenceGameObject[] stageRefs;
     private int featherCount, currentStage;
-    //private int currentLoadIndex;
-    //private AsyncOperationHandle<GameObject> currentHandle;
 
     public const int STAGE_THRESHOLD = 5;
 
@@ -24,7 +18,6 @@ public class MainCharacterAnimationStageController : AMultiListenerEnabler, IRes
             playerAnimator = GetComponent<Animator>();
         if (playerMovement == null)
             playerMovement = GetComponent<MainCharacterMovement>();
-        //StartCoroutine(LoadStages());
     }
 
     private void Start() => RegisterWithHandler();
@@ -44,32 +37,6 @@ public class MainCharacterAnimationStageController : AMultiListenerEnabler, IRes
 
     [UsedImplicitly]
     public void OnMaxSpeedLost() => playerAnimator.SetBool("MaxSpeedReached", false);
-
-    //private IEnumerator LoadStages()
-    //{
-    //    LoadNextStage();
-
-    //    yield return currentHandle;
-
-    //    currentLoadIndex++;
-
-    //    LoadNextStage();
-    //}
-
-    //private void LoadNextStage()
-    //{
-    //    currentHandle = stageRefs[currentLoadIndex].LoadAssetAsync();
-    //    currentHandle.Completed += OnStageLoaded;
-    //}
-
-    //private void OnStageLoaded(AsyncOperationHandle<GameObject> handle)
-    //{
-    //    stages[currentLoadIndex + 1] = handle.Result.GetComponent<Animator>().runtimeAnimatorController;
-    //    GameObject memoryHolder = Instantiate(handle.Result, transform);
-    //    memoryHolder.SetActive(false);
-    //    //if(++currentLoadIndex < stageRefs.Length)
-    //    //    LoadNextStage();
-    //}
 
     public void Restart()
     {

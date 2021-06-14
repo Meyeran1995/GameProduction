@@ -1732,14 +1732,6 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 0.7585185
       objectReference: {fileID: 0}
-    - target: {fileID: 5882837995384501624, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
-      propertyPath: stages.Array.data[1]
-      value: 
-      objectReference: {fileID: 9100000, guid: c3caf85292b7e6840aa402f1d0c9a68d, type: 2}
-    - target: {fileID: 5882837995384501624, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
-      propertyPath: stages.Array.data[2]
-      value: 
-      objectReference: {fileID: 9100000, guid: 0ffafbc14088fda4dbd44d35a85011eb, type: 2}
     m_RemovedComponents:
     - {fileID: 9090535399090672483, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}

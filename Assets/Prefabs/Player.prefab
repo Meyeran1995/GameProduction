@@ -471,5 +471,5 @@ MonoBehaviour:
   playerMovement: {fileID: 708239604788086191}
   stages:
   - {fileID: 9100000, guid: b1fd4e7e7a1adb844b6570fcd08d58e6, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 9100000, guid: c3caf85292b7e6840aa402f1d0c9a68d, type: 2}
+  - {fileID: 9100000, guid: 0ffafbc14088fda4dbd44d35a85011eb, type: 2}
