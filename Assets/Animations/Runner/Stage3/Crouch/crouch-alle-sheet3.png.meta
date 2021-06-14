@@ -1,0 +1,516 @@
+fileFormatVersion: 2
+guid: ef624ac24af2507429bcdcffdea704db
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4362770594636175915
+    second: crouch-alle-sheet3_0
+  - first:
+      213: 9001198360593630833
+    second: crouch-alle-sheet3_1
+  - first:
+      213: -5006679471731293061
+    second: crouch-alle-sheet3_2
+  - first:
+      213: -8498616020591549321
+    second: crouch-alle-sheet3_3
+  - first:
+      213: -7628091744087188688
+    second: crouch-alle-sheet3_4
+  - first:
+      213: -2288154658472954560
+    second: crouch-alle-sheet3_5
+  - first:
+      213: 6502712187168746775
+    second: crouch-alle-sheet3_6
+  - first:
+      213: -2552479151492764866
+    second: crouch-alle-sheet3_7
+  - first:
+      213: 8059816857380197450
+    second: crouch-alle-sheet3_8
+  - first:
+      213: -3744331981013659416
+    second: crouch-alle-sheet3_9
+  - first:
+      213: -308293484914502460
+    second: crouch-alle-sheet3_10
+  - first:
+      213: -8583135288606999646
+    second: crouch-alle-sheet3_11
+  - first:
+      213: -8299929390943846138
+    second: crouch-alle-sheet3_12
+  - first:
+      213: -1746420697147630412
+    second: crouch-alle-sheet3_13
+  - first:
+      213: -6926944855745525756
+    second: crouch-alle-sheet3_14
+  - first:
+      213: -4191603857453163818
+    second: crouch-alle-sheet3_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1350
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a1fc9adbcab8c30800000000000000
+      internalID: 4362770594636175915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_1
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 3072
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1760304f73eaaec70800000000000000
+      internalID: 9001198360593630833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_2
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 3072
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7447370c83b48ab0800000000000000
+      internalID: -5006679471731293061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_3
+      rect:
+        serializedVersion: 2
+        x: 2895
+        y: 3072
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7746232c1c9de0a80800000000000000
+      internalID: -8498616020591549321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03bd79f59f2932690800000000000000
+      internalID: -7628091744087188688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_5
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 2048
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04570961677de30e0800000000000000
+      internalID: -2288154658472954560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_6
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 2048
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71debc808464e3a50800000000000000
+      internalID: 6502712187168746775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_7
+      rect:
+        serializedVersion: 2
+        x: 2895
+        y: 2048
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3beeae3cb5c39cd0800000000000000
+      internalID: -2552479151492764866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a441ad2aab83adf60800000000000000
+      internalID: 8059816857380197450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_9
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1024
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e0db8ec6e5790cc0800000000000000
+      internalID: -3744331981013659416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_10
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 1024
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c49a1975b8b8bbf0800000000000000
+      internalID: -308293484914502460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_11
+      rect:
+        serializedVersion: 2
+        x: 2895
+        y: 1024
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2abb57f2ee392e880800000000000000
+      internalID: -8583135288606999646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 601c7ff913ab0dc80800000000000000
+      internalID: -8299929390943846138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_13
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 0
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc102ef0a773c7e0800000000000000
+      internalID: -1746420697147630412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_14
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 0
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 408819eaa5c8edf90800000000000000
+      internalID: -6926944855745525756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-alle-sheet3_15
+      rect:
+        serializedVersion: 2
+        x: 2895
+        y: 0
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dad85def7e64d5c0800000000000000
+      internalID: -4191603857453163818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

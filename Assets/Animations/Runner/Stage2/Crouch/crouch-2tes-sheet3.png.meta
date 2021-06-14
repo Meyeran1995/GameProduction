@@ -1,0 +1,516 @@
+fileFormatVersion: 2
+guid: e7f6d3c9b673ad643bfb80fa17d500fd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5022996246999636560
+    second: crouch-2tes-sheet3_0
+  - first:
+      213: 1381348706792158787
+    second: crouch-2tes-sheet3_1
+  - first:
+      213: -2257941714116279185
+    second: crouch-2tes-sheet3_2
+  - first:
+      213: 1831027563315459011
+    second: crouch-2tes-sheet3_3
+  - first:
+      213: -350725533911153438
+    second: crouch-2tes-sheet3_4
+  - first:
+      213: -7916970911488494873
+    second: crouch-2tes-sheet3_5
+  - first:
+      213: -8026677057738937873
+    second: crouch-2tes-sheet3_6
+  - first:
+      213: -1791193066460746025
+    second: crouch-2tes-sheet3_7
+  - first:
+      213: 8787697640830783567
+    second: crouch-2tes-sheet3_8
+  - first:
+      213: -1117306663499906036
+    second: crouch-2tes-sheet3_9
+  - first:
+      213: 3568124022344844804
+    second: crouch-2tes-sheet3_10
+  - first:
+      213: -9166936142936914890
+    second: crouch-2tes-sheet3_11
+  - first:
+      213: -8386467098452769874
+    second: crouch-2tes-sheet3_12
+  - first:
+      213: -3650043648546519238
+    second: crouch-2tes-sheet3_13
+  - first:
+      213: -3625993478640872313
+    second: crouch-2tes-sheet3_14
+  - first:
+      213: 8297640943112137158
+    second: crouch-2tes-sheet3_15
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1350
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a9882497445b540800000000000000
+      internalID: 5022996246999636560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_1
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 3072
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346ba4384598b2310800000000000000
+      internalID: 1381348706792158787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_2
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 3072
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f64009e59fd2aa0e0800000000000000
+      internalID: -2257941714116279185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_3
+      rect:
+        serializedVersion: 2
+        x: 2895
+        y: 3072
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c3fd5d1edd196910800000000000000
+      internalID: 1831027563315459011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e401913cf8f12bf0800000000000000
+      internalID: -350725533911153438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_5
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 2048
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2b0a3e6e4412290800000000000000
+      internalID: -7916970911488494873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_6
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 2048
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe961be3eb38b9090800000000000000
+      internalID: -8026677057738937873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_7
+      rect:
+        serializedVersion: 2
+        x: 2895
+        y: 2048
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dee67d65676427e0800000000000000
+      internalID: -1791193066460746025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f40d143f17c24f970800000000000000
+      internalID: 8787697640830783567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_9
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1024
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0449e062878e70f0800000000000000
+      internalID: -1117306663499906036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_10
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 1024
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4060762c4e5848130800000000000000
+      internalID: 3568124022344844804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_11
+      rect:
+        serializedVersion: 2
+        x: 2895
+        y: 1024
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6344e81852088c080800000000000000
+      internalID: -9166936142936914890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3c83c7b984d9b80800000000000000
+      internalID: -8386467098452769874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_13
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 0
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a37c6b1f3a0785dc0800000000000000
+      internalID: -3650043648546519238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_14
+      rect:
+        serializedVersion: 2
+        x: 1930
+        y: 0
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7845abb7422edadc0800000000000000
+      internalID: -3625993478640872313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crouch-2tes-sheet3_15
+      rect:
+        serializedVersion: 2
+        x: 2895
+        y: 0
+        width: 965
+        height: 1024
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9afe79974272370800000000000000
+      internalID: 8297640943112137158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

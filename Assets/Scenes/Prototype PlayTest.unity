@@ -1656,6 +1656,18 @@ PrefabInstance:
       propertyPath: listener.Response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 708239604788086188, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.71481484
+      objectReference: {fileID: 0}
+    - target: {fileID: 708239604788086188, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7585185
+      objectReference: {fileID: 0}
+    - target: {fileID: 708239604788086188, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 708239604788086189, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1696,13 +1708,29 @@ PrefabInstance:
       propertyPath: mainResourceBar
       value: 
       objectReference: {fileID: 496437708}
+    - target: {fileID: 4067246858426868007, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c3caf85292b7e6840aa402f1d0c9a68d, type: 2}
+    - target: {fileID: 4933763526420180431, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0016349107
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933763526420180431, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.71481484
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933763526420180431, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.7585185
+      objectReference: {fileID: 0}
     - target: {fileID: 4933763526420180431, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.96027464
+      value: 0.71481484
       objectReference: {fileID: 0}
     - target: {fileID: 4933763526420180431, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.6555
+      value: 0.7585185
       objectReference: {fileID: 0}
     - target: {fileID: 5882837995384501624, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
       propertyPath: stages.Array.data[1]
@@ -3707,6 +3735,18 @@ PrefabInstance:
       propertyPath: energyBar
       value: 
       objectReference: {fileID: 333188047}
+    - target: {fileID: 7935104195149141412, guid: cf3172af334961e4f97d002316be1c99, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7876923
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935104195149141412, guid: cf3172af334961e4f97d002316be1c99, type: 3}
+      propertyPath: m_Size.y
+      value: 0.3923077
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935104195149141412, guid: cf3172af334961e4f97d002316be1c99, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7935104195149141413, guid: cf3172af334961e4f97d002316be1c99, type: 3}
       propertyPath: energyBar
       value: 

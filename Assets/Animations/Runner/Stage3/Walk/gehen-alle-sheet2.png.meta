@@ -1,0 +1,684 @@
+fileFormatVersion: 2
+guid: 57d8f62ea74bd944c98b2537a95b50d5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5110218074607295884
+    second: gehen-alle-sheet2_0
+  - first:
+      213: -5836294995905563389
+    second: gehen-alle-sheet2_1
+  - first:
+      213: 8384926747779815520
+    second: gehen-alle-sheet2_2
+  - first:
+      213: -7641068417942715871
+    second: gehen-alle-sheet2_3
+  - first:
+      213: -1135298118727832565
+    second: gehen-alle-sheet2_4
+  - first:
+      213: 6660754933779580299
+    second: gehen-alle-sheet2_5
+  - first:
+      213: 2644503802115801472
+    second: gehen-alle-sheet2_6
+  - first:
+      213: -608872801908995264
+    second: gehen-alle-sheet2_7
+  - first:
+      213: 7715492469451967222
+    second: gehen-alle-sheet2_8
+  - first:
+      213: 747153461603395625
+    second: gehen-alle-sheet2_9
+  - first:
+      213: -8482204279487761931
+    second: gehen-alle-sheet2_10
+  - first:
+      213: 6445744691427901011
+    second: gehen-alle-sheet2_11
+  - first:
+      213: -3931836759328899572
+    second: gehen-alle-sheet2_12
+  - first:
+      213: 4523883980708869309
+    second: gehen-alle-sheet2_13
+  - first:
+      213: 2243674431446077512
+    second: gehen-alle-sheet2_14
+  - first:
+      213: 3044942533395853883
+    second: gehen-alle-sheet2_15
+  - first:
+      213: 1276761376581372031
+    second: gehen-alle-sheet2_16
+  - first:
+      213: -7334602849838796743
+    second: gehen-alle-sheet2_17
+  - first:
+      213: 947198657725258530
+    second: gehen-alle-sheet2_18
+  - first:
+      213: 5059845881812362754
+    second: gehen-alle-sheet2_19
+  - first:
+      213: 7152897901826193278
+    second: gehen-alle-sheet2_20
+  - first:
+      213: -9040844414258351194
+    second: gehen-alle-sheet2_21
+  - first:
+      213: 3287172316218136508
+    second: gehen-alle-sheet2_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3315
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472604a7cbbd419b0800000000000000
+      internalID: -5110218074607295884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_1
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 3315
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305b8ac8f90510fa0800000000000000
+      internalID: -5836294995905563389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_2
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 3315
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 068561da37e3d5470800000000000000
+      internalID: 8384926747779815520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_3
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 3315
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 122811c02c875f590800000000000000
+      internalID: -7641068417942715871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_4
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 3315
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0cee07406c9e30f0800000000000000
+      internalID: -1135298118727832565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2534
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b85ccd37251cf6c50800000000000000
+      internalID: 6660754933779580299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_6
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 2534
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0814844623a23b420800000000000000
+      internalID: 2644503802115801472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_7
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 2534
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04b41d0a969dc87f0800000000000000
+      internalID: -608872801908995264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_8
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 2534
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fac2e4c58fe21b60800000000000000
+      internalID: 7715492469451967222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_9
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 2534
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 928e29f5d1c6e5a00800000000000000
+      internalID: 747153461603395625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1753
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f175d00628294a80800000000000000
+      internalID: -8482204279487761931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_11
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1753
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35e7b6555a2e37950800000000000000
+      internalID: 6445744691427901011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_12
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 1753
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0eb0659c4f4f69c0800000000000000
+      internalID: -3931836759328899572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_13
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1753
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db47b3b038018ce30800000000000000
+      internalID: 4523883980708869309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_14
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 1753
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84058f50202232f10800000000000000
+      internalID: 2243674431446077512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 972
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b32b980f91fc14a20800000000000000
+      internalID: 3044942533395853883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_16
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 972
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f78421a15b7f7b110800000000000000
+      internalID: 1276761376581372031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_17
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 972
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9307ac68191463a90800000000000000
+      internalID: -7334602849838796743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_18
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 972
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22bd0752920252d00800000000000000
+      internalID: 947198657725258530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_19
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 972
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20626a3750f283640800000000000000
+      internalID: 5059845881812362754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 191
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e77bcf87eb2344360800000000000000
+      internalID: 7152897901826193278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_21
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 191
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a37e8ad7e7788280800000000000000
+      internalID: -9040844414258351194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-alle-sheet2_22
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 191
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb71eaf2ec16e9d20800000000000000
+      internalID: 3287172316218136508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

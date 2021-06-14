@@ -1,0 +1,684 @@
+fileFormatVersion: 2
+guid: 2bc81b6dbdd412e438f6f836ef28eedc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5675611411687829672
+    second: gehen-1tes-sheet1_0
+  - first:
+      213: 775208691745552487
+    second: gehen-1tes-sheet1_1
+  - first:
+      213: 8939890786921889318
+    second: gehen-1tes-sheet1_2
+  - first:
+      213: -4676410054420468833
+    second: gehen-1tes-sheet1_3
+  - first:
+      213: 3459848553355631995
+    second: gehen-1tes-sheet1_4
+  - first:
+      213: -5115094897191585909
+    second: gehen-1tes-sheet1_5
+  - first:
+      213: -1513878628026036102
+    second: gehen-1tes-sheet1_6
+  - first:
+      213: 7992323256333333949
+    second: gehen-1tes-sheet1_7
+  - first:
+      213: 4710777356147970814
+    second: gehen-1tes-sheet1_8
+  - first:
+      213: -2156783086986762391
+    second: gehen-1tes-sheet1_9
+  - first:
+      213: 654855724956668996
+    second: gehen-1tes-sheet1_10
+  - first:
+      213: -7110585789887314624
+    second: gehen-1tes-sheet1_11
+  - first:
+      213: -6905553418743610677
+    second: gehen-1tes-sheet1_12
+  - first:
+      213: 6158238482288182060
+    second: gehen-1tes-sheet1_13
+  - first:
+      213: 4982452563281429679
+    second: gehen-1tes-sheet1_14
+  - first:
+      213: -2353523551211183582
+    second: gehen-1tes-sheet1_15
+  - first:
+      213: 2172747994183052093
+    second: gehen-1tes-sheet1_16
+  - first:
+      213: -271957794324413627
+    second: gehen-1tes-sheet1_17
+  - first:
+      213: 863600413808376966
+    second: gehen-1tes-sheet1_18
+  - first:
+      213: 8755449336941746529
+    second: gehen-1tes-sheet1_19
+  - first:
+      213: 1004820986443400729
+    second: gehen-1tes-sheet1_20
+  - first:
+      213: 1962998314949574013
+    second: gehen-1tes-sheet1_21
+  - first:
+      213: -122439383070727044
+    second: gehen-1tes-sheet1_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 70
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3315
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a07ecc1282d3ce40800000000000000
+      internalID: 5675611411687829672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_1
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 3315
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 768f94aa23812ca00800000000000000
+      internalID: 775208691745552487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_2
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 3315
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e344d1e4fd01c70800000000000000
+      internalID: 8939890786921889318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_3
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 3315
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9be33a05dd0a1fb0800000000000000
+      internalID: -4676410054420468833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_4
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 3315
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d596f9de9d30030800000000000000
+      internalID: 3459848553355631995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2534
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b877b7cba488309b0800000000000000
+      internalID: -5115094897191585909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_6
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 2534
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a70d37f986f9dfae0800000000000000
+      internalID: -1513878628026036102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_7
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 2534
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db577df08af6aee60800000000000000
+      internalID: 7992323256333333949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_8
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 2534
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef25721fb0b006140800000000000000
+      internalID: 4710777356147970814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_9
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 2534
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9676592a5319112e0800000000000000
+      internalID: -2156783086986762391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1753
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4445c21ffc3861900800000000000000
+      internalID: 654855724956668996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_11
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 1753
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04583d8c5ef125d90800000000000000
+      internalID: -7110585789887314624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_12
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 1753
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc28d4ab0cb8a20a0800000000000000
+      internalID: -6905553418743610677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_13
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1753
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c238dea9545767550800000000000000
+      internalID: 6158238482288182060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_14
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 1753
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa4cf98453a352540800000000000000
+      internalID: 4982452563281429679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 972
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222aa87bcca965fd0800000000000000
+      internalID: -2353523551211183582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_16
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 972
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b29bbf9c6272e10800000000000000
+      internalID: 2172747994183052093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_17
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 972
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5430563b3dfc93cf0800000000000000
+      internalID: -271957794324413627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_18
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 972
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68cbde430002cfb00800000000000000
+      internalID: 863600413808376966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_19
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 972
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 169975998ca918970800000000000000
+      internalID: 8755449336941746529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 191
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91601d70d57d1fd00800000000000000
+      internalID: 1004820986443400729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_21
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 191
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7d72492198fd3b10800000000000000
+      internalID: 1962998314949574013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gehen-1tes-sheet1_22
+      rect:
+        serializedVersion: 2
+        x: 1400
+        y: 191
+        width: 700
+        height: 781
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c742d81a7020d4ef0800000000000000
+      internalID: -122439383070727044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
