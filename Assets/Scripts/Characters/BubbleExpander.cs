@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
@@ -69,12 +70,14 @@ public class BubbleExpander : AListenerEnabler, IRestartable
         bubbleResourceController = GetComponent<BubbleResourceController>();
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        RegisterWithHandler();
+
+        yield return new WaitUntil(() => RuntimeManager.HasBankLoaded("Master"));
+
         bubbleSoundInstance = RuntimeManager.CreateInstance(bubbleSound);
         bubbleSoundInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject, bubbleRigidbody));
-
-        RegisterWithHandler();
     }
 
     private void FixedUpdate()

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7248536478322808994}
   - component: {fileID: 8598974684746542489}
-  - component: {fileID: 405779406704401352}
   - component: {fileID: 5945891074527370787}
+  - component: {fileID: 1929519898622578343}
   m_Layer: 9
   m_Name: Exit
   m_TagString: Untagged
@@ -59,22 +59,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 5}
   m_EdgeRadius: 0
---- !u!114 &405779406704401352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371324085140623361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: Player
-  parameter: IsInCave
-  TriggerEvent: 5
-  value: 0
 --- !u!114 &5945891074527370787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +73,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gizmoColor: {r: 0.9803922, g: 0.6784314, b: 0.1137255, a: 1}
   triggerColl: {fileID: 8598974684746542489}
+--- !u!114 &1929519898622578343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371324085140623361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8258ac6b8bb60b408d747b2c30e3522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paramName: IsInCave
+  overrideValue: 0
 --- !u!1 &1110719608613931962
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,8 +943,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2445612643022527471}
   - component: {fileID: 5802409447771772481}
-  - component: {fileID: 984615481368890959}
   - component: {fileID: 6576648480044814641}
+  - component: {fileID: 1893638589299066713}
   m_Layer: 9
   m_Name: Entrance
   m_TagString: Untagged
@@ -994,22 +992,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 5}
   m_EdgeRadius: 0
---- !u!114 &984615481368890959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8569712279117229808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: Player
-  parameter: IsInCave
-  TriggerEvent: 5
-  value: 1
 --- !u!114 &6576648480044814641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1024,6 +1006,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gizmoColor: {r: 0.9803922, g: 0.6784314, b: 0.1137255, a: 1}
   triggerColl: {fileID: 5802409447771772481}
+--- !u!114 &1893638589299066713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569712279117229808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8258ac6b8bb60b408d747b2c30e3522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paramName: IsInCave
+  overrideValue: 1
 --- !u!1 &8576899261793239465
 GameObject:
   m_ObjectHideFlags: 0
