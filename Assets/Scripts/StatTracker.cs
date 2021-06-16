@@ -6,14 +6,15 @@ using TMPro;
 /// <summary>
 /// Tracks collected feathers and elapsed time with personal bests for an active session
 /// </summary>
-public class StatTracker : AMultiListenerEnabler, IRestartable
+public class StatTracker : AListenerEnabler, IRestartable
 {
     [Header("Texts")] 
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private TextMeshProUGUI featherText, ingameFeatherCount;
 
     private float timeElapsed;
-    private int amountOfCollectedFeathers, bestFeathers, bestTime;
+    private int bestFeathers, bestTime;
+    public int CollectedFeathers { get; private set; }
 
     //TODO: Maybe use playerprefs for persistent bests
     private void Start() => RegisterWithHandler();
@@ -21,27 +22,28 @@ public class StatTracker : AMultiListenerEnabler, IRestartable
     private void Update() => timeElapsed += Time.deltaTime;
 
     [UsedImplicitly]
-    public void OnFeatherCollected() => ingameFeatherCount.text = $"{++amountOfCollectedFeathers}";
+    public void OnFeatherCollected() => ingameFeatherCount.text = $"{++CollectedFeathers}";
 
-    [UsedImplicitly]
     public void ShowStats()
     {
         int newTime = Mathf.RoundToInt(timeElapsed);
 
-        bestFeathers = amountOfCollectedFeathers > bestFeathers ? amountOfCollectedFeathers : bestFeathers;
+        bestFeathers = CollectedFeathers > bestFeathers ? CollectedFeathers : bestFeathers;
         bestTime = newTime < bestTime || bestTime == 0 ? newTime : bestTime;
 
         TimeSpan newSpan = TimeSpan.FromSeconds(newTime);
         TimeSpan bestSpan = TimeSpan.FromSeconds(bestTime);
 
+        timeText.gameObject.SetActive(true);
         timeText.text = $"Time elapsed: {newSpan.Minutes}min {newSpan.Seconds}s (Best: {bestSpan.Minutes}min {bestSpan.Seconds}s)";
-        featherText.text = $"Feathers collected: {amountOfCollectedFeathers} (Best: {bestFeathers})";
+        featherText.gameObject.SetActive(true);
+        featherText.text = $"Feathers collected: {CollectedFeathers} (Best: {bestFeathers})";
     }
 
     public void Restart()
     {
         timeElapsed = 0f;
-        amountOfCollectedFeathers = 0;
+        CollectedFeathers = 0;
         ingameFeatherCount.text = "0";
     }
 

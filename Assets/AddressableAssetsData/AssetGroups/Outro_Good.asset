@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Outro_Good
+  m_EditorClassIdentifier: 
+  m_GroupName: Outro_Good
+  m_Data:
+    m_SerializedData: []
+  m_GUID: f03470da0faf1794997b0222f5249bcd
+  m_SerializeEntries:
+  - m_GUID: 730ea4a13a6729a4bb92f492e70d73aa
+    m_Address: G4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: 730ea4a13a6729a4bb92f492e70d73aa, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 730ea4a13a6729a4bb92f492e70d73aa, type: 3}
+  - m_GUID: 08c938f8cdb35984b956c1c6b4adc7a1
+    m_Address: G2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: 08c938f8cdb35984b956c1c6b4adc7a1, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: 08c938f8cdb35984b956c1c6b4adc7a1, type: 3}
+  - m_GUID: c1ab5d4ea2715e741b198ce7f3b56761
+    m_Address: G1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: c1ab5d4ea2715e741b198ce7f3b56761, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: c1ab5d4ea2715e741b198ce7f3b56761, type: 3}
+  - m_GUID: b3a3824bf78260644810e09b6a1a8595
+    m_Address: G3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 2800000, guid: b3a3824bf78260644810e09b6a1a8595, type: 3}
+    m_TargetAsset: {fileID: 2800000, guid: b3a3824bf78260644810e09b6a1a8595, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 6960f71ff91e9b842bef286f26630f3c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ab0ae21355c2e724c93201c0c211472c, type: 2}
+    - {fileID: 11400000, guid: 4ef2146253c6beb49947d1eb7aab7076, type: 2}

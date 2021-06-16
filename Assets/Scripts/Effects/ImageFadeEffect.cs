@@ -9,16 +9,16 @@ public class ImageFadeEffect : MonoBehaviour, IRestartable
     [SerializeField] private bool setActiveOnRestart;
     private Color imageColor, originalColor;
 
-    private void Start()
+    private void Awake()
     {
         if (targetImage == null)
             targetImage = GetComponent<Image>();
 
         imageColor = targetImage.color;
         originalColor = imageColor;
-
-        RegisterWithHandler();
     }
+
+    private void Start() => RegisterWithHandler();
 
     public IEnumerator FadeOut()
     {
@@ -30,6 +30,21 @@ public class ImageFadeEffect : MonoBehaviour, IRestartable
         }
 
         gameObject.SetActive(false);
+    }
+
+    public IEnumerator FadeIn()
+    {
+        imageColor.a = 0f;
+        gameObject.SetActive(true);
+
+        while (imageColor.a < 1f)
+        {
+            imageColor.a += fadeSpeed * Time.deltaTime;
+            targetImage.color = imageColor;
+            yield return null;
+        }
+
+        Debug.Log("Done Fading");
     }
 
     public void Restart()
