@@ -9,6 +9,8 @@ public class GlobalParameterResetter : MonoBehaviour, IRestartable
 
     private IEnumerator Start()
     {
+        RegisterWithHandler();
+
         yield return new WaitUntil(() => RuntimeManager.HasBankLoaded("Master"));
         
         RuntimeManager.StudioSystem.getParameterByName(paramName, out initialValue);
