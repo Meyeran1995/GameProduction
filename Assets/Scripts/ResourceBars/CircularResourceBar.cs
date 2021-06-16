@@ -60,7 +60,7 @@ public class CircularResourceBar : AListenerEnabler, IRestartable
         {
             transitionEvent.Raise();
 
-            if (++currentStage > maxSpeeds.Length) return;
+            if (++currentStage >= maxSpeeds.Length) return;
 
             maximumValue = maxSpeeds[currentStage];
         }
