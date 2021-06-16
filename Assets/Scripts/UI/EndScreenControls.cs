@@ -9,7 +9,7 @@ public class EndScreenControls : AListenerEnabler
 {
     public static bool IsQuitting { get; private set; }
 
-    [SerializeField] private StatTracker stats;
+    [SerializeField] private FeatherTracker feathers;
 
     [Header("Outro")] 
     [SerializeField] private AssetReferenceSprite[] goodEndingScenes;
@@ -54,7 +54,7 @@ public class EndScreenControls : AListenerEnabler
 
         if (currentScene == activeSequenceLength-1)
         {
-            StartCoroutine(ExitSequence());
+            ExitSequence();
         }
         else
         {
@@ -62,24 +62,20 @@ public class EndScreenControls : AListenerEnabler
         }
     }
 
-    private IEnumerator ExitSequence()
+    private void ExitSequence()
     {
         controls.SetActive(true);
 
-        for (int i = 0; i < controlsFadeEffects.Length - 1; i++)
+        foreach (var fade in controlsFadeEffects)
         {
-            StartCoroutine(controlsFadeEffects[i].FadeIn());
+            StartCoroutine(fade.FadeIn());
         }
-
-        yield return StartCoroutine(controlsFadeEffects[controlsFadeEffects.Length - 1].FadeIn());
-
-        stats.ShowStats();
     }
 
     [UsedImplicitly]
     public void OnGameEndReached()
     {
-        isGoodEnding = stats.CollectedFeathers >= 10;
+        isGoodEnding = feathers.CollectedFeathers >= 10;
         activeSequenceLength = isGoodEnding ? goodEndingScenes.Length : badEndingScenes.Length;
         progressButton.interactable = false;
         LoadFirstScene();
