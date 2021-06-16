@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6090053470382488281}
   - component: {fileID: 5843600649089627536}
   - component: {fileID: 4699117031591494971}
+  - component: {fileID: 8628702619084000992}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -80,3 +81,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50855640205634e40b68074ad49994b4, type: 2}
   - {fileID: 11400000, guid: 756ef73eadd8bfb40b4e916ca1f77805, type: 2}
   - {fileID: 11400000, guid: df1c71196da353f4195a4462d9beec8c, type: 2}
+--- !u!114 &8628702619084000992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6812652561320696382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89e13690409c164ab9d490f2a5b24bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paramName: IsInCave
