@@ -25,9 +25,10 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
     private Vector2 currentDirection;
     private Rigidbody2D characterBody;
 
-    [Header("Movement States Debug")]
+    [Header("Movement States")]
     [SerializeField] [Tooltip("Was the end of the journey reached?")] private bool journeyCompleted;
     [SerializeField] [Tooltip("Are we able to move?")] private bool canMove;
+    [SerializeField] private MainCharacterAnimationStageController animStageController;
 
     public bool CanMove => canMove;
     public bool MaxSpeedReached => currentSpeed >= maxSpeeds[currentMaxSpeed];
@@ -90,7 +91,7 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
         if (hit.transform == null)
         {
             journeyCompleted = true;
-            endOfGameEvent.Raise();
+           StartCoroutine(OnEndOfJourneyReached());
         }
         else
         {
@@ -99,6 +100,15 @@ public class MainCharacterMovement : AListenerEnabler, IRestartable
     }
 
     private void MoveForward() => characterBody.MovePosition(characterBody.position + currentDirection * Time.fixedDeltaTime);
+
+    private IEnumerator OnEndOfJourneyReached()
+    {
+        animStageController.OnEndOfGameReached();
+
+        yield return new WaitForSeconds(3.5f);
+
+        endOfGameEvent.Raise();
+    }
 
     #endregion
 

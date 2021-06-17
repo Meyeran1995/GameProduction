@@ -873,6 +873,7 @@ GameObject:
   - component: {fileID: 4245799295150942336}
   - component: {fileID: 2799976000873841249}
   - component: {fileID: 8785787722499627820}
+  - component: {fileID: 8428830022251891951}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -920,7 +921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -937,6 +938,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8428830022251891951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6792113108896785396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaea0fc0df8d4b544b81ac77a5fcd64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 0.25
+  targetImage: {fileID: 8785787722499627820}
+  setActiveOnRestart: 0
 --- !u!1 &8604630546280138271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,12 +1076,8 @@ MonoBehaviour:
     m_SubObjectName: 3
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  - m_AssetGUID: 4278a3a4bc048dc4f8bbafe812f05501
-    m_SubObjectName: 4
-    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   - m_AssetGUID: b3c24e35b575f134ea32c4a66733b424
-    m_SubObjectName: 5
+    m_SubObjectName: 4
     m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   front: {fileID: 8288111779333914454}

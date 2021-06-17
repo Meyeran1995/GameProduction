@@ -38,6 +38,8 @@ public class MainCharacterAnimationStageController : AMultiListenerEnabler, IRes
     [UsedImplicitly]
     public void OnMaxSpeedLost() => playerAnimator.SetBool("MaxSpeedReached", false);
 
+    public void OnEndOfGameReached() => playerAnimator.SetTrigger("EndingReached");
+
     public void Restart()
     {
         featherCount = 0;

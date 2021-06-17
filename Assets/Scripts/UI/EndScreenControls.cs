@@ -31,6 +31,39 @@ public class EndScreenControls : AListenerEnabler
         progressButton.interactable = false;
     }
 
+    [UsedImplicitly]
+    public void OnGameEndReached()
+    {
+        isGoodEnding = feathers.CollectedFeathers >= 10;
+        activeSequenceLength = isGoodEnding ? goodEndingScenes.Length : badEndingScenes.Length;
+        progressButton.interactable = false;
+        LoadFirstScene();
+    }
+
+    #region Loading
+
+    private void LoadFirstScene()
+    {
+        AssetReferenceSprite[] activeScene = isGoodEnding ? goodEndingScenes : badEndingScenes;
+        activeScene[0].LoadAssetAsync().Completed += (pageHandle) =>
+        {
+            back.sprite = pageHandle.Result;
+            StartCoroutine(FadeInFirstScene());
+        };
+    }
+
+    private void LoadCurrentScene()
+    {
+        if (isGoodEnding)
+        {
+            goodEndingScenes[currentScene].LoadAssetAsync().Completed += OnPageLoaded;
+        }
+        else
+        {
+            badEndingScenes[currentScene].LoadAssetAsync().Completed += OnPageLoaded;
+        }
+    }
+
     private void OnPageLoaded(AsyncOperationHandle<Sprite> pageHandle)
     {
         if (pageHandle.Status != AsyncOperationStatus.Failed)
@@ -48,11 +81,15 @@ public class EndScreenControls : AListenerEnabler
         }
     }
 
+    #endregion
+
+    #region Fade
+
     private IEnumerator FadeCurrentPage()
     {
         yield return StartCoroutine(fadeEffect.FadeOut());
 
-        if (currentScene == activeSequenceLength-1)
+        if (currentScene == activeSequenceLength - 1)
         {
             ExitSequence();
         }
@@ -60,6 +97,15 @@ public class EndScreenControls : AListenerEnabler
         {
             progressButton.interactable = true;
         }
+    }
+
+    private IEnumerator FadeInFirstScene()
+    {
+        var fade = back.GetComponent<ImageFadeEffect>();
+
+        yield return StartCoroutine(fade.FadeIn());
+
+        progressButton.interactable = true;
     }
 
     private void ExitSequence()
@@ -72,36 +118,7 @@ public class EndScreenControls : AListenerEnabler
         }
     }
 
-    [UsedImplicitly]
-    public void OnGameEndReached()
-    {
-        isGoodEnding = feathers.CollectedFeathers >= 10;
-        activeSequenceLength = isGoodEnding ? goodEndingScenes.Length : badEndingScenes.Length;
-        progressButton.interactable = false;
-        LoadFirstScene();
-    }
-
-    private void LoadFirstScene()
-    {
-        AssetReferenceSprite[] activeScene = isGoodEnding ? goodEndingScenes : badEndingScenes;
-        activeScene[0].LoadAssetAsync().Completed += (pageHandle) =>
-        {
-            back.sprite = pageHandle.Result;
-            progressButton.interactable = true;
-        };
-    }
-
-    private void LoadCurrentScene()
-    {
-        if (isGoodEnding)
-        {
-            goodEndingScenes[currentScene].LoadAssetAsync().Completed += OnPageLoaded;
-        }
-        else
-        {
-            badEndingScenes[currentScene].LoadAssetAsync().Completed += OnPageLoaded;
-        }
-    }
+    #endregion
 
     [UsedImplicitly]
     public void ProgressOutro()

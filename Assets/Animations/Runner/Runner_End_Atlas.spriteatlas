@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Runner_End_Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 3
+      m_CompressionQuality: 70
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 804b216cbbd7b6340b698a5e13258a62, type: 3}
+    totalSpriteSurfaceArea: 53415936
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 41156f10e805e46459e562786def259b, type: 3}
+  - {fileID: 21300000, guid: 534c0a80ca5f56945b2de825c1cfb514, type: 3}
+  - {fileID: 21300000, guid: e0f871a14b06a3f458e3aa5d6ee7ee8a, type: 3}
+  - {fileID: 21300000, guid: a9afb4a123915a5419f3dff7936edbfe, type: 3}
+  - {fileID: 21300000, guid: d6e018e1d44c91340964382a3d420815, type: 3}
+  - {fileID: 21300000, guid: 3c1b8ba2dc74b6d479dac4dc53cfe49d, type: 3}
+  - {fileID: 21300000, guid: 8caaf9130e567fb4fb9a180f2fd05216, type: 3}
+  - {fileID: 21300000, guid: 4ccd9424f7c004b4a980328a7d4da25a, type: 3}
+  - {fileID: 21300000, guid: f0ef6724598553143a99d75a1bdd8d06, type: 3}
+  - {fileID: 21300000, guid: 35a8ec34df8d6c74e92d6945180b66ac, type: 3}
+  - {fileID: 21300000, guid: fc4f736411b07f84fa45cc7f6f4fd68c, type: 3}
+  - {fileID: 21300000, guid: 232fd4c40ca07834496d0ae425871503, type: 3}
+  - {fileID: 21300000, guid: e7e5be35cd6e13546aa8ee2e7705a3a0, type: 3}
+  - {fileID: 21300000, guid: 65e70365341328942be1fbb6b9069fed, type: 3}
+  - {fileID: 21300000, guid: f5d20e65240207e4cb46505d68d17283, type: 3}
+  - {fileID: 21300000, guid: 3e0b8dd55517a384db42637df814774b, type: 3}
+  - {fileID: 21300000, guid: 6d21fa8611bee7d4b94a285f73f51e19, type: 3}
+  - {fileID: 21300000, guid: 1879eca66a1b5174799a53671d67c465, type: 3}
+  - {fileID: 21300000, guid: 39b810b620902fe40ac3d22441eed97d, type: 3}
+  - {fileID: 21300000, guid: 55ad23e6ac3d9e449b6674d2220777ed, type: 3}
+  - {fileID: 21300000, guid: 58a7bdf60e1be9942bb5724fec23f96c, type: 3}
+  - {fileID: 21300000, guid: 262e10070879ca146b4006fd4517127a, type: 3}
+  - {fileID: 21300000, guid: 103b0747c53a87a4eb6712086a1fc503, type: 3}
+  - {fileID: 21300000, guid: 3332f05728e4ec741a1e22f4d4c25749, type: 3}
+  - {fileID: 21300000, guid: aeba9767484191d47871f968d02a4078, type: 3}
+  - {fileID: 21300000, guid: 57c811b7077154f49bb17ba803aece48, type: 3}
+  - {fileID: 21300000, guid: fa02a0b893a4de9498e324c08aa686fd, type: 3}
+  - {fileID: 21300000, guid: f6f127c826f17c84e904e776d231b6e5, type: 3}
+  - {fileID: 21300000, guid: 79134ca9714265e499d361a98495edf2, type: 3}
+  - {fileID: 21300000, guid: 0f1db0e94c3263449a9b4efe7fffa850, type: 3}
+  - {fileID: 21300000, guid: 2da1781a7049f2640ad73f41353b1ab6, type: 3}
+  - {fileID: 21300000, guid: fe5de64ada2ea4941963026983cff83d, type: 3}
+  - {fileID: 21300000, guid: 951da87a6168c6f4db004058029d2d8f, type: 3}
+  - {fileID: 21300000, guid: 00df588adf54db441aec28914dd8a886, type: 3}
+  - {fileID: 21300000, guid: 9da42aaa88870a74d9de98fb0e53898a, type: 3}
+  - {fileID: 21300000, guid: 965fbe1bf2c9cf34f96d36822d9d069e, type: 3}
+  - {fileID: 21300000, guid: 758744dc6f44c6e4e8d14a2657210c94, type: 3}
+  - {fileID: 21300000, guid: 3a434becb3214b64c830580fdaa2769b, type: 3}
+  - {fileID: 21300000, guid: 2151423d3ee182d4e82cf73dd469ea7f, type: 3}
+  - {fileID: 21300000, guid: 10410b7d5b6d7214c8b7eeea6972b767, type: 3}
+  - {fileID: 21300000, guid: e2f1db8da6018bd4bb772f8867ebeae9, type: 3}
+  - {fileID: 21300000, guid: eb11afcd99dfac74690735f1128487fd, type: 3}
+  - {fileID: 21300000, guid: 383a962e605ba934f8808cf6345317c8, type: 3}
+  - {fileID: 21300000, guid: cb34714eb88865d48a621eb251279c24, type: 3}
+  - {fileID: 21300000, guid: 1e5ee75ed7f218a4ab33fa6d05f92bbd, type: 3}
+  - {fileID: 21300000, guid: 73addc6e4fc467645916cf68ecb4e0ca, type: 3}
+  - {fileID: 21300000, guid: 0d86029ef585abe42b9a6b7e07b82bf5, type: 3}
+  - {fileID: 21300000, guid: cc713e9e21d00f449b19bb89643fdef8, type: 3}
+  - {fileID: 21300000, guid: 14e45dae0dd9b184891ac80de7ec7a93, type: 3}
+  - {fileID: 21300000, guid: e1f7fdfeae5eef74c977cc0571f29c53, type: 3}
+  - {fileID: 21300000, guid: bdb31a0f5744b3d4aaed3cd12a951c59, type: 3}
+  - {fileID: 21300000, guid: 26edd73f9655c8b4bb1419ad4f96876f, type: 3}
+  - {fileID: 21300000, guid: 1b0a5b4f8ea29394d918565b7a41df96, type: 3}
+  - {fileID: 21300000, guid: 431f08dfdde283840bfa23afaec22595, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - stehen-ende04
+  - stehen-ende12
+  - stehen-ende35
+  - stehen-ende21
+  - stehen-ende39
+  - stehen-ende47
+  - stehen-ende20
+  - stehen-ende23
+  - stehen-ende15
+  - stehen-ende45
+  - stehen-ende08
+  - stehen-ende00
+  - stehen-ende30
+  - stehen-ende11
+  - stehen-ende27
+  - stehen-ende32
+  - stehen-ende50
+  - stehen-ende46
+  - stehen-ende52
+  - stehen-ende43
+  - stehen-ende17
+  - stehen-ende37
+  - stehen-ende44
+  - stehen-ende31
+  - stehen-ende36
+  - stehen-ende14
+  - stehen-ende09
+  - stehen-ende22
+  - stehen-ende40
+  - stehen-ende42
+  - stehen-ende02
+  - stehen-ende48
+  - stehen-ende53
+  - stehen-ende29
+  - stehen-ende16
+  - stehen-ende38
+  - stehen-ende07
+  - stehen-ende49
+  - stehen-ende25
+  - stehen-ende06
+  - stehen-ende01
+  - stehen-ende28
+  - stehen-ende34
+  - stehen-ende19
+  - stehen-ende13
+  - stehen-ende24
+  - stehen-ende51
+  - stehen-ende05
+  - stehen-ende41
+  - stehen-ende03
+  - stehen-ende18
+  - stehen-ende10
+  - stehen-ende33
+  - stehen-ende26
+  m_RenderDataMap: {}
+  m_Tag: Runner_End_Atlas
+  m_IsVariant: 0

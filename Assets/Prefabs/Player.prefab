@@ -107,6 +107,7 @@ MonoBehaviour:
   stageTransitionHaltTime: 1.125
   journeyCompleted: 0
   canMove: 1
+  animStageController: {fileID: 5882837995384501624}
   maxSpeedEvent: {fileID: 11400000, guid: 02c2b22c926db034b838d9df00ebc931, type: 2}
   speedLostEvent: {fileID: 11400000, guid: 6164c6b0e1e2bae45b94b244b14fd45f, type: 2}
   endOfGameEvent: {fileID: 11400000, guid: b35c1dd7853addf4982c3d1f67bc101e, type: 2}

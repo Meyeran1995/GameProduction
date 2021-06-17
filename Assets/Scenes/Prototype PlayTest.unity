@@ -1753,14 +1753,6 @@ PrefabInstance:
       propertyPath: mainResourceBar
       value: 
       objectReference: {fileID: 496437708}
-    - target: {fileID: 4067246858426868007, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: c3caf85292b7e6840aa402f1d0c9a68d, type: 2}
-    - target: {fileID: 4933763526420180431, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0016349107
-      objectReference: {fileID: 0}
     - target: {fileID: 4933763526420180431, guid: c34fac320ca0856408f8a59a3f31183b, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 0.71481484
