@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Runner_End_Stage1
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 3
+      m_CompressionQuality: 70
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 8bf3843170025394199b4d9bae259032, type: 3}
+    totalSpriteSurfaceArea: 53415936
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 7a83df7009655274fbb7fe76c9717af0, type: 3}
+  - {fileID: 21300000, guid: 04bfd0a00d85e2d4d8d2436f10523443, type: 3}
+  - {fileID: 21300000, guid: 568cb7f09c5b3ba4385596705cac9550, type: 3}
+  - {fileID: 21300000, guid: 990b87115c5896d4089f3cb7e25ef2d4, type: 3}
+  - {fileID: 21300000, guid: 0b3a81715ccb6124cbdf5e396db0c052, type: 3}
+  - {fileID: 21300000, guid: 2ba328c121ed9a24d96005632b692a69, type: 3}
+  - {fileID: 21300000, guid: d978abc18a47cf24b8709ed11c7d0dd1, type: 3}
+  - {fileID: 21300000, guid: aaa9daf16f51a5c4c8f7583db2e20abb, type: 3}
+  - {fileID: 21300000, guid: d0dac78295962904bb291097b2a80ba3, type: 3}
+  - {fileID: 21300000, guid: aadd8b82b74455c4098756d642981fd2, type: 3}
+  - {fileID: 21300000, guid: 27e757a2fd0e3ac4b8fbf36e21778861, type: 3}
+  - {fileID: 21300000, guid: b9d873e2a2bffd14fb9cfeb6583293ee, type: 3}
+  - {fileID: 21300000, guid: 2ce2761382394734e8136da15de3067d, type: 3}
+  - {fileID: 21300000, guid: 4b5aac5397b694d48a23831520a92ed6, type: 3}
+  - {fileID: 21300000, guid: d1769a931d1f59846a18b6d7dd451a8c, type: 3}
+  - {fileID: 21300000, guid: e8aabf93885a13d4ba936282a48545c7, type: 3}
+  - {fileID: 21300000, guid: ec6c98a39c4b4fd4ca599a28f1726d8b, type: 3}
+  - {fileID: 21300000, guid: 02f03ef3721205e479d84826d7dd70b0, type: 3}
+  - {fileID: 21300000, guid: f3ad20544c90b5b499b2d72a7a369cd2, type: 3}
+  - {fileID: 21300000, guid: 181ea494c1c88634c84a7017936e93b9, type: 3}
+  - {fileID: 21300000, guid: 29f909c4b3baf2e4b9003d31aaaf5cb6, type: 3}
+  - {fileID: 21300000, guid: 9c035bf4e91c4054ebf1f8d82015c6c0, type: 3}
+  - {fileID: 21300000, guid: 80caeff4968034c489c486123aee7fdb, type: 3}
+  - {fileID: 21300000, guid: d1ddde25bcad3e4409dd78e02d37cf59, type: 3}
+  - {fileID: 21300000, guid: 3b1da655b88faa1408bee5cb9c2082ab, type: 3}
+  - {fileID: 21300000, guid: a69834d5dca2d41408a803a004d1aecd, type: 3}
+  - {fileID: 21300000, guid: 5a1b7af534abce84eb73edddd8d41531, type: 3}
+  - {fileID: 21300000, guid: a2d49c56bce85b340b9e5105e631f43e, type: 3}
+  - {fileID: 21300000, guid: 82218d86731f9da458c8fe66ad6be905, type: 3}
+  - {fileID: 21300000, guid: 8efd00b622ad21a42b8cfea72591ec70, type: 3}
+  - {fileID: 21300000, guid: ba527177b840b0440b5a66e5576f6d01, type: 3}
+  - {fileID: 21300000, guid: 8df8bdb76ff17b34fb091a10f6d1a32b, type: 3}
+  - {fileID: 21300000, guid: 826f98780db26f149a721445858723dc, type: 3}
+  - {fileID: 21300000, guid: 41f96d2988830fd4cb973e2c0b67e972, type: 3}
+  - {fileID: 21300000, guid: 45095f695542d744c8d0117618657cbf, type: 3}
+  - {fileID: 21300000, guid: f974ca89b0b77684ca8321252f4676ec, type: 3}
+  - {fileID: 21300000, guid: 3558ecd969b695d488bf345855cb085f, type: 3}
+  - {fileID: 21300000, guid: 17db7e2a944339c4984619ff1b18356c, type: 3}
+  - {fileID: 21300000, guid: 967b123a2a1f6724daf6035243180c80, type: 3}
+  - {fileID: 21300000, guid: e3d93a9ae5595184885bad05cd5d64a2, type: 3}
+  - {fileID: 21300000, guid: a51867ba54c18324aa1b1d005c132435, type: 3}
+  - {fileID: 21300000, guid: 3d45a5fa64f229c45adb073be32139c4, type: 3}
+  - {fileID: 21300000, guid: 1192083bbff380346b10f6307bc2875a, type: 3}
+  - {fileID: 21300000, guid: e7f4c4cb2e4a3d54ba6ac9ad3288f672, type: 3}
+  - {fileID: 21300000, guid: 691c044c6634d5b4dacd2179a9c8f53b, type: 3}
+  - {fileID: 21300000, guid: aa91785ca2a59694b8151a05093f9449, type: 3}
+  - {fileID: 21300000, guid: 36c3fdec915a58f41896b1cde2bc4921, type: 3}
+  - {fileID: 21300000, guid: d83fc0fc2c0b3dc429fdcd26d2c31d96, type: 3}
+  - {fileID: 21300000, guid: 0057556dab4c99445ba7905351cd7aae, type: 3}
+  - {fileID: 21300000, guid: a17d0dbd844952b42ba1f7bc81ebb8c7, type: 3}
+  - {fileID: 21300000, guid: 1146ff1f636da694e8719ed8bcc3568d, type: 3}
+  - {fileID: 21300000, guid: 5eea5b5fb66703941a2f8d301282d2a0, type: 3}
+  - {fileID: 21300000, guid: 00c3659f48ec9da479db113fadbf261c, type: 3}
+  - {fileID: 21300000, guid: 534f79bf9d23aa049a2584aac2157539, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - stehen-ende-1tes44
+  - stehen-ende-1tes26
+  - stehen-ende-1tes17
+  - stehen-ende-1tes22
+  - stehen-ende-1tes01
+  - stehen-ende-1tes48
+  - stehen-ende-1tes46
+  - stehen-ende-1tes41
+  - stehen-ende-1tes45
+  - stehen-ende-1tes10
+  - stehen-ende-1tes51
+  - stehen-ende-1tes13
+  - stehen-ende-1tes05
+  - stehen-ende-1tes08
+  - stehen-ende-1tes28
+  - stehen-ende-1tes04
+  - stehen-ende-1tes19
+  - stehen-ende-1tes34
+  - stehen-ende-1tes27
+  - stehen-ende-1tes38
+  - stehen-ende-1tes33
+  - stehen-ende-1tes25
+  - stehen-ende-1tes40
+  - stehen-ende-1tes50
+  - stehen-ende-1tes31
+  - stehen-ende-1tes16
+  - stehen-ende-1tes23
+  - stehen-ende-1tes21
+  - stehen-ende-1tes06
+  - stehen-ende-1tes11
+  - stehen-ende-1tes14
+  - stehen-ende-1tes15
+  - stehen-ende-1tes35
+  - stehen-ende-1tes53
+  - stehen-ende-1tes32
+  - stehen-ende-1tes29
+  - stehen-ende-1tes36
+  - stehen-ende-1tes30
+  - stehen-ende-1tes02
+  - stehen-ende-1tes52
+  - stehen-ende-1tes49
+  - stehen-ende-1tes03
+  - stehen-ende-1tes12
+  - stehen-ende-1tes09
+  - stehen-ende-1tes43
+  - stehen-ende-1tes37
+  - stehen-ende-1tes00
+  - stehen-ende-1tes07
+  - stehen-ende-1tes20
+  - stehen-ende-1tes42
+  - stehen-ende-1tes18
+  - stehen-ende-1tes24
+  - stehen-ende-1tes47
+  - stehen-ende-1tes39
+  m_RenderDataMap: {}
+  m_Tag: Runner_End_Stage1
+  m_IsVariant: 0
