@@ -18,9 +18,13 @@ public class BubbleExpander : AListenerEnabler, IRestartable
     [SerializeField] [Tooltip("At which radius does the collider become active?")] [Range(0.1f, 2f)] private float activationRadius;
 
     [SerializeField] 
-    [Tooltip("How much is the bubbles opacity offset from the amount of energy remaining?")]
+    [Tooltip("How much is the minimum bubble opacity?")]
     [Range(0f, 1f)]
     private float edgeOpacityOffset;
+    [SerializeField]
+    [Tooltip("How much percent of opacity resulting rom remaining energy is lost?")]
+    [Range(0f, 1f)]
+    private float edgeOpacityLossStrength;
 
     [SerializeField] 
     [Tooltip("How fast is the bubble growing?")] 
@@ -131,7 +135,7 @@ public class BubbleExpander : AListenerEnabler, IRestartable
     {
         if(!bubbleCollider.enabled) return;
 
-        bubbleActiveColor.a = Mathf.Clamp01(energyBar.FillAmount + edgeOpacityOffset);
+        bubbleActiveColor.a = Mathf.Clamp01(energyBar.FillAmount * edgeOpacityLossStrength + edgeOpacityOffset);
         bubbleEdgeRenderer.color = bubbleActiveColor;
     }
 

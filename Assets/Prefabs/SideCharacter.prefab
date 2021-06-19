@@ -194,6 +194,7 @@ MonoBehaviour:
   maxRadius: 1
   activationRadius: 0.75
   edgeOpacityOffset: 0.125
+  edgeOpacityLossStrength: 0.75
   expansionRate: 1.5
   bubblePushStrength: 0.5
   bubbleSound: event:/PLR/ev_sx_plr_bubble_protectplayer

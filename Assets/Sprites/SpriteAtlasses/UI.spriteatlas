@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 2
+      m_CompressionQuality: 70
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: fd933ce4e95eafd43805fdb214e75ee5, type: 3}
+    - {fileID: 102900000, guid: 5df4a0d9fcd3e4443a19eebb96c80372, type: 3}
+    totalSpriteSurfaceArea: 7239333
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e6431bc0840801f46af745ba1ffc9002, type: 3}
+  - {fileID: 21300000, guid: b4ddd211c893db640b806a150ce1aaf9, type: 3}
+  - {fileID: 21300000, guid: 5d6e4c8134f89664992c0a1e522d6d01, type: 3}
+  - {fileID: 21300000, guid: 6fe8ba324b22a094a9a48ef3a3036c84, type: 3}
+  - {fileID: 21300000, guid: cd164372497446443b9c30bb077d7121, type: 3}
+  - {fileID: 21300000, guid: 0d7972d4884d528458397fc49b81f19c, type: 3}
+  - {fileID: 21300000, guid: 9d16d965fcbdafe41a4c722e0f0d8ce1, type: 3}
+  - {fileID: 21300000, guid: 07f46295b87882c4188e5e8a6524ddb3, type: 3}
+  - {fileID: 21300000, guid: 653222b55ed800642bbe2b3e39ce588f, type: 3}
+  - {fileID: 21300000, guid: de9bfb666f23f414a8246fa80d045d8f, type: 3}
+  - {fileID: 8384046723271314797, guid: e78f8918c5a6cae45b388107d552cdb3, type: 3}
+  - {fileID: 21300000, guid: 195126788416ed24fbb90b42e39b8ecd, type: 3}
+  - {fileID: 21300000, guid: c1d885e88f20d72459ab0983e982a9cd, type: 3}
+  - {fileID: 21300000, guid: fa440469f9f1d934f9628f589ee8442b, type: 3}
+  - {fileID: 21300000, guid: 84490d89ecc712c4a9ed2cf3e5c2ad2f, type: 3}
+  - {fileID: 21300000, guid: 9b99ab7a39b74c848b786a62a5d6e0a4, type: 3}
+  - {fileID: 21300000, guid: 8d6a42bad83e71944a3057296be08396, type: 3}
+  - {fileID: 21300000, guid: a93ae81c9138e654b915fd1faffed96b, type: 3}
+  - {fileID: 21300000, guid: ae150f7c19eb2f44581db7bb0b393570, type: 3}
+  - {fileID: 21300000, guid: 1272fcac86d0dc44c93be6c4dbfe2738, type: 3}
+  - {fileID: 21300000, guid: 85bffceca31b96a4f94d6be352de6086, type: 3}
+  - {fileID: 21300000, guid: fd27591e1bfeab94e8671204207b6b5c, type: 3}
+  - {fileID: 21300000, guid: 03ac41ded1f506445bc1d29bf44a7a49, type: 3}
+  - {fileID: 21300000, guid: 3ea4861f95430524696034edaea460a0, type: 3}
+  - {fileID: 21300000, guid: c46a982f019f3d14d893cdd0731e4cd9, type: 3}
+  - {fileID: 21300000, guid: a76a676f5536d714b9e86578434a69a5, type: 3}
+  - {fileID: 21300000, guid: b9a5ddff64488d2499455ef47abb181b, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - ui-face
+  - fail-txt
+  - quit
+  - start game-extra-glow
+  - start game
+  - quit-more-glow
+  - try again extra glow
+  - feather-glow-small
+  - menu-ui-extra-glow
+  - feather-plain
+  - ui-speedbar_state_A_0
+  - ui-energybar 1
+  - feather_counter 1
+  - EXIT TO MAIN MENU
+  - CONTINUE-extra-glow
+  - companion_head
+  - RESTART
+  - MAIN MENU
+  - TRY AGAIN
+  - MAIN MENU-extra-glow
+  - energy_deko
+  - tuto-text
+  - menu-ui
+  - RESTART-extra-glow
+  - CONTINUE
+  - LOADING...
+  - EXIT TO MAIN MENU-extra glow
+  m_RenderDataMap: {}
+  m_Tag: UI
+  m_IsVariant: 0

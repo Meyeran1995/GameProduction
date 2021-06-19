@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ObstaclesAndTraps
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 70
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: c2733d012c12d3746931409aaae60a94, type: 3}
+    - {fileID: 102900000, guid: fe67b5bf738d4de49a193318fa40b9cc, type: 3}
+    totalSpriteSurfaceArea: 690357
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e43d9a321f2464e4789d46b34583d3b1, type: 3}
+  - {fileID: 21300000, guid: 7da472f2af785424baed00d213b95061, type: 3}
+  - {fileID: -2413806693520163455, guid: e3237cd3ac0e4af429dc6798cc83e7eb, type: 3}
+  - {fileID: 21300000, guid: 5ed52ca4f68bba34c9f457201a2723eb, type: 3}
+  - {fileID: 21300000, guid: 4af30cf7232bb7c4c96647e616d6471d, type: 3}
+  - {fileID: 21300000, guid: da4676885cb04554592f867bdfb4a124, type: 3}
+  - {fileID: 21300000, guid: 07999b2c33e376f4ba6e979f8f12d7bd, type: 3}
+  - {fileID: 21300000, guid: 4a06096c0eba3784a9fb64320253775d, type: 3}
+  - {fileID: 21300000, guid: 480a24acf8bddfe4dad60cde53a49893, type: 3}
+  - {fileID: 21300000, guid: 1b6180bd94738664897a508db71322e1, type: 3}
+  - {fileID: 21300000, guid: f683936fac04f5c4ebe50d9e0c212dfe, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - stone-3
+  - stone-2
+  - Circle
+  - raben-feather
+  - crow
+  - stone-2-snow
+  - stone-4
+  - stone-3-snow
+  - stone-1-snow
+  - stone-1
+  - stone-4-snow
+  m_RenderDataMap: {}
+  m_Tag: ObstaclesAndTraps
+  m_IsVariant: 0

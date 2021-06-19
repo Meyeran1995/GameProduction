@@ -61,7 +61,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637589454323304708
+  lastModified: 637595249240000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -283,7 +283,7 @@ MonoBehaviour:
   Name: WindIntensity
   Min: 0
   Max: 1
-  Default: 0.1
+  Default: 0.2
   ID:
     data1: 61871047
     data2: 3050193623
@@ -373,7 +373,7 @@ MonoBehaviour:
   - {fileID: 7162061975931180972}
   StringsBanks:
   - {fileID: -8176573059234018557}
-  stringsBankWriteTime: 637589454323304708
+  stringsBankWriteTime: 637595249240000000
   cacheVersion: 6
 --- !u!114 &1821685831969451234
 MonoBehaviour:
@@ -568,7 +568,7 @@ MonoBehaviour:
   Path: FMODAssets/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637589668132631378
+  lastModified: 637595249240000000
   LoadResult: 0
   FileSizes: []
   Exists: 1

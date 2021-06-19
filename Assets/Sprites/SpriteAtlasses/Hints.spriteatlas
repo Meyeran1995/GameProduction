@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hints
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: e45d50f2ac10f8043aeed8056fc9ba3c, type: 3}
+    totalSpriteSurfaceArea: 644680
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 0dad50f05dd50324a90176f52316feff, type: 3}
+  - {fileID: 21300000, guid: 8f1fb60a9d77ac64b923e014658b181d, type: 3}
+  - {fileID: 21300000, guid: 1f5b8d7bfdbd0bd4c918611b3c408702, type: 3}
+  - {fileID: 21300000, guid: 9957d6bdf8b37b341b240d96ff203b3a, type: 3}
+  - {fileID: 21300000, guid: 1e2444effae31e1489aab3e0dfc6f9f1, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - pfeil
+  - push button txt
+  - "\xEDcon mousclick"
+  - push button txt mobile
+  - expand bubble text
+  m_RenderDataMap: {}
+  m_Tag: Hints
+  m_IsVariant: 0
