@@ -14,6 +14,7 @@ public class IntroProgressController : MonoBehaviour
     [SerializeField] private MusicPiece introMusicPiece;
 
     [Header("Intro")] 
+    [SerializeField] private GameObject introHint;
     [SerializeField] private Animator bubbleSequence;
     [SerializeField] private AssetReferenceSprite[] introScenes;
     private int currentScene;
@@ -27,6 +28,7 @@ public class IntroProgressController : MonoBehaviour
     private void Awake()
     {
         currentScene = 0;
+        introHint.SetActive(false);
         progressButton = GetComponent<Button>();
         progressButton.interactable = false;
 
@@ -44,6 +46,7 @@ public class IntroProgressController : MonoBehaviour
         yield return new WaitUntil(() => RuntimeManager.HasBankLoaded("Master"));
 
         StartCoroutine(FadeOutLogo());
+        introHint.SetActive(true);
 
         yield return new WaitForSeconds(0.125f);
         introMusicPiece.PlaySolo();
@@ -136,6 +139,9 @@ public class IntroProgressController : MonoBehaviour
     [UsedImplicitly]
     public void ProgressIntro()
     {
+        if(currentScene == 0)
+            Destroy(introHint);
+
         if (++currentScene < introScenes.Length)
         {
             introScenes[currentScene].LoadAssetAsync().Completed += OnPageLoaded;
