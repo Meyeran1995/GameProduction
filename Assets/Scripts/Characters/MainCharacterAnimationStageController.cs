@@ -1,3 +1,4 @@
+using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -26,6 +27,15 @@ public class MainCharacterAnimationStageController : AMultiListenerEnabler, IRes
     public void OnFeatherCollected()
     {
         if (++featherCount % STAGE_THRESHOLD != 0 || currentStage >= stages.Length - 1) return;
+
+        StartCoroutine(TransitionToNewStage());
+    }
+
+    private IEnumerator TransitionToNewStage()
+    {
+        playerAnimator.SetTrigger("Transition");
+
+        yield return new WaitUntil(() => playerAnimator.GetCurrentAnimatorStateInfo(0).IsTag("End"));
 
         playerAnimator.runtimeAnimatorController = stages[++currentStage];
         playerAnimator.SetBool("MaxSpeedReached", playerMovement.MaxSpeedReached);
