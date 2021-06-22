@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Run1
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 3
+      m_CompressionQuality: 70
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 7ec4329485279054ab8399fc9929ae0a, type: 3}
+    totalSpriteSurfaceArea: 27013245
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 9042436064366782165, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: 8733117699247997826, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: -348613045529248090, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: -3343633756954693368, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: 6908340430111021521, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: -7264293684341155061, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: 4813265356678685692, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: 4156947972101857735, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: 340927088966530731, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: 3396919758538385718, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: 4730890615045716299, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: 6595903744191063060, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: 7301129368613187660, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: 4011244995832538585, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: -3918011126771081807, guid: 57fea854e22c5fe498de243c65e1af4e, type: 3}
+  - {fileID: 3482142101893325414, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: 602752841981698388, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: 65663796222419268, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: -45109997163194234, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: 3660960715571569594, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: -7645684154603444484, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: -4447974839763897746, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: -5431227396536147215, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: -5837327949923342583, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: 5345109278729888129, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: 2868268175131019418, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: 8059232674011288816, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: -780780196082449031, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: 4781957509123340768, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: 7159143193251690263, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  - {fileID: -8821076814236610601, guid: 7aa5a0078fae7794eb04892145711a09, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - run-alle-sheet2_8
+  - run-alle-sheet2_9
+  - run-alle-sheet2_6
+  - run-alle-sheet2_7
+  - run-alle-sheet2_4
+  - run-alle-sheet2_5
+  - run-alle-sheet2_2
+  - run-alle-sheet2_3
+  - run-alle-sheet2_0
+  - run-alle-sheet2_1
+  - run-alle-sheet2_14
+  - run-alle-sheet2_11
+  - run-alle-sheet2_10
+  - run-alle-sheet2_13
+  - run-alle-sheet2_12
+  - run-alle-sheet1_10
+  - run-alle-sheet1_11
+  - run-alle-sheet1_12
+  - run-alle-sheet1_13
+  - run-alle-sheet1_14
+  - run-alle-sheet1_15
+  - run-alle-sheet1_9
+  - run-alle-sheet1_8
+  - run-alle-sheet1_1
+  - run-alle-sheet1_0
+  - run-alle-sheet1_3
+  - run-alle-sheet1_2
+  - run-alle-sheet1_5
+  - run-alle-sheet1_4
+  - run-alle-sheet1_7
+  - run-alle-sheet1_6
+  m_RenderDataMap: {}
+  m_Tag: Run1
+  m_IsVariant: 0

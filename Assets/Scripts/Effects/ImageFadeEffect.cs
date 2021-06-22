@@ -43,8 +43,6 @@ public class ImageFadeEffect : MonoBehaviour, IRestartable
             targetImage.color = imageColor;
             yield return null;
         }
-
-        Debug.Log("Done Fading");
     }
 
     public void Restart()
