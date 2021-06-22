@@ -73,16 +73,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 8588814771820237833}
     m_Position: {x: 360, y: -330, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 416720613409570645}
-    m_Position: {x: 30, y: -210, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -2074965419343019996}
-    m_Position: {x: -10, y: -330, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -1783157358954319147}
-  - {fileID: -5228428053897996721}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
@@ -267,12 +260,6 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: EndingReached
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: Transition
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0

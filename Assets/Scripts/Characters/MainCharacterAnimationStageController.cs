@@ -7,6 +7,7 @@ public class MainCharacterAnimationStageController : AMultiListenerEnabler, IRes
 {
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private MainCharacterMovement playerMovement;
+    [SerializeField] private ParticleSystem transitionEffect;
     [Header("Animation Stages")]
     [SerializeField] private RuntimeAnimatorController[] stages;
     private int featherCount, currentStage;
@@ -19,6 +20,8 @@ public class MainCharacterAnimationStageController : AMultiListenerEnabler, IRes
             playerAnimator = GetComponent<Animator>();
         if (playerMovement == null)
             playerMovement = GetComponent<MainCharacterMovement>();
+        if (transitionEffect == null)
+            transitionEffect = transform.GetChild(0).GetComponent<ParticleSystem>();
     }
 
     private void Start() => RegisterWithHandler();
@@ -28,18 +31,22 @@ public class MainCharacterAnimationStageController : AMultiListenerEnabler, IRes
     {
         if (++featherCount % STAGE_THRESHOLD != 0 || currentStage >= stages.Length - 1) return;
 
+        
         StartCoroutine(TransitionToNewStage());
     }
 
     private IEnumerator TransitionToNewStage()
     {
-        playerAnimator.SetTrigger("Transition");
-
-        yield return new WaitUntil(() => playerAnimator.GetCurrentAnimatorStateInfo(0).IsTag("End"));
-
         playerAnimator.runtimeAnimatorController = stages[++currentStage];
         playerAnimator.SetBool("MaxSpeedReached", playerMovement.MaxSpeedReached);
         playerAnimator.SetBool("CanMove", playerMovement.CanMove);
+
+        transitionEffect.Play();
+
+        yield return new WaitForSeconds(2f);
+
+        if (transitionEffect.isPlaying)
+            transitionEffect.Stop();
     }
 
     [UsedImplicitly]
