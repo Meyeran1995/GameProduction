@@ -27,7 +27,6 @@ public class IntroProgressController : MonoBehaviour
 
     private void Awake()
     {
-        currentScene = 0;
         introHint.SetActive(false);
         progressButton = GetComponent<Button>();
         progressButton.interactable = false;
@@ -43,7 +42,13 @@ public class IntroProgressController : MonoBehaviour
 
     private IEnumerator WaitForBankLoaded()
     {
+        var handle = introScenes[currentScene].LoadAssetAsync();
+
         yield return new WaitUntil(() => RuntimeManager.HasBankLoaded("Master"));
+
+        yield return handle;
+
+        back.sprite = handle.Result;
 
         StartCoroutine(FadeOutLogo());
         introHint.SetActive(true);
@@ -144,6 +149,7 @@ public class IntroProgressController : MonoBehaviour
 
         if (++currentScene < introScenes.Length)
         {
+            Debug.Log(currentScene);
             introScenes[currentScene].LoadAssetAsync().Completed += OnPageLoaded;
         }
         else

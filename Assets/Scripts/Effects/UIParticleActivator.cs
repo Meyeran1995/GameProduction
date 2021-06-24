@@ -1,25 +1,28 @@
 using UnityEngine;
 
-public class UIParticleActivator : AMultiListenerEnabler
+public class UIParticleActivator : MonoBehaviour
 {
     private ParticleSystem[] particleEffects;
 
-    private void Awake()
-    {
-        particleEffects = GetComponentsInChildren<ParticleSystem>();
-    }
+    private void Awake() => particleEffects = GetComponentsInChildren<ParticleSystem>();
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        ActivateEffects();
-    }
+    private void OnEnable() => ActivateEffects();
+
+    private void OnDisable() => DeactivateEffects();
 
     public void ActivateEffects()
     {
         foreach (var effect in particleEffects)
         {
             effect.Play();
+        }
+    }
+
+    public void DeactivateEffects()
+    {
+        foreach (var effect in particleEffects)
+        {
+            effect.Stop();
         }
     }
 }

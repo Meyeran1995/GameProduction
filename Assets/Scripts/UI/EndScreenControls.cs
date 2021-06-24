@@ -34,7 +34,7 @@ public class EndScreenControls : AListenerEnabler
     [UsedImplicitly]
     public void OnGameEndReached()
     {
-        isGoodEnding = feathers.CollectedFeathers >= 10;
+        isGoodEnding = feathers.CollectedFeathers >= 15;
         activeSequenceLength = isGoodEnding ? goodEndingScenes.Length : badEndingScenes.Length;
         progressButton.interactable = false;
         LoadFirstScene();
